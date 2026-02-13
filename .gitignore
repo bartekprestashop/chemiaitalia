@@ -1,0 +1,88 @@
+# Cache, temp and personal files
+
+
+/public_html/.htaccess
+#*.log
+*.htaccess_backup_*
+
+#configs
+/public_html/app/config/parameters.php
+/public_html/app/config/parameters.yml
+.htaccess.*
+config_pl.xml
+
+#images products
+/public_html/img/*
+
+#not for git
+/public_html/img/xallegro/*
+/public_html/modules/pricewars2/*
+/public_html/modules/sensbitdhl/*
+/public_html/modules/pshowfbreviews/*
+/public_html/modules/sensbitinpost/*
+/public_html/modules/x13allegro/*
+/public_html/modules/pshowlazyimg/.license.txt
+/public_html/modules/pshowlazyimg/*
+/public_html/modules/lgcookieslaw/download/1/*
+/public_html/modules/seigicookie/cache/*
+/public_html/modules/x13googlemerchant/xml/*
+**/.DS_Store
+
+
+# MISC
+
+*sitemap.xml
+/public_html/robots.txt
+
+#phpstorm
+.idea
+# macOS junk
+.DS_Store
+__MACOSX/
+**/._*
+
+#all webp
+*.webp
+/vendor/
+/public_html/vendor/
+/public_html/web/bundles/
+
+
+#cache
+/var/
+/public_html/var/*
+/public_html/themes/theme_greenfarm2/assets/cache/*
+
+#deploy
+deploy.log
+deploy.lock
+
+# Cache
+/public_html/cache/*
+!/public_html/cache/.htaccess
+!/public_html/cache/cachefs/index.php
+!/public_html/cache/deprecated.txt
+!/public_html/cache/index.php
+!/public_html/cache/purifier/index.php
+!/public_html/cache/push/activity
+!/public_html/cache/push/index.php
+!/public_html/cache/push/trends
+!/public_html/cache/sandbox/index.php
+!/public_html/cache/smarty/cache/index.php
+!/public_html/cache/smarty/compile/index.php
+!/public_html/cache/smarty/index.php
+!/public_html/cache/tcpdf/index.php
+/public_html/img/tmp/
+*.css.map
+**/.sass-cache/
+
+# Download
+/public_html/download/*
+!/public_html/download/.htaccess
+!/public_html/download/index.php
+
+
+#unwanted modules in repo
+/public_html/modules/seigicookie/cache/*
+/public_html/modules/x13googlemerchant/
+
