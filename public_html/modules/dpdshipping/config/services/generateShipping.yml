@@ -1,0 +1,34 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.controller.dpdshipping_generate_shipping:
+    class: 'DpdShipping\Controller\Order\DpdShippingGenerateShippingController'
+    public: true
+    arguments:
+      - '@prestashop.module.dpdshipping.form.dpdshipping_generate_shipping_form_data_handler'
+      - '@prestashop.core.command_bus'
+      - '@twig'
+      - '@translator'
+    tags:
+      - { name: controller.service_arguments }
+
+  prestashop.module.dpdshipping.form.type.dpdshipping_generate_shipping:
+    class: 'DpdShipping\Form\Order\GenerateShipping\DpdShippingGenerateShippingType'
+    parent: 'form.type.translatable.aware'
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.dpdshipping.form.dpdshipping_generate_shipping_form_data_provider:
+    class: 'DpdShipping\Form\Order\GenerateShipping\DpdShippingGenerateShippingFormDataProvider'
+    arguments:
+      - '@prestashop.core.query_bus'
+      - '@prestashop.core.command_bus'
+
+  prestashop.module.dpdshipping.form.dpdshipping_generate_shipping_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\FormBuilder'
+    factory: [ '@prestashop.core.form.builder.form_builder_factory', 'create' ]
+    arguments:
+      - 'DpdShipping\Form\Order\GenerateShipping\DpdShippingGenerateShippingType'
+      - '@prestashop.module.dpdshipping.form.dpdshipping_generate_shipping_form_data_provider'

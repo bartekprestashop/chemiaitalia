@@ -1,0 +1,65 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.carrier.query.get.carrier.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCarrierHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCarrier'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.query.get.order.carrier.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Query\GetOrderCarrierHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Query\GetOrderCarrier'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.command.get.carrier.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Command\AddCarrierHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Command\AddCarrierCommand'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\DpdCarrier'
+    arguments:
+      - '@prestashop.core.command_bus'
+      - '@prestashop.core.query_bus'
+
+  prestashop.module.dpdshipping.domain.carrier.query.get.carrier.pickup.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCarrierPickupHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCarrierPickup'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.pickup.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.query.get.cod.payment.modules.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCodPaymentModulesHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Query\GetCodPaymentModules'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.configuration.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.command.get.carrier.pickup.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Command\AddCarrierPickupHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Command\AddCarrierPickupCommand'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.pickup.repository'
+
+  prestashop.module.dpdshipping.domain.carrier.command.update.carrier.action.handler:
+    class: 'DpdShipping\Domain\Configuration\Carrier\Command\UpdateCarrierActionHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Carrier\Command\UpdateCarrierActionCommand'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.carrier.repository'

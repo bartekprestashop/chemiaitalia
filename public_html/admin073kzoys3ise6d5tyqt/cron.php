@@ -1,0 +1,1 @@
+<?php system('wget --delete-after --no-check-certificate https://chemiaitalia.pl/modules/x13googlemerchant/xml.php?id_shop=1&id_lang=1&id_currency=1&token=KrxZcH5Z'); ?>

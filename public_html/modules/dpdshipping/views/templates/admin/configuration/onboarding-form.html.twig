@@ -1,0 +1,121 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% form_theme form '@PrestaShop/Admin/TwigTemplateForm/prestashop_ui_kit.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    <div class="bg-white p-2">
+        <h2 class="pt-2 pb-2"> {{ 'Onboarding'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}</h2>
+        {{ form_start(form, { 'attr' : { 'class': 'row' } }) }}
+
+        <div class="col-sm-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    {{ 'DPD Poland API connections'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                </div>
+                <div class="card-body">
+
+                    <div class="alert alert-info mb-4" role="alert">
+                        {{ 'Configure DPD Poland API connection'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                    </div>
+
+                    {% set apiConnection = [
+                        form.login,
+                        form.password,
+                        form.masterfid,
+                        form.defaultFidNumber,
+                        form.environment] %}
+                    {% for item in apiConnection %}
+
+                        <div class="form-group row text-widget">
+                            {{ form_label(item) }}
+                            <div class="col-sm input-container">
+                                {{ form_widget(item) }}
+                                {{ form_errors(item) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+
+            <div class="card">
+                <div class="card-header">
+                    {{ 'Carriers'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                </div>
+                <div class="card-body">
+
+                    <div class="alert alert-info mb-4" role="alert">
+                        {{ 'Select available shipping method. '|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                    </div>
+
+                    {% set apiConnection = [
+                        form.carrierDpdPoland,
+                        form.carrierDpdPolandCod,
+                        form.carrierDpdPolandPickup,
+                        form.carrierDpdPolandPickupCod] %}
+                    {% for item in apiConnection %}
+
+                        <div class="col-10 offset-2">
+                            {{ form_widget(item) }}
+                            {{ form_errors(item) }}
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+
+            <div class="card">
+                <div class="card-header">
+                    {{ 'Sender address'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info mb-4" role="alert">
+                        {{ 'Configure default Sender address'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+                    </div>
+
+                    {% set apiConnection = [
+                        form.alias,
+                        form.company,
+                        form.name,
+                        form.street,
+                        form.postcode,
+                        form.city,
+                        form.country,
+                        form.phone,
+                        form.mail
+                    ] %}
+                    {% for item in apiConnection %}
+
+                        <div class="form-group row text-widget">
+                            {{ form_label(item) }}
+                            <div class="col-sm input-container">
+                                {{ form_widget(item) }}
+                                {{ form_errors(item) }}
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-secondary float-right" id="save-button">
+                {{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminOnboarding') }}
+            </button>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+
+

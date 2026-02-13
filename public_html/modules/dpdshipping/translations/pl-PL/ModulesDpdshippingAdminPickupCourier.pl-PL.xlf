@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="d29f8ca283ceabb3d98a70d658649247">
+        <source>Customer company</source>
+        <target>Firma Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2ea989f83006e233627987293f4bde0a">
+        <source>Customer Name</source>
+        <target>Imię i nazwisko Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4b919c6c1fcaeabcaf1953635f7478b5">
+        <source>Customer Phone number</source>
+        <target>Numer telefonu Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="12e49c56f59812262ef5ae7eb1e1c312">
+        <source>Payer number</source>
+        <target>Numer płatnika (FID)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e4433a3b2732105f9bd6fd98ff41fe56">
+        <source>Sender company</source>
+        <target>Firma Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="90ed58883831551ef960da4f7cde1240">
+        <source>Sender name</source>
+        <target>Imię i nazwisko Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c27ea7e02a5d89e054de6c3d0cea519f">
+        <source>Sender city</source>
+        <target>Miejscowość Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d552a284b43330ea4a22ab71bc0627dc">
+        <source>Sender phone</source>
+        <target>Numer telefonu Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c7f52123ce360883ebde8fef87a6c166">
+        <source>Sender postal code</source>
+        <target>Kod pocztowy Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bd814b052a6e8770065a66b24c4f8996">
+        <source>Sender country code</source>
+        <target>Kod kraju Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c281f92b77ba329f692077d23636f5c9">
+        <source>Company name</source>
+        <target>Firma</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987">
+        <source>Name</source>
+        <target>Imię i nazwisko</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1f8261d17452a959e013666c5df45e07">
+        <source>Phone number</source>
+        <target>Numer telefonu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3b6284bb4744c6bbf89dc0712dd129d6">
+        <source>Pickup date</source>
+        <target>Data odbioru</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cd8d64cdb20ce5679ebe747747c3cc4c">
+        <source>Letters</source>
+        <target>Listy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="27fe4eb3edbaff8f250e2d51f7462681">
+        <source>Packages</source>
+        <target>Paczki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f2bb95f924b245db90e4d86fc407af92">
+        <source>Weight sum [kg]</source>
+        <target>Suma wag [kg]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="895a5e2aa7b877247301ae8776575911">
+        <source>Weight max [kg]</source>
+        <target>Maksymalna waga [kg]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="654d437f19651bb769148539b01f85bb">
+        <source>Size X max [cm]</source>
+        <target>Największa szerokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c0ffea8f394926a8bcecd724e792a81f">
+        <source>Size Y max [cm]</source>
+        <target>Największa wysokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f50d8e8f5c28e531a5cf4ff4f86a16d9">
+        <source>Size Z max [cm]</source>
+        <target>Największa głębokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="278f9a3d3077c522e71022e302b9e0e4">
+        <source>Palette</source>
+        <target>Paleta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f97159484dac0c5165b0daaca0600596">
+        <source>Pickup Courier</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="46a2a41cc6e552044816a2d04634545d">
+        <source>State</source>
+        <target>Status</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4049d979b8e6b7d78194e96c3208a5a5">
+        <source>Order number</source>
+        <target>Numer zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="17a53d1a012580ef609b70ef6a25d1f1">
+        <source>Letter</source>
+        <target>Listy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="73f3e7512043f3e1ff3cf3b4767b7b37">
+        <source>Pickup time</source>
+        <target>Data odbioru</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa">
+        <source>Actions</source>
+        <target>Akcje</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d98ac12774fca5c3cbaffe276840c55f">
+        <source>Reject</source>
+        <target>Usuń</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8d648ca9191b0434ab9bbbea82fb5cf6">
+        <source>Cancel selected pickup courier?</source>
+        <target>Czy na pewno chcesz usunąć zlecenie?</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>Usuń</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Zamknij</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f659135912b5c8f9d388e151c5434e36">
+        <source>HH:MM</source>
+        <target>GG:MM</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e129ae480280e47ef82fc7702f8321ba">
+        <source>Refresh list</source>
+        <target>Odśwież</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2d30143bc3d864da1073a7d01292ce5e">
+        <source>Pickup courier settings</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="15d00fecd8f679131bad7c671095a99c">
+        <source>Pickup courier</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3c71d1ddac7897e46fb7517765ea99ed">
+        <source>Payer number:</source>
+        <target>Numer płatnika:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0966f2c8aa5c624a92267b2599b87318">
+        <source>Pickup date and time</source>
+        <target>Data i godzina odbioru</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="edb96e25dee7ffc982857fe7156c3bc9">
+        <source>Get pickup time frames</source>
+        <target>Pobierz dostępne godziny podjazdu dla wskazanej daty</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b7f8f5f419dc30f7dc1d693da9e9d8fb">
+        <source>Date available until</source>
+        <target>Zlecenie zamówienia możliwe do:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b51dd871890b0ac0345684a5458c7e42">
+        <source>on </source>
+        <target>dnia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ea9cf7e47ff33b2be14e6dd07cbcefc6">
+        <source>Shipping</source>
+        <target>Wysyłka</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,62 @@
+{% trans_default_domain 'Module.Dpdshipping.Admin.Order' %}
+
+<div class="tab-pane fade show" id="dpdShippingTrackingTabContent" role="tabpanel" aria-labelledby="trackingTab">
+    <table class="table p-0 m-0">
+        <tbody>
+        {% if shippingHistory|length <= 0 %}
+            {{ 'No shipments'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+        {% endif %}
+
+        {% for shipment in shippingHistory %}
+            <tr>
+                <td class="col-md-3"><strong><a href="https://tracktrace.dpd.com.pl/parcelDetails?typ=1&p1={{ shipment.shippingNumber }}"
+                                                target="_blank">{{ shipment.shippingNumber }}</a></strong>
+                </td>
+                <td class="col-md-1">
+                    {% set isDelivered = false %}
+                    {% for stateObject in shipment.states %}
+                        {% if stateObject.state|trim == "Przesyłka doręczona" %}
+                            {% set isDelivered = true %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if shipment.states|length <= 0 %}
+                        <i class="material-icons icon">not_listed_location</i>
+                    {% elseif isDelivered %}
+                        <i class="material-icons icon">done</i>
+                    {% else %}
+                        <i class="material-icons icon">flight_takeoff</i>
+                    {% endif %}
+                </td>
+                <td class="col-md-8">
+                    {% if shipment.states is defined and shipment.states|length > 0 %}
+                        <button class="btn dpdshipping-tracking-detail-btn btn-icon-right dpdshipping-btn-full-width mb-2">
+                            {{ shipment.states[0].dateTime |date("d-m-Y H:i:s") }} - {{ shipment.states[0].state }}
+                            <i class="material-icons icon">expand_more</i>
+                        </button>
+                    {% else %}
+                        {{ 'No data'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    {% endif %}
+
+                    <table class="table pb-0 mb-0 dpdshipping-tracking-detail hidden">
+                        <thead class="bg-light">
+                        <tr>
+                            <th class="col-md-4 col-xl-3 border-0">{{ 'Date and time '|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-md-8 col-xs-9 border-0">{{ 'State '|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for state in shipment.states %}
+                            <tr>
+                                <td><strong>{{ state.dateTime |date("d-m-Y H:i:s") }}</strong></td>
+                                <td>{{ state.state }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

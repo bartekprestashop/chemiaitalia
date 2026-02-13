@@ -1,0 +1,17 @@
+{% trans_default_domain 'Module.Dpdshipping.Admin.Order' %}
+
+<li class="nav-item">
+    <a class="nav-link"
+       id="dpdShippingTrackingTab"
+       data-toggle="tab"
+       href="#dpdShippingTrackingTabContent"
+       role="tab"
+       aria-controls="dpdShippingTrackingTabContent"
+       aria-expanded="true"
+       aria-selected="false"
+    >
+        <img class="dpdshipping-logo" src="/modules/dpdshipping/logo.png"
+             alt="DPD Poland" style="width: 25px; margin-right: 10px;"/>
+        {{ 'DPD Shipping history'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+    </a>
+</li>

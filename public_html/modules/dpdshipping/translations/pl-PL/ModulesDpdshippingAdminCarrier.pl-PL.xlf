@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="cbf62e80233fe15c0d475fe775359c04">
+        <source>DPD Poland</source>
+        <target>Kurier DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1465f64379d17e341d33f070738b3d36">
+        <source>DPD Poland COD</source>
+        <target>Kurier DPD Polska - pobranie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0ec097fcd57e51bf7e24b42adc5d0d03">
+        <source>DPD Poland Pickup</source>
+        <target>DPD Polska - odbiór w Punkcie Pickup</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3e3f90d5e0a68abe58d95f21d1ffd910">
+        <source>Open late</source>
+        <target>Otwarte do późna</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2a2d873c51b6c3463da978ee1298141a">
+        <source>Open Saturdays</source>
+        <target>Otwarty w sobotę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4c74333a5518f4270955ab1ada479e9f">
+        <source>Open Sundays</source>
+        <target>Otwarty w niedziele</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1fb5d94cfeb35652ddc94a2c8ca09256">
+        <source>Disabled friendly</source>
+        <target>Ułatwienia dla osób niepełnosprawnych</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="baaacd7280e91aface947a1cc19d0f79">
+        <source>Parking</source>
+        <target>Parking</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bd1a8a14e73446f087653c7dc0aadcb0">
+        <source>Direct delivery</source>
+        <target>Bezpośrednia dostawa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f9a21185d04db32039411d2daa600edb">
+        <source>Direct delivery COD</source>
+        <target>Odbiór za pobraniem</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8a3e0809fc58bc76db0ae47474521a28">
+        <source>Dropoff online</source>
+        <target>Odbiór online</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7b6a4a0bc707bffd3f0d09dc00d72a16">
+        <source>Dropoff offline</source>
+        <target>Nadanie za gotówkę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="65c487af4108f4532f0b7710bcccae85">
+        <source>Swap parcel</source>
+        <target>Zamień paczkę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fe8965a9748c1bc48af1711be837124e">
+        <source>Fresh</source>
+        <target>DPD Food</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5b3b8530fc0b7ecdb2e7a2e66c9e17b2">
+        <source>Fitting room</source>
+        <target>Przymierzalnia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="21ff087f1520a70163128cae982de67a">
+        <source>Card payment</source>
+        <target>Płatność kartą</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8a108f81fb28f503b77d08bbe539ff27">
+        <source>ROD</source>
+        <target>ROD</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="729bcd46a1218ba6bd205708dcfd74d9">
+        <source>LQ</source>
+        <target>Materiały niebezpieczne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6527623ef92c708255a1ea7abba44698">
+        <source>Digital label</source>
+        <target>Nadanie bez etykiety</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="61e7f4800918b80fc63003ce80a10a35">
+        <source>Swip box</source>
+        <target>Automaty paczkowe</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="19c9ab8eee770ad2145139d037cef12b">
+        <source>Points with services</source>
+        <target>Punkty z obsługą</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fe80ddd781082f381e8643f62d969bd5">
+        <source>DPD Poland Pickup COD</source>
+        <target>DPD Polska - odbiór w Punkcie Pickup za pobraniem</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1d6af794b2599c1407a83029a09d1ecf">
+        <source>Carriers</source>
+        <target>Przewoźnicy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f8e6029d759f2ef7354bcfea17287092">
+        <source>Select an available shipping method for the Create Prestashop carrier. You can manage carriers on the standard prestashop page.</source>
+        <target>Wybierz dostępną metodę wysyłki dla przewoźnika. Możesz zarządzać przewoźnikami w sekcji Przewoźnicy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ff5f00436f89ecea396ba05ef78a7638">
+        <source>Available shipping methods</source>
+        <target>Aktywne metody dostawy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06">
+        <source>Id</source>
+        <target>Id</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987">
+        <source>Name</source>
+        <target>Nazwa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ec24d78ce33048dc73a2b6b1a0690192">
+        <source>Visible</source>
+        <target>Widoczny</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa">
+        <source>Actions</source>
+        <target>Akcje</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f1206f9fadc5ce41694f69129aecac26">
+        <source>Configure</source>
+        <target>Konfiguruj</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bbf3b65f6fac178541c78bb5f1e2aa6a">
+        <source>Filters for Pickup map</source>
+        <target>Filtry mapy odbioru</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5b252e4acab1a1b2cd3573e65d82c354">
+        <source>COD payment methods</source>
+        <target>Metody płatności dla przesyłki za pobraniem (COD)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

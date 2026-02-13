@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="9371f3f4bb859bfcda6ff06078b9d6ac">
+        <source>Selected point does not provide the cod service</source>
+        <target>Wybrany punkt nie świadczy usługi pobrania</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3c4439aed2a70490ce095705ee845bb">
+        <source>Error occured. Please try again</source>
+        <target>Wystąpił błąd. Proszę spróbuj ponownie.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9d36d68a20eb916d9f81dc418b600c0e">
+        <source>DPD pickup point:</source>
+        <target>Punkt odbioru DPD Pickup:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="379b83e36d45431e5c0e8726970f9b08">
+        <source>Select from map</source>
+        <target>Wybierz z mapy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f6899e2abde02dde85dc6dffeb029e8d">
+        <source>Selected DPD pickup point:</source>
+        <target>Wybrany punkt odbioru DPD Pickup:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9">
+        <source>Change</source>
+        <target>Zmień punkt odbioru</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Zamknij</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

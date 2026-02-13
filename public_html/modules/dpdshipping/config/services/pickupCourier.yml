@@ -1,0 +1,75 @@
+services:
+  
+  dpdshipping.grid.definition.factory.pickup.courier:
+    class: 'DpdShipping\Grid\PickupCourier\Definition\Factory\PickupCourierGridDefinitionFactory'
+    parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+  
+  dpdshipping.grid.query_builder.pickup.courier:
+    class: 'DpdShipping\Grid\PickupCourier\Query\PickupCourierQueryBuilder'
+    parent: 'prestashop.core.grid.abstract_query_builder'
+    public: true
+    arguments:
+      - '@prestashop.core.query.doctrine_search_criteria_applicator'
+      - "@=service('prestashop.adapter.legacy.context').getContext().language.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id_shop_group"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.getGroup().share_stock"
+      - '@prestashop.core.grid.query.filter.doctrine_filter_applicator'
+      - '@prestashop.adapter.legacy.configuration'
+  
+  dpdshipping.grid.data_provider.pickup.courier:
+    class: '%prestashop.core.grid.data.factory.doctrine_grid_data_factory%'
+    arguments:
+      - '@dpdshipping.grid.query_builder.pickup.courier'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.core.grid.query.doctrine_query_parser'
+      - 'dpdshipping_pickup_courier'
+  
+  dpdshipping.grid.factory.pickup.courier:
+    class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+    public: true
+    arguments:
+      - '@dpdshipping.grid.definition.factory.pickup.courier'
+      - '@dpdshipping.grid.data_provider.pickup.courier'
+      - '@prestashop.core.grid.filter.form_factory'
+      - '@prestashop.core.hook.dispatcher'
+
+  prestashop.module.dpdshipping.domain.pickup.courier.command.get.list.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Query\GetPickupCourierSettingsListHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.settings.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Query\GetPickupCourierSettingsList'
+
+  prestashop.module.dpdshipping.domain.add.pickup.courier.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourier\Command\AddPickupCourierHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.repository'
+      - '@prestashop.module.dpdshipping.api'
+      - '@router'
+      - '@prestashop.core.command_bus'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourier\Command\AddPickupCourierCommand'
+
+  prestashop.module.dpdshipping.domain.cancel.pickup.courier.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourier\Command\CancelPickupCourierHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.repository'
+      - '@prestashop.module.dpdshipping.api'
+      - '@logger'
+      - '@translator'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourier\Command\CancelPickupCourierCommand'
+
+  prestashop.module.dpdshipping.domain.get.pickup.courier.availability.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourier\Query\GetCourierOrderAvailabilityHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.repository'
+      - '@prestashop.module.dpdshipping.api'
+      - '@logger'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourier\Query\GetCourierOrderAvailability'

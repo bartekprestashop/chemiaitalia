@@ -1,0 +1,189 @@
+### Shipping history
+
+dpdshipping_shipping_history_search_form:
+  path: dpdshipping/shipping-history
+  methods: [ POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController::searchAction'
+
+dpdshipping_shipping_history_form:
+  path: dpdshipping/shipping-history
+  methods: [ GET ]
+  defaults:
+    _controller: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController::index'
+    # Needed to work with tab system
+    _legacy_controller: AdminDpdShippingShippingHistoryForm
+    _legacy_link: AdminDpdShippingShippingHistoryForm
+
+dpdshipping_shipping_history_print_labels_form:
+  path: dpdshipping/shipping-history/print-label
+  methods: [ GET, POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController::printLabelActionAjax'
+
+dpdshipping_shipping_history_print_protocols_form:
+  path: dpdshipping/shipping-history/print-protocol
+  methods: [ POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController::printProtocolActionAjax'
+
+dpdshipping_shipping_history_delete_form:
+  path: dpdshipping/shipping-history/delete
+  methods: [ POST, DELETE ]
+  defaults:
+    _controller: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController::deleteAction'
+
+dpdshipping_shipping_history_details_form:
+  path: dpdshipping/shipping-history/details
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryDetailController::index
+
+### Pickup courier
+
+dpdshipping_pickup_courier_search_form:
+  path: dpdshipping/pickupCourier
+  methods: [ POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::searchAction'
+
+dpdshipping_pickup_courier_form:
+  path: dpdshipping/pickupCourier
+  methods: [ GET ]
+  defaults:
+    _controller: DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::index
+
+dpdshipping_pickup_courier_edit_form:
+  path: dpdshipping/pickupCourierEdit
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::edit
+
+dpdshipping_pickup_courier_get_pickup_courier_settings_ajax:
+  path: dpdshipping/pickupCourier/settings
+  methods: [ GET ]
+  defaults:
+    _controller: 'DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::getPickupCourierSettingsAjax'
+
+dpdshipping_pickup_courier_get_pickup_courier_time_frames_ajax:
+  path: dpdshipping/pickupCourier/timeframes
+  methods: [ GET ]
+  defaults:
+    _controller: 'DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::getPickupCourierTimeFramesAjax'
+
+dpdshipping_pickup_courier_pickup_courier_ajax:
+  path: dpdshipping/pickupCourier/pickupCourierAjax
+  methods: [ POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::pickupCourierAjax'
+
+dpdshipping_pickup_courier_delete_pickup_courier:
+  path: dpdshipping/pickupCourier/deletePickupCourier
+  methods: [ DELETE ]
+  defaults:
+    _controller: 'DpdShipping\Controller\PickupCourier\DpdShippingPickupCourierController::deletePickupCourier'
+
+### Configuration - Pickup courier
+dpdshipping_pickup_courier_settings_form:
+  path: dpdshipping/configuration/pickupCourierSettings
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingPickupCourierSettingsController::index
+
+dpdshipping_pickup_courier_settings_list_form:
+  path: dpdshipping/configuration/pickupCourierSettingsList
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingPickupCourierSettingsController::list
+
+
+dpdshipping_pickup_courier_settings_delete_form:
+  path: dpdshipping/configuration/pickupCourierSettingsList/delete
+  methods: [ DELETE ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingPickupCourierSettingsController::delete
+
+
+### Configuration - Connection
+dpdshipping_connection_form:
+  path: dpdshipping/configuration/connection
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingConnectionController::index
+
+### Configuration - Addresses
+dpdshipping_address_form:
+  path: dpdshipping/configuration/address
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingAddressController::list
+
+dpdshipping_address_edit_form:
+  path: dpdshipping/configuration/address/edit
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingAddressController::edit
+
+dpdshipping_address_delete_form:
+  path: dpdshipping/configuration/address/edit
+  methods: [ DELETE ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingAddressController::delete
+
+### Configuration - Configuration
+dpdshipping_configuration_form:
+  path: dpdshipping/configuration/configuration
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingConfigurationController::index
+
+### Configuration - Parameters
+dpdshipping_parameters_form:
+  path: dpdshipping/configuration/parameters
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingParameterController::index
+
+### Configuration - Carrier
+dpdshipping_carrier_form:
+  path: dpdshipping/configuration/carrier
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingCarrierController::index
+
+### Configuration - Special price
+dpdshipping_special_price_form:
+  path: dpdshipping/configuration/specialPrice
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingSpecialPriceController::index
+
+### Configuration - Onboarding
+dpdshipping_onboarding_form:
+  path: dpdshipping/configuration/onboarding
+  methods: [ GET, POST ]
+  defaults:
+    _controller: DpdShipping\Controller\Configuration\DpdShippingOnboardingController::index
+
+### External
+dpdshipping_external_dpd_tracking:
+  path: /dpdshipping/redirect/{shippingNumber}
+  controller: DpdShipping\Controller\RedirectController:redirectTracking
+
+dpdshipping_return_label:
+  path: dpdshipping/shipping/returnLabel
+  methods: [ GET, POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\Order\DpdShippingReturnLabelController::index'
+
+dpdshipping_generate_shipping_bulk_action:
+  path: dpdshipping/shipping/generate
+  methods: [ GET,POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\Order\DpdShippingBulkGenerateShippingController::index'
+
+dpdshipping_generate_shipping_and_labels_bulk_action:
+  path: dpdshipping/shipping/generateShippingAndLabel
+  methods: [ GET,POST ]
+  defaults:
+    _controller: 'DpdShipping\Controller\Order\DpdShippingBulkGenerateShippingController::generateShippingAndPrintLabels'

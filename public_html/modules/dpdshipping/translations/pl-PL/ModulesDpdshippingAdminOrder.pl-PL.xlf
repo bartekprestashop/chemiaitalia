@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="5e116ceb48a98fb755f22df7ea1e2396">
+        <source>Company name:</source>
+        <target>Firma:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0d8155a0576a342122e19351c34378ba">
+        <source>Enter company...</source>
+        <target>Wpisz firmę...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4e140ba723a03baa6948340bf90e2ef6">
+        <source>Name:</source>
+        <target>Nazwa:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a39270c4672e0b5ad584ef4ec2885f89">
+        <source>Enter name...</source>
+        <target>Wpisz imię i nazwisko...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f1140e3d6317116e6f058d46f6ee6091">
+        <source>Street:</source>
+        <target>Ulica:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4a1fad49a1b48693141a728be5ff56ee">
+        <source>Enter street...</source>
+        <target>Wpisz ulicę...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d407bef98bb4f86299d4a9cd60568151">
+        <source>Postcode:</source>
+        <target>Kod pocztowy:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e5c4a3333f01988286df0dc68b4bbd5f">
+        <source>Enter postcode...</source>
+        <target>Wpisz kod pocztowy...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bffb711ec36f280459d11dce315da72f">
+        <source>City:</source>
+        <target>Miejscowość:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f6d6aa20e0fdf17a7452c45f6d545737">
+        <source>Enter city...</source>
+        <target>Wpisz miejscowość:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f64be5eef68442a8f50cf535b92ad3e4">
+        <source>Country:</source>
+        <target>Kraj:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cb0de5ba765afd06934f65f05034655d">
+        <source>Enter country...</source>
+        <target>Wpisz kod kraju np. PL...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="673ae02fffb72f0fe68a66f096a01347">
+        <source>Phone:</source>
+        <target>Numer telefonu:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a84734e0cc56ab6eb0726bdacd296583">
+        <source>Enter phone...</source>
+        <target>Wpisz numer telefonu...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6a1e265f92087bb6dd18194833fe946b">
+        <source>Email:</source>
+        <target>Email:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d664e4f4519f51fa442121f708af00b3">
+        <source>Enter email...</source>
+        <target>Wpisz adres email...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ed7eee6fd2cfb66f0303a2e2117783e3">
+        <source>Receiver company name:</source>
+        <target>Firma:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="39959aeb10daa5a3c60d598b5ab8980a">
+        <source>Receiver name:</source>
+        <target>Nazwa:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f99ddc147ea70cad95144ef2e465a469">
+        <source>Receiver street:</source>
+        <target>Ulica:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ed2211e3be61516c7ff2abf1edbad93a">
+        <source>Receiver postcode:</source>
+        <target>Kod pocztowy:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3bdf3f5a0adc3bb73a529f8a16e8e284">
+        <source>Receiver city:</source>
+        <target>Miejscowość:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d0e1fc66735f7e897a95ffbf9f153ffd">
+        <source>Receiver country:</source>
+        <target>Kraj:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="416154c77ac7aecc4ab9a3cccb8ea07e">
+        <source>Receiver phone:</source>
+        <target>Numer telefonu:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c4f1c9a7c1d861cfad143183980e15a7">
+        <source>Receiver email:</source>
+        <target>Email:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9c952c452f2098ce8d5161bac01ac042">
+        <source>Ref1:</source>
+        <target>Ref1:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2c5a38e70d892281eb3efcc67aaf4d2f">
+        <source>Ref2:</source>
+        <target>Ref2:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c7b36998f6897d5c1c0832ed9de02c73">
+        <source>Service guarantee</source>
+        <target>Doręczenia gwarantowane</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="58913fa9402a8f6a1ebe0a225bdefc9b">
+        <source>DPD on hour</source>
+        <target>Doręczenie na godzinę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8b7051187b9191cdcdae6ed5a10e5adc">
+        <source>Saturday</source>
+        <target>Sobota</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f729c4c40c89ca36b9658c13f4fc5e53">
+        <source>DPD NEXTDAY</source>
+        <target>DPD Nextday</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="826978725cddc093e159ccd5d04dd26d">
+        <source>DPD TODAY</source>
+        <target>DPD Today</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="198d853e8b63005d5cf656b7389046f1">
+        <source>Guarantee international </source>
+        <target>Gwarant międzynarodowy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="086570f0d21963f1a917da31578cc00a">
+        <source>B2C</source>
+        <target>B2C</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f659135912b5c8f9d388e151c5434e36">
+        <source>HH:MM</source>
+        <target>HH:MM</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c036723b8602f212ccf8ef89e300eeee">
+        <source>Service in pers</source>
+        <target>Doręczenie do rąk własnych </target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="87d7e4e25eb72febc467bee430542b84">
+        <source>Service priv pers</source>
+        <target>Doręczenie na adres prywatny</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="657044656b8d874691f6e2e7a9053c01">
+        <source>Service COD</source>
+        <target>Pobranie COD</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="57c27862a56e8ab808d238f99e310efa">
+        <source>Enter value...</source>
+        <target>Wpisz wartość...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ec1fb43813b9d50cbee9f34b18bbccda">
+        <source>Service self con</source>
+        <target>Odbiór własny</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1c76cbfe21c6f44c1d1e59d54f3e4420">
+        <source>Company</source>
+        <target>Firma</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="47f9082fc380ca62d531096aa1d110f1">
+        <source>Private</source>
+        <target>Prywatny</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="41dfb84855991ea0714d4e98843236dd">
+        <source>Service DPD Pickup</source>
+        <target>Punkt odbioru DPD Pickup</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e8a404f8531e6aed6154e31ebb63432a">
+        <source>Open map</source>
+        <target>Wybierz</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6da66afc6192704101a025fc23b5d145">
+        <source>Service rod</source>
+        <target>Dokumenty zwrotne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cd7ec58484097cc194e7d2cbd113289b">
+        <source>Service dox</source>
+        <target>DOX</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="786c1aa11b79a66ce62e661096be6b2a">
+        <source>Service cud</source>
+        <target>Przesyłka zwrotna</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="19d9c49c6ed6ad811aee92fce1fc4cab">
+        <source>Service Tires</source>
+        <target>Opony</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f7715ccf9586b9cf8a51d191d3a6370e">
+        <source>Service Declared value</source>
+        <target>Dodatkowa ochrona ubezpieczeniowa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d164df633bdac0a603ed99a1baa893c7">
+        <source>Service DPD Express</source>
+        <target>DPD Express</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="77f48d51b7988e41eaaf8ea1210800de">
+        <source>Service DPD Food</source>
+        <target>DPD FOOD</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="929e597709a77780206d18e0c1cbe605">
+        <source>Service duty</source>
+        <target>Odprawa celna</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b85ccf50feebbb59c4f8c74b597be3c3">
+        <source>Service ADR</source>
+        <target>LQ</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b661524680a67deed19b3f4c2b6501bf">
+        <source>Service return label</source>
+        <target>Etykieta zwrotna</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="75a3b27ffd1d8f036a45851e28dc380c">
+        <source>To enable tracking for shipments, please visit the DPD Poland configuration page.</source>
+        <target>Aby włączyć śledzenie przesyłek, odwiedź stronę konfiguracyjną modułu DPD Polska.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="af1b44866b1ceb5d108ee24f76523587">
+        <source>No shipments</source>
+        <target>Brak przesyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="42a7b2626eae970122e01f65af2f5092">
+        <source>No data</source>
+        <target>Brak danych</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="264620d4548cdf14387262653f984cd9">
+        <source>Date and time </source>
+        <target>Data i czas</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="94c4efa1faf8e46165125aad3abb87a1">
+        <source>State </source>
+        <target>Status</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9288e6d308b4e349ed0a6b96c8479318">
+        <source>DPD Poland generate shipping</source>
+        <target>DPD Polska - generuj wysyłkę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b95918f600255c02730c10e325d9ea05">
+        <source>New shipping</source>
+        <target>Nowa wysyłka</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="165977bc8006193936272e96ef4fd7a2">
+        <source>Print label</source>
+        <target>Drukuj etykietę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dfaa2ed89a3e4f03bb56e96939a235c7">
+        <source>Print return label</source>
+        <target>Drukuj etykietę zwrotną</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2d0a942984a469523c573a23728cf0ff">
+        <source>Carrier: </source>
+        <target>Metoda dostawy:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2e6fbfc9fb2ad30f5e20e31c515ead19">
+        <source>The shipping method is different from DPD Poland, but you can still send it with DPD!</source>
+        <target>Sposób wysyłki różni się od DPD Polska, ale nadal możesz wysłać go za pomocą DPD!</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bd0e34e5be6447844e6f262d51f1a9dc">
+        <source>Payment: </source>
+        <target>Płatność:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d7f5087c93d1d41bb1f2d9424b4aa156">
+        <source>The selected payment method is COD. You should check the COD service!</source>
+        <target>Wybraną metodą płatności zamówienia jest COD. Powinieneś sprawdzić usługę COD!</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b485f83157e1fe0e4aa134060e4010a0">
+        <source>Receiver address</source>
+        <target>Adres Odbiorcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5f32c6546dacb36c888b130f76e8cf22">
+        <source>Payer </source>
+        <target>Płatnik</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="992a0f0542384f1ee5ef51b7cf4ae6c4">
+        <source>Services</source>
+        <target>Usługi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e445d3313de394d964569409c85ba544">
+        <source>Single  Shipping</source>
+        <target>Jedna wysyłka</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="aa793830a841de56f254f6b467274574">
+        <source>Shipping for products group</source>
+        <target>Wysyłka dla każdego produktu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2543f495f837bf2fe2b3e42f9fe38ba6">
+        <source>Shipping for each product</source>
+        <target>Przesyłka dla każdego produktu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="90589c47f06eb971d548591f23c285af">
+        <source>Custom</source>
+        <target>Niestandardowy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="91aadd16af0324928c06a9b52d638701">
+        <source>Weight [kg]</source>
+        <target>Waga [kg]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9e0e3d184012d284c65e16e02ad7ec25">
+        <source>Weight ADR [kg]</source>
+        <target>Waga ADR [kg]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f15c1cae7882448b3fb0404682e17e61">
+        <source>Content</source>
+        <target>Zawartość</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0b4219abe92a5981f2c74b7a4ec441ab">
+        <source>Customer Data</source>
+        <target>Uwagi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9ce0a541f7bdf17301aac33c3b114590">
+        <source>Size X [cm]</source>
+        <target>Długość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e46c9c14e33e37a802d935db33dc1cab">
+        <source>Size Y [cm]</source>
+        <target>Wysokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3f8b63125a1739f99a605ea7b83850b8">
+        <source>Size Z [cm]</source>
+        <target>Głębokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="19f6e26702652b72fdc06294ed1594ef">
+        <source>Add row</source>
+        <target>Dodaj</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8eaae94a17fea56f242e1a0f27ae8341">
+        <source>DPD Poland custom shipping</source>
+        <target>DPD Polska wysyłka niestandardowa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="27fe4eb3edbaff8f250e2d51f7462681">
+        <source>Packages</source>
+        <target>Przesyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9">
+        <source>Change</source>
+        <target>Zmień</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="deb10517653c255364175796ace3553f">
+        <source>Product</source>
+        <target>Produkt</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="209802fb858e2c83205027dbbb5d9e6c">
+        <source>Package</source>
+        <target>Przesyłka</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="290612199861c31d1036b185b4e69b75">
+        <source>Summary</source>
+        <target>Podsumowanie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3e080a600745b2b82d24fb9bb29c1b52">
+        <source>Package number</source>
+        <target>Numer wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6016c2bb7bd8dd79293094d37ebfea3f">
+        <source>Customer data</source>
+        <target>Uwagi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c6bff90be886e8ba9220a9dcff99bf1c">
+        <source>Products weight</source>
+        <target>Waga produktów</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Zamknij</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b69aa8f34f4356af8498ba3c4dcfa814">
+        <source>DPD Shipping history</source>
+        <target>DPD Polska - Historia wysyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

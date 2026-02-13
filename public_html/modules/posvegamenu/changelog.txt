@@ -1,0 +1,5 @@
+update ps8 php8 
+
+modules\posvegamenu\posvegamenu.php
+modules\posvegamenu\controllers\admin\AdminPosvegamenuController.php
+modules\posvegamenu\views\templates\admin\menu_item.tpl

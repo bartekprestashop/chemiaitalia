@@ -1,0 +1,49 @@
+input.markup{
+	width:100px !important;
+}
+
+/* htmnet-autocomplete */
+.htmnet-autocomplete {
+	position:absolute !important;
+	background:#FFF;
+	max-height:300px;
+	box-sizing:border-box;
+	border:1px solid #999;
+	border-top:1px solid #D9D9D9;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+	box-shadow:0px 8px 8px rgba(0, 0, 0, 0.25);
+	overflow:auto;
+	z-index:100;
+}
+
+.htmnet-autocomplete p{
+	font-size:0.8em;
+	margin:0;
+	padding:4px;
+	border-top:1px solid #D9D9D9;
+	cursor:pointer;
+}
+
+.htmnet-autocomplete p:first-child{
+	border:0;
+}
+
+.htmnet-autocomplete p.active{
+	color:#FFF;
+	background-color:#00AFF0;
+}
+
+.x13googlemerchant .tf {
+  position: relative;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.x13googlemerchant .tf-input {
+  width: 80%;
+}
+.x13googlemerchant .tf-list {
+  width: 20%;
+}

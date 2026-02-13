@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="649f84aded8dbceda143e2ed8e5e9085">
+        <source>DPD Poland sp. z o. o. shipping module</source>
+        <target>Moduł Wysyłkowy - DPD Polska sp. z o. o.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bc585a0d7da595f19e7e37efdf561f48">
+        <source>DPD Poland shipping</source>
+        <target>Wysyłki DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="715d29a4ccae9642a011658894b1b076">
+        <source>Pickup order settings</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="18b93acb5387c525d664081d654c0d33">
+        <source>Shipping history</source>
+        <target>Historia wysyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ab179b2c45fba673129d3c767eacb579">
+        <source>Unable to generate labels</source>
+        <target>Błąd generowania etykiety.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0ba1e498581899f6d467cd60b1495eb3">
+        <source>Unable to generate protocols</source>
+        <target>Błąd generowania protokołu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="505a83f220c02df2f85c3810cd9ceb38">
+        <source>Success</source>
+        <target>Operacja wykonana pomyślnie.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c938dd09f72aa2bba4e25ae66ee4ece9">
+        <source>Unable to delete shipping</source>
+        <target>Nie można usunąć przesyłki.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="85ff1b98d777748d2661b5c058af80a6">
+        <source>It is not possible to cancel the collection of a courier shipment</source>
+        <target>Anulowanie zlecenia nie powiodło się.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d262a541eda9ea7821575b608d3d439f">
+        <source>Please add packages</source>
+        <target>Proszę dodać paczki.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dfc075e08bc661989ec234da288bc4d3">
+        <source>The package weight must be greater than 0.</source>
+        <target>Waga paczki musi być większa niż 0.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d892865cb1f7ad4811723b33b36ffec1">
+        <source>You must specify at least one of the fields: Sender company, Sender name.</source>
+        <target>Należy podać przynajmniej jedno z pól: Firma nadawcy, Nazwa nadawcy.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d1a4c337c3959aa4b5cf0cd2b5f56bf4">
+        <source>You must specify at least one of the fields: Receiver company, Receiver name.</source>
+        <target>Należy podać przynajmniej jedno z pól: Firma odbiorcy, Nazwa odbiorcy.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="169d7487a2ea841e5cdd6b9052c54f37">
+        <source>Shipping details</source>
+        <target>Szczegóły wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a240fa27925a635b08dc28c9e4f9216d">
+        <source>Order</source>
+        <target>Zamówienie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="73127ba010494f470f9734846ed8758e">
+        <source>Sender Address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1c76cbfe21c6f44c1d1e59d54f3e4420">
+        <source>Company</source>
+        <target>Firma</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="82ff9bcec63169ee7c8ee453e3a7ee90">
+        <source>Sender Name</source>
+        <target>Nazwa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dd7bf230fde8d4836917806aff6a6b27">
+        <source>Address</source>
+        <target>Address</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bcc254b55c4a1babdf1dcb82c207506b">
+        <source>Phone</source>
+        <target>Telefon</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c5b8c2379912db4b6ace799089d2c65c">
+        <source>Receiver Address</source>
+        <target>Adres Odbiorcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="992a0f0542384f1ee5ef51b7cf4ae6c4">
+        <source>Services</source>
+        <target>Usługi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3cfdace393f8f55cc7dcf20fa2c998c">
+        <source>Additional Fields</source>
+        <target>Pola dodatkowe</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f23d7cb359bf7fdbc72f95e56e8117d5">
+        <source>Reference 1</source>
+        <target>Ref 1</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1777f333ba792467d097e65f714f4b75">
+        <source>Reference 2</source>
+        <target>Ref 2</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a447e52f554a310b7ad09a83ce9051ff">
+        <source>Payer</source>
+        <target>Płatnik</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="eb282a6d05f9d60a8eb85feac583f320">
+        <source>Payer FID</source>
+        <target>Numer FID</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2205dc082ba550b67ad71e3e2241d9a6">
+        <source>Tracking</source>
+        <target>Śledzenie przesyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2b0b7c9cbd6d6e9fa6b99aa06e828673">
+        <source>Date and time</source>
+        <target>Data i czas</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="46a2a41cc6e552044816a2d04634545d">
+        <source>State</source>
+        <target>Status</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f15c1cae7882448b3fb0404682e17e61">
+        <source>Content</source>
+        <target>Zawartosć</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6016c2bb7bd8dd79293094d37ebfea3f">
+        <source>Customer data</source>
+        <target>Uwagi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="565ad26b39fa464cab6b756072519110">
+        <source>Size X</source>
+        <target>Szerokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="133fe3074375e92db86784b22cf9e7de">
+        <source>Size Y</source>
+        <target>Wysokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cfe6b567b428e9c74089050cf4c2e59e">
+        <source>Size Z</source>
+        <target>Głębokość [cm]</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="bb1ca97ec761fc37101737ba0aa2e7c5">
+        <source>ERROR</source>
+        <target>ERROR</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="551b723eafd6a31d444fcb2f5920fbd3">
+        <source>INFO</source>
+        <target>INFO</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dc30ec20708ef7b0f641ef78b7880a15">
+        <source>DEBUG</source>
+        <target>DEBUG</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e5114c4b69585ba5883d456a74c1cd5d">
+        <source>Log level</source>
+        <target>Poziom logowania</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="26dcd81c5530fdae8af425a55d705c38">
+        <source>Standard Prestashop Checkout</source>
+        <target>Domyślny koszyk Prestashop</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e3ebdb7d99f918962afffe22c01e0118">
+        <source>supercheckout</source>
+        <target>supercheckout</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3c02b9187bec31449ae1932d91eacead">
+        <source>Custom checkout</source>
+        <target>Niestandardowy koszyk</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435">
+        <source>Yes</source>
+        <target>Tak</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b">
+        <source>No</source>
+        <target>Nie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="01d57d15604ae4187e5987197a217f09">
+        <source>Send mail when shipping is generated</source>
+        <target>Wyślij mail po wygenerowaniu wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0f5003c8115b9a8f340aa83407f422a9">
+        <source>Check shipment tracking on the order view page</source>
+        <target>Sprawdź śledzenie przesyłki na stronie widoku zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="254f642527b45bc260048e30704edb39">
+        <source>Configuration</source>
+        <target>Konfiguracja</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

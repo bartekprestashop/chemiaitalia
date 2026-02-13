@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="4049d979b8e6b7d78194e96c3208a5a5">
+        <source>Order number</source>
+        <target>Numer zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d79cf3f429596f77db95c65074663a54">
+        <source>Order ID</source>
+        <target>ID zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8ae4286d38bb2235def98fd68d7420d2">
+        <source>Invoice number</source>
+        <target>Numer faktury</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a30b7bffa207a361c812426bf2930d81">
+        <source>Static value</source>
+        <target>Wartość stała</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a23cc4268282ace40355528d27b09b16">
+        <source>Ref 1</source>
+        <target>Ref 1</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="95b8164b06e26dc4f79312c37188f1fb">
+        <source>Ref 1 - static value</source>
+        <target>Ref 1 - wartość stała</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c2b6dddebb2b678891b2a3afff33586f">
+        <source>Ref 2</source>
+        <target>Ref 2</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="49082c7a262e7518a5f8165b475bf5e0">
+        <source>Ref 2 - static value</source>
+        <target>Ref 2 - wartość stała</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1ad87f825885d10d559d6fe666a43cd4">
+        <source>Product index</source>
+        <target>Indeks produktu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="df644ae155e79abf54175bd15d75f363">
+        <source>Product name</source>
+        <target>Nazwa produktu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6016c2bb7bd8dd79293094d37ebfea3f">
+        <source>Customer data</source>
+        <target>Uwagi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="943703188cf006bc955706285d9e2e84">
+        <source>Customer data - static value</source>
+        <target>Uwagi - wartość stała</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f15c1cae7882448b3fb0404682e17e61">
+        <source>Content</source>
+        <target>Zawartość</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1f8fd6b47ec65f12ca262fdeda300d7c">
+        <source>Content - static value</source>
+        <target>Zawartość - wartość stała</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8457520a143b4c5f956532afefb4e672">
+        <source>Single shipping</source>
+        <target>Jedna wysyłka</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="aa793830a841de56f254f6b467274574">
+        <source>Shipping for products group</source>
+        <target>Przesyłka dla grupy produktów</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2543f495f837bf2fe2b3e42f9fe38ba6">
+        <source>Shipping for each product</source>
+        <target>Przesyłka dla każdego produktu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="09854ca91d58cf55ea1efaf8b778c145">
+        <source>Method of Package Grouping</source>
+        <target>Metoda grupowania przesyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="91aadd16af0324928c06a9b52d638701">
+        <source>Weight [kg]</source>
+        <target>Waga [kg]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0c2f3adf2a48bab3adb470f4da57f3d0">
+        <source>A4</source>
+        <target>A4</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b021df6aac4654c454f46c77646e745f">
+        <source>Label</source>
+        <target>Etykieta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5ebbe6ce32002967ddc649fd4657da9b">
+        <source>Print format</source>
+        <target>Format wydruku</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="37e4d03f4ef6f4fbb7410669cdb25a3c">
+        <source>Standard label</source>
+        <target>Etykieta standardowa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="56747fe337e973b17db49f42e6648a91">
+        <source>RUCH label</source>
+        <target>Etykieta RUCH</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="84b5cd6b8070a26fd4d1def7a6b6f22d">
+        <source>APOLLO label</source>
+        <target>Etykieta APOLLO</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1ca83672206c28e209344caf672a09eb">
+        <source>Label type</source>
+        <target>Typ etykiety</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bf60025632dd0c4a2cf35e8b33e80619">
+        <source>Default parameters</source>
+        <target>Parametry domyślne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

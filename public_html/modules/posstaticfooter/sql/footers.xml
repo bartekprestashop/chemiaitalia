@@ -1,0 +1,125 @@
+<pos_static_blocks>
+<!-- static block configuration -->
+	<block>
+		<id_posstaticblock>3</id_posstaticblock>
+		<identify>copyright_block</identify>
+		<hook_position>displayFooterBefore</hook_position>
+		<name_module></name_module>
+		<hook_module>0</hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<is_default>0</is_default>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>4</id_posstaticblock>
+		<identify>links_footer</identify>
+		<hook_position>displayFooter</hook_position>
+		<name_module></name_module>
+		<hook_module>0</hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<is_default>0</is_default>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>5</id_posstaticblock>
+		<identify>contact_us</identify>
+		<hook_position>displayBlockFooter1</hook_position>
+		<name_module></name_module>
+		<hook_module>0</hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<is_default>0</is_default>
+		<showhook>1</showhook>
+	</block>
+<!-- block language configuration -->	
+	<block_language>
+		<id_posstaticblock>3</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Copyright Block</title>
+		<description>
+			 <![CDATA[
+				<div class="col-xs-12 col-md-6 col-lg-6">
+				<div class="link-bottom"><a href="Privacy policy">Privacy policy</a> | <a href="#">Term and conditions</a></div>
+				<div class="copyright">Copyright <i class="fa fa-copyright"></i> <a href="http://posthemes.com/">Posthemes</a>. All Rights Reserved</div>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6">
+				<div class="payment">Allow payment base on<img src="/posthemes/pos_greenfarm/img/cms/payment.jpg" alt="" class="img-responsive" /></div>
+				</div>
+			</div>
+			 ]]>
+		</description>
+	</block_language>
+	<block_language>
+		<id_posstaticblock>4</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Links Footer</title>
+		<description>
+			 <![CDATA[
+				<div class="col-xs-12 col-md-3 col-lg-3 links footer_block">
+				<h3 class="hidden-sm-down">Extras</h3>
+				<div class="title clearfix hidden-md-up" data-toggle="collapse">
+				<h3>Extras</h3>
+				<span class="float-xs-right"> <span class="navbar-toggler collapse-icons"> <i class="material-icons add">keyboard_arrow_down</i> <i class="material-icons remove">keyboard_arrow_up</i> </span> </span></div>
+				<ul class="footer_list collapse">
+				<li><a class="cms-page-link" href="#" title="Brands"> Brands </a></li>
+				<li><a class="cms-page-link" href="#" title="Gift Vouchers"> Gift Vouchers </a></li>
+				<li><a class="cms-page-link" href="#" title="Affiliates"> Affiliates </a></li>
+				<li><a class="cms-page-link" href="#" title="Specials"> Specials </a></li>
+				</ul>
+				</div>
+			 ]]>
+		</description>
+	</block_language>
+	<block_language>
+		<id_posstaticblock>5</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Contact us</title>
+		<description>
+			 <![CDATA[
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-contac">
+				<div class="contact-us">
+				<h3 class="title-footer">Contact us</h3>
+				<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col1">
+				<div class="address">
+				<div class="icon"></div>
+				<div class="text"><span>Address:</span> 123 New Design Str, Melbourne, Australia</div>
+				</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+				<div class="phone">
+				<div class="icon"></div>
+				<div class="text"><span>Phone:</span> 1-888-123-456-89</div>
+				</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div class="email">
+				<div class="icon"></div>
+				<div class="text"><span>Email:</span> infor@plazathemes.com</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+			 ]]>
+		</description>
+	</block_language>
+<!-- block shop configuration -->
+	<block_shop>
+		<id_posstaticblock>3</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>4</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>5</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+</pos_static_blocks>

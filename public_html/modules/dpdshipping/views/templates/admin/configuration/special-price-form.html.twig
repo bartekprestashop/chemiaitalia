@@ -1,0 +1,98 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% form_theme form '@PrestaShop/Admin/TwigTemplateForm/prestashop_ui_kit.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar-configuration.html.twig' %}
+        </div>
+
+        <div class="col-sm-12 col-md-9">
+            {{ form_start(form) }}
+            <div class="card">
+                <h3 class="card-header bg-white">
+                    {{ 'Special prices'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}
+                </h3>
+                <div class="card-body">
+
+                    <div>
+                        <p>
+                            {{ 'Select an available shipping method for the Create Prestashop carrier. You can manage carriers on the standard prestashop page.'|trans({}, 'Modules.Dpdshipping.AdminCarrier') }}
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="pl-2">
+                                {{ form_label(form.specialPrice) }}
+                                {{ form_widget(form.specialPrice) }}
+                                {{ form_errors(form.specialPrice) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="specialPriceTable">
+                        <thead>
+                        <tr>
+                            <th class="col-1">{{ 'Country'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Cart price from (PLN)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Cart price up to (PLN)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Package weight from (kg)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Package weight up to (kg)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Price per package (PLN)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-4">{{ 'Delivery method'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Price for COD service (PLN)'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                            <th class="col-1">{{ 'Action'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in form.specialPriceList %}
+                            <tr>
+                                <td>{{ form_widget(item.isoCountry) }}</td>
+                                <td>{{ form_widget(item.priceFrom) }}</td>
+                                <td>{{ form_widget(item.priceTo) }}</td>
+                                <td>{{ form_widget(item.weightFrom) }}</td>
+                                <td>{{ form_widget(item.weightTo) }}</td>
+                                <td>{{ form_widget(item.parcelPrice) }}</td>
+                                <td>{{ form_widget(item.carrierType) }}</td>
+                                <td>{{ form_widget(item.codPrice) }}</td>
+                                <td>
+                                    <i class="material-icons btn btn-sm text-secondary delete-icon-gray dpdshipping-remove-row float-right">delete</i>
+                                    <i class="material-icons btn btn-sm text-secondary delete-icon-gray dpdshipping-duplicate-row float-right">content_copy</i>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                    <div class="col pb-2 pt-2 mb-4">
+                        <button type="button" class="btn btn-sm btn-secondary float-right" id="addFidRow">
+                            {{ 'Add row'|trans({}, 'Modules.Dpdshipping.Button') }}
+                        </button>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary float-right" id="save-button">
+                            {{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminSpecialPrice') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('../modules/dpdshipping/views/js/configuration/special-price.js') }}"></script>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,25 @@
+services:
+  _defaults:
+    public: true
+
+  DpdShipping\Controller\Order\DpdShippingReturnLabelController:
+    class: 'DpdShipping\Controller\Order\DpdShippingReturnLabelController'
+    public: true
+    arguments:
+      - '@prestashop.core.command_bus'
+      - '@twig'
+      - '@translator'
+    tags:
+      - { name: controller.service_arguments }
+
+  prestashop.module.dpdshipping.domain.return.label.command.return.label.handler:
+    class: 'DpdShipping\Domain\ReturnLabel\Command\ReturnLabelHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+      - '@prestashop.core.command_bus'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ReturnLabel\Command\ReturnLabelCommand'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]

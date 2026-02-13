@@ -1,0 +1,64 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% form_theme form '@PrestaShop/Admin/TwigTemplateForm/prestashop_ui_kit.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar-configuration.html.twig' %}
+        </div>
+
+        <div class="col-sm-12 col-md-9">
+            {{ form_start(form) }}
+            <div class="card">
+                <h3 class="card-header bg-white">
+                    {{ 'Default parameters'|trans({}, 'Modules.Dpdshipping.AdminParameter') }}
+                </h3>
+                <div class="card-body">
+
+                    <div class="form-wrapper">
+                        {% set inputs = [
+                            [form.ref1, form.ref1StaticValue],
+                            [form.ref2, form.ref2StaticValue],
+                            [form.customerData, form.customerDataStaticValue],
+                            [form.content, form.contentStaticValue],
+                        ] %}
+                        {% for item in inputs %}
+                            <div class="form-group row text-widget">
+                                {{ form_label(item[0]) }}
+                                <div class="col input-container">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            {{ form_widget(item[0]) }}
+                                        </div>
+                                        <div class="col-6">
+                                            {{ form_widget(item[1]) }}
+                                        </div>
+                                        {{ form_errors(item[0]) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {{ form_widget(form) }}
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary float-right" id="save-button">
+                            {{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminParameter') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('../modules/dpdshipping/views/js/configuration/parameters.js') }}"></script>
+{% endblock %}
+

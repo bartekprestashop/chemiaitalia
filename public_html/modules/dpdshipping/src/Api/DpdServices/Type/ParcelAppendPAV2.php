@@ -1,0 +1,282 @@
+<?php
+/**
+ * Copyright 2024 DPD Polska Sp. z o.o.
+ *
+ * NOTICE OF LICENSE
+ *
+ * Licensed under the EUPL-1.2 or later.
+ * You may not use this work except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ * It is also bundled with this package in the file LICENSE.txt
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the Licence is distributed on an AS IS basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the Licence for the specific language governing permissions
+ * and limitations under the Licence.
+ *
+ * @author    DPD Polska Sp. z o.o.
+ * @copyright 2024 DPD Polska Sp. z o.o.
+ * @license   https://joinup.ec.europa.eu/software/page/eupl
+ */
+
+namespace DpdShipping\Api\DpdServices\Type;
+
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+class ParcelAppendPAV2
+{
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var string
+     */
+    private $customerData1;
+
+    /**
+     * @var string
+     */
+    private $customerData2;
+
+    /**
+     * @var string
+     */
+    private $customerData3;
+
+    /**
+     * @var string
+     */
+    private $reference;
+
+    /**
+     * @var int
+     */
+    private $sizeX;
+
+    /**
+     * @var int
+     */
+    private $sizeY;
+
+    /**
+     * @var int
+     */
+    private $sizeZ;
+
+    /**
+     * @var string
+     */
+    private $weight;
+
+    /**
+     * @var float
+     */
+    private $weightAdr;
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     * @return ParcelAppendPAV2
+     */
+    public function withContent($content)
+    {
+        $new = clone $this;
+        $new->content = $content;
+
+        return $new;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerData1()
+    {
+        return $this->customerData1;
+    }
+
+    /**
+     * @param string $customerData1
+     * @return ParcelAppendPAV2
+     */
+    public function withCustomerData1($customerData1)
+    {
+        $new = clone $this;
+        $new->customerData1 = $customerData1;
+
+        return $new;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerData2()
+    {
+        return $this->customerData2;
+    }
+
+    /**
+     * @param string $customerData2
+     * @return ParcelAppendPAV2
+     */
+    public function withCustomerData2($customerData2)
+    {
+        $new = clone $this;
+        $new->customerData2 = $customerData2;
+
+        return $new;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerData3()
+    {
+        return $this->customerData3;
+    }
+
+    /**
+     * @param string $customerData3
+     * @return ParcelAppendPAV2
+     */
+    public function withCustomerData3($customerData3)
+    {
+        $new = clone $this;
+        $new->customerData3 = $customerData3;
+
+        return $new;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     * @return ParcelAppendPAV2
+     */
+    public function withReference($reference)
+    {
+        $new = clone $this;
+        $new->reference = $reference;
+
+        return $new;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSizeX()
+    {
+        return $this->sizeX;
+    }
+
+    /**
+     * @param int $sizeX
+     * @return ParcelAppendPAV2
+     */
+    public function withSizeX($sizeX)
+    {
+        $new = clone $this;
+        $new->sizeX = $sizeX;
+
+        return $new;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSizeY()
+    {
+        return $this->sizeY;
+    }
+
+    /**
+     * @param int $sizeY
+     * @return ParcelAppendPAV2
+     */
+    public function withSizeY($sizeY)
+    {
+        $new = clone $this;
+        $new->sizeY = $sizeY;
+
+        return $new;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSizeZ()
+    {
+        return $this->sizeZ;
+    }
+
+    /**
+     * @param int $sizeZ
+     * @return ParcelAppendPAV2
+     */
+    public function withSizeZ($sizeZ)
+    {
+        $new = clone $this;
+        $new->sizeZ = $sizeZ;
+
+        return $new;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param string $weight
+     * @return ParcelAppendPAV2
+     */
+    public function withWeight($weight)
+    {
+        $new = clone $this;
+        $new->weight = $weight;
+
+        return $new;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeightAdr()
+    {
+        return $this->weightAdr;
+    }
+
+    /**
+     * @param float $weightAdr
+     * @return ParcelAppendPAV2
+     */
+    public function withWeightAdr($weightAdr)
+    {
+        $new = clone $this;
+        $new->weightAdr = $weightAdr;
+
+        return $new;
+    }
+}

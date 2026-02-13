@@ -1,0 +1,66 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.order.get.receiver.address.list.handler:
+    class: 'DpdShipping\Domain\Order\Query\GetReceiverAddressListHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Query\GetReceiverAddressList'
+
+  prestashop.module.dpdshipping.domain.order.get.default.order.receiver.address.handler:
+    class: 'DpdShipping\Domain\Order\Query\GetDefaultOrderReceiverAddressHandler'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Query\GetDefaultOrderReceiverAddress'
+
+  prestashop.module.dpdshipping.domain.order.command.add.dpd.order.handler:
+    class: 'DpdShipping\Domain\Order\Command\AddDpdOrderCommandHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+      - '@prestashop.core.command_bus'
+      - '@translator'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Command\AddDpdOrderCommand'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.command.after.shipment.handler:
+    class: 'DpdShipping\Domain\Order\Command\AfterShipmentHandler'
+    arguments:
+      - '@prestashop.core.command_bus'
+      - '@translator'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Command\AfterShipmentCommand'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.get.order.pudo.code:
+    class: 'DpdShipping\Domain\Order\Query\GetOrderPudoCodeHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.cart.pickup.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Query\GetOrderPudoCode'
+
+
+  prestashop.module.dpdshipping.domain.get.country.iso.code:
+    class: 'DpdShipping\Domain\Order\Query\GetCountryIsoCodeHandler'
+    arguments:
+      - '@logger'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Query\GetCountryIsoCode'
+
+  DpdShipping\Controller\Order\DpdShippingBulkGenerateShippingController:
+    class: 'DpdShipping\Controller\Order\DpdShippingBulkGenerateShippingController'
+    public: true
+    autowire: true
+    arguments:
+      - '@prestashop.core.command_bus'
+      - '@twig'
+      - '@translator'
+    tags:
+      - { name: controller.service_arguments }

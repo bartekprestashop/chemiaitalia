@@ -1,0 +1,91 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% form_theme form '@PrestaShop/Admin/TwigTemplateForm/prestashop_ui_kit.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar-configuration.html.twig' %}
+        </div>
+
+        <div class="col-sm-12 col-md-9">
+            {{ form_start(form) }}
+            <div class="card">
+                <h3 class="card-header bg-white">
+                    {{ 'Connection with DPD Poland'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}
+                </h3>
+                <div class="card-body">
+
+                    <div class="form-wrapper">
+                        {% set inputs = [
+                            form.login,
+                            form.password,
+                            form.masterfid,
+                            form.environment,
+                        ] %}
+                        {% for item in inputs %}
+                            <div class="form-group row select-widget">
+                                {{ form_label(item) }}
+                                <div class="col-sm input-container">
+                                    {{ form_widget(item, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(item) }}
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-xs-12 col-sm-8 offset-sm-3">
+                        <h4>
+                            {{ 'Payer data'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}
+                        </h4>
+
+                        <table class="table mb-2" id="fidTable">
+                            <thead class="bg-light">
+                            <tr>
+                                <th class="col-4">{{ 'FID number'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}</th>
+                                <th class="col-3">{{ 'FID name'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}</th>
+                                <th class="col-1">{{ 'Default'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}</th>
+                                <th class="col-1"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for payer in form.payerList %}
+                                <tr>
+                                    <td>{{ form_widget(payer.name) }}</td>
+                                    <td>{{ form_widget(payer.fid) }}</td>
+                                    <td>{{ form_widget(payer.default) }}</td>
+                                    <td><i class="material-icons btn btn-sm text-secondary delete-icon-gray dpdshipping-remove-row">delete</i></td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-8 offset-sm-3 pb-2 mb-4">
+                        <button type="button" class="btn btn-sm btn-secondary float-right" id="addFidRow">
+                            {{ 'Add row'|trans({}, 'Modules.Dpdshipping.Button') }}
+                        </button>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary float-right" id="save-button">
+                            {{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminConnection') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('../modules/dpdshipping/views/js/configuration/connection.js') }}"></script>
+{% endblock %}
+

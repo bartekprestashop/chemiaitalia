@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.controller.dpdshipping_tracking:
+    class: 'DpdShipping\Controller\Order\DpdShippingTrackingController'
+    public: true
+    autowire: true
+    arguments:
+      - '@prestashop.module.dpdshipping.service.tracking.service'
+      - '@prestashop.core.command_bus'
+      - '@twig'
+      - '@translator'

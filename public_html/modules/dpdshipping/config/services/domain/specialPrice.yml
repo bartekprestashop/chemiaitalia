@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.query.get.special.price.list.handler:
+    class: 'DpdShipping\Domain\Configuration\SpecialPrice\Query\GetSpecialPriceListHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.special.price.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SpecialPrice\Query\GetSpecialPriceList'
+
+  prestashop.module.dpdshipping.domain.special.price.command.add.special.price.handler:
+    class: 'DpdShipping\Domain\Configuration\SpecialPrice\Command\AddSpecialPriceHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.special.price.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SpecialPrice\Command\AddSpecialPriceCommand'

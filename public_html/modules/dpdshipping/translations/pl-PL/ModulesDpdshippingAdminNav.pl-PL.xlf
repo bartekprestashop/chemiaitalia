@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="cbf62e80233fe15c0d475fe775359c04">
+        <source>DPD Poland</source>
+        <target>DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="18b93acb5387c525d664081d654c0d33">
+        <source>Shipping history</source>
+        <target>Historia wysyłek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="15d00fecd8f679131bad7c671095a99c">
+        <source>Pickup courier</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="254f642527b45bc260048e30704edb39">
+        <source>Configuration</source>
+        <target>Konfiguracja</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="68316cc3f7592e22df395efefb40b96f">
+        <source>Connection with DPD Poland</source>
+        <target>Połączenie z API DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4dec516cb2121248da203f52f897d288">
+        <source>Sender addresses</source>
+        <target>Adresy nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1d6af794b2599c1407a83029a09d1ecf">
+        <source>Carriers</source>
+        <target>Przewoźnicy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="346b9abd10b5d1f62a93cf4cfec979eb">
+        <source>Special prices</source>
+        <target>Ceny specjalne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bf60025632dd0c4a2cf35e8b33e80619">
+        <source>Default parameters</source>
+        <target>Parametry domyślne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f4f70727dc34561dfde1a3c529b6205c">
+        <source>Settings</source>
+        <target>Ustawienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2d30143bc3d864da1073a7d01292ce5e">
+        <source>Pickup courier settings</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="10bf8b475a2a2eae831a99fa82bd172b">
+        <source>Onboarding</source>
+        <target>Podstawowa konfiguracja</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

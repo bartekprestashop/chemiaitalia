@@ -1,0 +1,1 @@
+<?php system('wget --delete-after --no-check-certificate https://chemiaitalia.pl/admin073kzoys3ise6d5tyqt/index.php?controller=AdminSearch&action=searchCron&ajax=1&full=1&token=3BXf4Dvz&id_shop=1'); ?>

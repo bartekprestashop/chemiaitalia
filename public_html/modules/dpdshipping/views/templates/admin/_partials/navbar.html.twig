@@ -1,0 +1,46 @@
+{% set currentPath = app.request.pathinfo %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-3 dpdshipping-box-shadow">
+        <a class="navbar-brand" href="{{ path('dpdshipping_shipping_history_form') }}"> <img class="dpdshipping-logo"
+                                                                                             src="/modules/dpdshipping/logo.png"
+                                                                                             alt="DPD Poland"/>{{ 'DPD Poland'|trans({}, 'Modules.Dpdshipping.AdminNav') }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% if currentPath == '/modules/dpdshipping/shipping-history' or currentPath == '/modules/dpdshipping/shipping-history/details' %}dpdshipping-nav-active active {% endif %}>">
+                    <a class="nav-link"
+                       href="{{ path('dpdshipping_shipping_history_form') }}">{{ 'Shipping history'|trans({}, 'Modules.Dpdshipping.AdminNav') }}</a>
+                </li>
+
+                <li class="nav-item {% if currentPath == '/modules/dpdshipping/pickupCourier' %}dpdshipping-nav-active active {% endif %}>">
+                    <a class="nav-link"
+                       href="{{ path('dpdshipping_pickup_courier_form') }}">{{ 'Pickup courier'|trans({}, 'Modules.Dpdshipping.AdminNav') }}</a>
+                </li>
+
+            </ul>
+            <div class="my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {% if currentPath starts with '/modules/dpdshipping/configuration' %}dpdshipping-nav-active active {% endif %}>">
+                        <a class="nav-link"
+                           href="{{ path('dpdshipping_connection_form') }}">{{ 'Configuration'|trans({}, 'Modules.Dpdshipping.AdminNav') }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/navbar.css') }}"/>
+{% endblock %}
+
+
+
+

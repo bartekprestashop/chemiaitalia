@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="93891c8794288ac9ef6c7d20d78c7dbf">
+        <source>The return label has been generated.</source>
+        <target>Etykieta zwrotna została wygenerowana.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a123c3c03f8fa2cfa2c9073edfa36067">
+        <source>The return label cannot be generated.</source>
+        <target>Nie można wygenerować etykiety zwrotnej.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4f6c0a07c1286816e141b5fe0a72524a">
+        <source>The label has been generated.</source>
+        <target>Etykieta została wygenerowana.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fff4324fdd257aed3788073ffe857fdd">
+        <source>The label cannot be generated.</source>
+        <target>Nie można wygenerować etykiety.</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

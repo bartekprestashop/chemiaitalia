@@ -1,0 +1,129 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    {% block quotes_list_panel %}
+
+        <p class="alert alert-danger errorMessagePickupCourier" style="display: none"></p>
+        <p class="alert alert-warning warnMessagePickupCourier" style="display: none"></p>
+
+        <div class="bg-white p-2">
+            <h2 class="pt-2 pb-2"> {{ 'Pickup courier'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}</h2>
+
+            {{ form_start(form, { 'attr' : { 'class': 'row','id': 'dpdshipping_pickup_courier_form' } }) }}
+            <div class="col-xs-12 col-md-4">
+                <h3>
+                    {{ 'Sender address'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                </h3>
+
+                {{ form_label(form.dpdshipping_pickup_courier_sender_address) }}
+                {{ form_widget(form.dpdshipping_pickup_courier_sender_address) }}
+
+                <div class="card bg-light" id="senderAddressContainer" style="display: none">
+                    <div class="card-body">
+                        <p class="m-0" id="senderFullName"></p>
+                        <p class="m-0" id="senderName"></p>
+                        <p class="m-0" id="senderAddress"></p>
+                        <p class="m-0" id="senderPostalCode"></p>
+                        <p class="m-0" id="senderCity"></p>
+                        <p class="m-0" id="senderCountryCode"></p>
+                        <p class="m-0" id="senderPhone"></p>
+                        <p class="m-0"><strong>{{ 'Payer number:'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                            </strong> <span id="payerNumber"></span></p>
+                    </div>
+                </div>
+
+                {% set senderAddress = [
+                    form.customer_company,
+                    form.customer_name,
+                    form.customer_phone
+                ] %}
+                {% for item in senderAddress %}
+                    {{ form_label(item) }}
+                    {{ form_widget(item, { 'attr' : { 'class': 'mb-2' } }) }}
+                    {{ form_errors(item) }}
+                {% endfor %}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <h3>
+                    {{ 'Pickup date and time'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                </h3>
+                {% set pickup = [
+                    form.pickup_date
+                ] %}
+                {% for item in pickup %}
+                    {{ form_label(item) }}
+                    {{ form_widget(item) }}
+                    {{ form_errors(item) }}
+                    <div class="mb-2"></div>
+                {% endfor %}
+
+                <div id="button_get_pickup_time_frames" class="btn btn-primary btn-sm mb-3" style="float: right;">
+                    {{ 'Get pickup time frames'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                </div>
+                <div class="clearfix"></div>
+
+                <div id="pickupTimeContainer" style="display: none">
+                    {% set pickup = [
+                        form.pickup_time
+                    ] %}
+                    {% for item in pickup %}
+                        {{ form_label(item) }}
+                        {{ form_widget(item) }}
+                        <div class="mb-2"></div>
+                    {% endfor %}
+
+                    <p class="mt-2 alert alert-info">
+                        {{ 'Date available until'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                        <span class="p-0" id="timeFrameHour"></span> {{ 'on '|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }} <span class="p-0" id="timeFrameDate"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <h3>
+                    {{ 'Shipping'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                </h3>
+                {% set shipping = [
+                    form.letters,
+                    form.letters_count,
+                    form.packages,
+                    form.packages_count,
+                    form.packages_weight_sum,
+                    form.packages_weight_max,
+                    form.packages_size_x_max,
+                    form.packages_size_y_max,
+                    form.packages_size_z_max,
+
+                    form.palette,
+                    form.palette_count,
+                    form.palette_weight_sum,
+                    form.palette_weight_max,
+                    form.palette_size_y_max,
+                ] %}
+                {% for item in shipping %}
+                    {{ form_label(item) }}
+                    {{ form_widget(item, { 'attr' : { 'class': 'mb-2' } }) }}
+                    {{ form_errors(item) }}
+                {% endfor %}
+            </div>
+
+            <div class="col-12 mt-3 mb-3">
+                <button class="btn btn-primary float-right" id="pickup-courier-add-save-button">
+                    {{ 'Pickup courier'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}
+                </button>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    {% endblock %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('../modules/dpdshipping/views/js/dpdshipping-pickup-courier.js') }}"></script>
+    <script src="{{ asset('../modules/dpdshipping/views/js/dpdshipping-pickup-courier-ajax.js') }}"></script>
+{% endblock %}

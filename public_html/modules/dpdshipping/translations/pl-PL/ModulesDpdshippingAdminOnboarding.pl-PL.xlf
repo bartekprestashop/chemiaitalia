@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="1af105cfa2f9a749bb95f5cc6abfc5de">
+        <source>DPD Poland Production</source>
+        <target>DPD Poland - Środowisko produkcyjne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="670dbf1c50e9147530d5d25b0b0207a7">
+        <source>DPD Poland DEMO</source>
+        <target>DPD Poland - Środowisko DEMO</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0ba29c6a1afacf586b03a26162c72274">
+        <source>Environment</source>
+        <target>Środowisko</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="99dea78007133396a7b8ed70578ac6ae">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dc647eb65e6711e155375218212b3964">
+        <source>Password</source>
+        <target>Hasło</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="70624500cf90a1728f4b180af451f8aa">
+        <source>Master FID</source>
+        <target>Master FID</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="41e87195735227b09b3359c89ffcbfdf">
+        <source>Default FID</source>
+        <target>Domyślny numer FID</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2896010d72b8c6ae45a0eb16bab42a43">
+        <source>Carrier DPD Poland</source>
+        <target>Kurier DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e7ae8a06218e5a532bc0fe59879a5175">
+        <source>Carrier DPD Poland COD</source>
+        <target>Kurier DPD Polska - pobranie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1e7a99442b9e4c9ad51b989585732e70">
+        <source>Carrier DPD Poland Pickup</source>
+        <target>DPD Polska - Odbiór w Punkcie Pickup</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cda250339099e90c73ea688149338d9a">
+        <source>Carrier DPD Poland Pickup COD</source>
+        <target>DPD Polska - Odbiór w Punkcie Pickup za pobraniem</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="effdb9ce6c5d44df31b89d7069c8e0fb">
+        <source>Alias</source>
+        <target>Alias</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1c76cbfe21c6f44c1d1e59d54f3e4420">
+        <source>Company</source>
+        <target>Firma</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987">
+        <source>Name</source>
+        <target>Imię i nazwisko</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d61ebdd8a0c0cd57c22455e9f0918c65">
+        <source>Street</source>
+        <target>Ulica</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8bcdc441379cbf584638b0589a3f9adb">
+        <source>Postcode</source>
+        <target>Kod pocztowy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="57d056ed0984166336b7879c2af3657f">
+        <source>City</source>
+        <target>Miasto</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="59716c97497eb9694541f7c3d37b1a4d">
+        <source>Country</source>
+        <target>Kod kraju (np.PL)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4dfbb099eafd3c82e033bf92946d3ce6">
+        <source>Mail</source>
+        <target>Adres email</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bcc254b55c4a1babdf1dcb82c207506b">
+        <source>Phone</source>
+        <target>Numer telefonu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="10bf8b475a2a2eae831a99fa82bd172b">
+        <source>Onboarding</source>
+        <target>Podstawowa konfiguracja</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="648891375f0ad1bda640d862bc633882">
+        <source>DPD Poland API connections</source>
+        <target>Połączenie API DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1ca72bad9f9c1f7bd075a473f745890d">
+        <source>Configure DPD Poland API connection</source>
+        <target>Skonfiguruj połączenie API DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1d6af794b2599c1407a83029a09d1ecf">
+        <source>Carriers</source>
+        <target>Przewoźnicy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="24347ce803b3dde278a8bf68854dcff0">
+        <source>Select available shipping method. </source>
+        <target>Wybierz dostępne metody wysyłki.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ff1426811f8d365bd59eeba8ffec25d2">
+        <source>Configure default Sender address</source>
+        <target>Domyślny adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

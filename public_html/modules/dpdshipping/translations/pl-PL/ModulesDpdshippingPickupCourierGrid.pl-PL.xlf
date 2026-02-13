@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="07ca5050e697392c9ed47e6453f1453f">
+        <source>Completed</source>
+        <target>Zrealizowane</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0e22fe7d45f8e5632a4abf369b24e29c">
+        <source>Canceled</source>
+        <target>Anulowane</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="26e09a1ee1517389c7b07f42df65561a">
+        <source>Ordered</source>
+        <target>Oczekuje na odbiór</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
