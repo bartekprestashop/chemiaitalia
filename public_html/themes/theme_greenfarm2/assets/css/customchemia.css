@@ -80,9 +80,30 @@
 
 
 .h1.namne_details, .product_name_h1 {
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: 400;
 }
 
 @media (max-width: 410px) {
     font-size: 17px;
+}
+
+@media (max-width: 992px) {
+    #_desktop_vegamenu {
+        display: none;
+    }
+}
+
+.js-product-miniature .product_desc .product_name {
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.product-prices .price, .product-prices .current-price span:first-child {
+     text-transform: none;
+ }
+
+.banner-center{
+    margin-top: 0px;
 }
