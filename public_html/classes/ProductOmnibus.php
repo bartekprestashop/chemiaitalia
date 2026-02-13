@@ -37,7 +37,14 @@ class ProductOmnibus
 
 
         $products_info = DB::getInstance()->executeS($sql2);
-        $product_info = $products_info[0];
+
+        if(is_array($products_info) && count($products_info) > 0){
+            $product_info = $products_info[0];
+        }
+        else {
+            $product_info = array();
+        }
+
 
         $current_price = Product::getPriceStatic($id_product,true, null, 2, null, false);
         $regular_price = Product::getPriceStatic($id_product,true, null, 2, null, false, false);

@@ -2,3 +2,87 @@
     width: 100% !important;
     float: none !important;
 }
+
+.product-actions .add-to-cart {
+    width: 300px;
+}
+.product-information .product-desc {
+    padding-top:10px;
+    padding-bottom:0px;
+}
+.blockreassurance_product {
+    margin-top: 0px;
+}
+
+
+@media (max-width: 800px) {
+    .product-actions .add-to-cart {
+        width: 250px;
+    }
+}
+
+@media (max-width: 410px) {
+    .product-quantity {
+        display: flex;
+        align-items: stretch;
+        gap: 0px; /* opcjonalnie odstęp */
+    }
+
+    .product-quantity .qty {
+        flex: 0 0 auto; /* szerokość wg zawartości */
+    }
+
+    .product-quantity .add {
+        flex: 1 1 auto; /* zajmuje resztę */
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .product-actions .add-to-cart {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .product-add-to-cart .btn-primary {
+        margin-right: 0px;
+    }
+
+    .product-quantity .add button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .product-quantity .add {
+        clear: both;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+
+
+.fancybox-title-float-wrap {
+    position: absolute;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    bottom: 0;
+    text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal !important;
+    word-break: break-word;
+}
+
+
+
+.h1.namne_details, .product_name_h1 {
+    font-size: 28px;
+}
+
+@media (max-width: 410px) {
+    font-size: 17px;
+}

@@ -29,9 +29,11 @@
 		   src="{if !empty($product.cover.bySize.large_default.url)}{$product.cover.bySize.large_default.url}{else}/img/p/pl.jpg{/if}"
 		   data-zoom-image="{$product.cover.bySize.large_default.url}" alt="{$product.cover.legend}" title="{$product.cover.legend}" style="width:100%;" itemprop="image">
 	  <img class="hidden-xl-up js-qv-product-cover" src="{$product.cover.bySize.large_default.url}" alt="{$product.cover.legend}" title="{$product.cover.legend}" style="width:100%;" itemprop="image">
-	  	<div id="click-zoom">
+		{if $product.images|count > 1}
+		<div id="click-zoom">
         <i class="material-icons zoom-in">&#xE8FF;</i>
 		</div>
+		{/if}
     </div>
 
   {/block}
