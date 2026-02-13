@@ -1,0 +1,4 @@
+Update guide:
+- Before update, please backup your site
+- Open: updated_v_1.2.0_for_1.7.8.x\modules : Upload all files override to : your_webserver\modules
+- Open: updated_v_1.0.1_for_1.7.8.x\themes\your theme: Upload all files override to: your_webserver\themes\your_theme (Ex: themes\theme_greenfarm1)

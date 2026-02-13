@@ -1,0 +1,5 @@
+update ps8 php8
+add hook:  productTabContent, displayProductName
+{hook h='ProductTabContent' product=$product}
+{hook h='displayProductName' product=$product}
+\modules\productcomments\productcomments.php

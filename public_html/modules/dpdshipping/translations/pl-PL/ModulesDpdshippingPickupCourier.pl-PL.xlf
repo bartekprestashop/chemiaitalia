@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="ebeeddc1a001d3a1c753810a380f7696">
+        <source>Please complete the customer details.</source>
+        <target>Proszę uzupełnić szczegóły Zleceniodawcy.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="965665e8a78f42293740f97e81212bbc">
+        <source>Please complete the sender details.</source>
+        <target>Proszę uzupełnić szczegóły nadawcy w konfiguracji modułu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c4cac1258440c83ad6cbae31f108658b">
+        <source>Please complete the payer details.</source>
+        <target>Proszę uzupełnić szczegóły płatnika w konfiguracji modułu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8d279c6cc99414e47e32602531e81828">
+        <source>Please complete pickup date and time range details.</source>
+        <target>Proszę uzupełnić datę i zakres czasu podjazdu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="47666daf8a6eee63368a2b650dd53710">
+        <source>Please complete parcels details.</source>
+        <target>Proszę wybrać rodzaj przesyłki.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e7beae6bddade9e7132edfd87dfab620">
+        <source>Please complete letters details.</source>
+        <target>Proszę uzupełnić wszystkie szczegóły listu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d225e8cdecccefd930983158e238837b">
+        <source>Please complete all packages details.</source>
+        <target>Proszę uzupełnić wszystkie szczegóły paczki.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="57cc8257c846981df4699e7011b6cc5e">
+        <source>Please complete all palette details.</source>
+        <target>Proszę uzupełnić wszystkie szczegóły palety.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="213a8d5d6d3d114069363fcc87351fe6">
+        <source>Please complete the configuration in the module settings before ordering a courier</source>
+        <target><![CDATA[UWAGA! W pierwszej kolejności uzupełnij dane adresowe Nadawcy, Zleceniodawcy oraz Płatnika w konfiguracji modułu: Konfiguracja - Zamów kuriera]]></target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

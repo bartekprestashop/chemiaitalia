@@ -1,0 +1,69 @@
+{% trans_default_domain 'Module.Dpdshipping.Admin.Order' %}
+
+{% block content %}
+
+    <div class="card p-0 m-0 border-0">
+        <div class="card-header">
+            <h3>
+                <img class="dpdshipping-logo" src="/modules/dpdshipping/logo.png"
+                     alt="DPD Poland"/> {{ 'DPD Poland generate shipping'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+
+                <a href="{{ path('dpdshipping_connection_form') }}"><i class="material-icons float-right">settings</i></a>
+                <a href="{{ path('dpdshipping_shipping_history_form') }}"><i class="material-icons float-right">history</i></a>
+            </h3>
+
+        </div>
+        <div class="card-body pt-2">
+
+            <div class="alert-messages">
+                {% if successMsg|length %}
+                    <div class="alert alert-success">{{ successMsg }}</div>
+                {% endif %}
+
+                {% if errorMsg|length %}
+                    <div class="alert alert-danger">{{ errorMsg }}</div>
+                {% endif %}
+            </div>
+
+            <div class="alert alert-success success-message-ajax" style="display: none"></div>
+            <div class="alert alert-danger error-message-ajax" style="display: none"></div>
+
+            <a href="{{ path('admin_orders_view', {'orderId': orderId}) }}" type="button"
+               class="btn btn-primary">{{ 'New shipping'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</a>
+            <button id="print-label"
+                    class="btn btn-secondary"
+                    data-url="{{ path('dpdshipping_shipping_history_print_labels_form') }}"
+                    data-shipping-history-id="{{ shippingHistoryId }}">
+                {{ 'Print label'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+            </button>
+
+            {% if showReturnLabel|length %}
+                <button id="print-return-label"
+                        class="btn btn-secondary"
+                        data-url="{{ path('dpdshipping_return_label') }}"
+                        data-shipping-history-id="{{ shippingHistoryId }}"
+                        data-order-id="{{ orderId }}">
+                    {{ 'Print return label'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                </button>
+            {% endif %}
+
+
+            {#            #}
+            {#            <a href="{{ path('dpdshipping_return_label', {'shippingHistoryId': shippingHistoryId, 'orderId': orderId}) }}" type="button" #}
+            {#               class="btn btn-secondary">{{ 'Print return label'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</a> #}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/order-details.css') }}"/>
+    {% endblock %}
+
+    {% block javascripts %}
+        {% set currentTimestamp = date("now")|date("U") %}
+        <script src="{{ asset('../modules/dpdshipping/views/js/order-details.js?' ~ currentTimestamp) }}"></script>
+        {#        <script src="{{ asset('../modules/dpdshipping/views/js/dpdshipping-ajax.js?' ~ currentTimestamp) }}"></script> #}
+    {% endblock %}
+

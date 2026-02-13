@@ -1,0 +1,6 @@
+-update ps8 - php8
+
+- add thumbnail-container to product.tpl   <div class="img_block thumbnail-container">   and moduel pos special
+- hook it on displayFooter 
+- update link  href="{$link->getModuleLink('blockwishlist', 'lists')}"
+-  add wishlist to product page {hook h='displayProductActions' product=$product}

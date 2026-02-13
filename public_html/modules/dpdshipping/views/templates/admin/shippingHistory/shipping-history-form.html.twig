@@ -1,0 +1,22 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    {% block quotes_list_panel %}
+        <div class="row">
+            <div class="col">
+                {% include '@PrestaShop/Admin/Common/Grid/grid_panel.html.twig' with {'grid': quoteGrid} %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('../modules/dpdshipping/views/js/shipping-history-grid.js') }}"></script>
+    <script src="{{ asset('themes/default/js/bundle/pagination.js') }}"></script>
+{% endblock %}
+
+

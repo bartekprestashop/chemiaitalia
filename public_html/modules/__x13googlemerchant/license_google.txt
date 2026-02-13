@@ -1,0 +1,24 @@
+Server restriction: chemiaitalia.pl,www.chemiaitalia.pl,*.chemiaitalia.pl,*.local,*.loc,*.localhost,*.test,test.*,dev.*,*.dev,*.dev.*
+
+------ LICENSE FILE DATA -------
+WVU1V075NE4y87UQNfCPb4e9IxpuvYlp
+7qPnV3voBn4ly4nsePysuz644W7holB0
+MR/tETg67P7RSnyf3chyqrXjdj0oahVs
+kEd57Or6YfAL0Au/CljBcujTJdxE8M5o
+TLkm65CZllZn5KHjtU22eSdzgWpia4zH
+Mv/RwOT12x6ayt4AkB6fvE1YJMzM8/EO
+kjIyhhR8h7s6jw7cIizaVhOpyarQiJon
+wvA7UINZFDjACpNimHsCRVKpowuDp/tX
+g+/4RIsb+VpSdPvbV5O3cSSPET6og1st
+ZaJ2jACXQOypFB6CglgI413yo/gXZY3Q
+IZqgW22Umn3is8YhoCRQbnFeuyoKihL2
+uaE8xUqyYqHZxitn+XxtCIADRDzB/MjD
+lZi35+GIc8RBgeCfpQtE8NXXw82xFv0F
+QO9qZxit10kz2JOnPbKBW/qjf6StDl4s
+TAh22SwJoxBVZ7W/JpEZ/T+ZEgZxG1ep
++j5kGvMzgVR1w//vYLJ7WbB/AlFpUmX7
+y/XKGPZAsNbrLSkYR/YAKWwULOKDV7cg
+SNJLyMAEZQXSDza6cS7xfjVbgwrGtSdY
+YDqUr9uahgW36Io/MTJeS8wbtTjDn7l9
+VFdKM0BNmS1GQhkiSeT7zrI0O9ERbnE=
+--------------------------------

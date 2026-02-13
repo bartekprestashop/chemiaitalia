@@ -1,0 +1,430 @@
+{% trans_default_domain 'Module.Dpdshipping.Admin.Order' %}
+
+{% form_theme form '@PrestaShop/Admin/TwigTemplateForm/prestashop_ui_kit.html.twig' %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    <input type="hidden" id="dpdShippingOrderProducts" data-products="{{ products | json_encode }}"/>
+    <input type="hidden" id="dpdShippingOrderNumber" data-order-number="{{ order_reference }}"/>
+    <input type="hidden" id="dpdShippingOrderId" data-order-id="{{ order_id }}"/>
+    <input type="hidden" id="dpdShippingDefaultWeight" data-default-weight="{{ default_weight }}"/>
+    <input type="hidden" id="dpdShippingInvoiceNumber" data-invoice-number="{{ invoice_number }}"/>
+    <input type="hidden" id="dpdShippingIsDpdCarrier" data-dpd-carrier="{{ is_dpd_carrier }}"/>
+    <input type="hidden" id="dpdShippingSource"
+           data-content-source="{{ content_source }}"
+           data-content-source-static="{{ content_source_static }}"
+           data-customer-source="{{ customer_source }}"
+           data-customer-source-static="{{ customer_source_static }}"
+    />
+
+    <input type="hidden" id="packageGroupType" value="{{ package_group_type }}"/>
+
+    <div class="card p-0 m-0 border-0">
+        <div class="card-header">
+            <h3>
+                <img class="dpdshipping-logo" src="/modules/dpdshipping/logo.png"
+                     alt="DPD Poland"/> {{ 'DPD Poland generate shipping'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+
+                <a href="#" id="dpdToggleButton" class="float-right"><span class="material-icons">expand_less</span></a>
+                <a href="{{ path('dpdshipping_connection_form') }}"><i class="material-icons float-right">settings</i></a>
+                <a href="{{ path('dpdshipping_shipping_history_form') }}"><i class="material-icons float-right">history</i></a>
+            </h3>
+
+            {% if dpd_carrier %}
+                <span class="dpdshipping-carrier-name">{{ 'Carrier: '|trans({}, 'Modules.Dpdshipping.AdminOrder') }} <b>{{ dpd_carrier.name }}</b></span>
+            {% else %}
+                <span class="dpdshipping-carrier-name">{{ 'Carrier: '|trans({}, 'Modules.Dpdshipping.AdminOrder') }} <b>{{ 'The shipping method is different from DPD Poland, but you can still send it with DPD!'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</b></span>
+            {% endif %}
+
+            {% if payment_method %}
+                <span class="dpdshipping-carrier-name">{{ 'Payment: '|trans({}, 'Modules.Dpdshipping.AdminOrder') }} <b>{{ payment_method }}</b></span>
+            {% endif %}
+
+        </div>
+        <div class="card-body pt-2">
+            {% if successMsg|length %}
+                <div class="alert alert-success">{{ successMsg }}</div>
+            {% elseif errors|length %}
+                <div class="alert alert-danger">
+                    {% for error in errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if form.vars.errors is not empty %}
+                <div class="alert alert-danger">
+                    {% for error in form.vars.errors %}
+                        <p>{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if is_cod_payment and form.service_cod.vars.data == false %}
+                <div class="alert alert-danger">
+                    <p>{{ 'The selected payment method is COD. You should check the COD service!'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</p>
+                </div>
+            {% endif %}
+
+
+            <div class="row dpd-shipping-generate-form">
+                <div class="col-xs-12 col-md-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 mb-1">
+                            <h4>{{ 'Sender address'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h4>
+                            <select id="dpdShippingSenderAddresses" class="form-control mb-2">
+                                {% for item in sender_address_list %}
+                                    <option data-address="{{ item  | json_encode }}">{{ item.company }} {{ item.name }} {{ item.street }} {{ item.postcode }} {{ item.city }} {{ item.country }} {{ item.phone }} {{ item.email }}</option>
+                                {% endfor %}
+                            </select>
+                            {% set sender_address = [
+                                form.sender_address_company,
+                                form.sender_address_name,
+                                form.sender_address_street,
+                                form.sender_address_postcode,
+                                form.sender_address_city,
+                                form.sender_address_country,
+                                form.sender_address_phone,
+                                form.sender_address_email] %}
+                            {% for item in sender_address %}
+                                <div class="form-group">
+                                    {{ form_label(item) }}
+                                    {{ form_widget(item) }}
+                                    {{ form_errors(item) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 border-generate-shipping">
+                            <h4>{{ 'Receiver address'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h4>
+
+                            <select id="dpdShippingReceiverAddresses" class="form-control mb-2">
+                                {% for item in receiver_address_list %}
+                                    <option data-address="{{ item  | json_encode }}">{{ item.company }} {{ item.name }} {{ item.street }} {{ item.postcode }} {{ item.city }} {{ item.country }} {{ item.phone }} {{ item.email }}</option>
+                                {% endfor %}
+                            </select>
+
+                            {% set receiver_address = [
+                                form.receiver_address_company,
+                                form.receiver_address_name,
+                                form.receiver_address_street,
+                                form.receiver_address_postcode,
+                                form.receiver_address_city,
+                                form.receiver_address_country,
+                                form.receiver_address_phone,
+                                form.receiver_address_email] %}
+                            {% for item in receiver_address %}
+                                <div class="form-group">
+                                    {{ form_label(item) }}
+                                    {{ form_widget(item) }}
+                                    {{ form_errors(item) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <h4>{{ 'Payer '|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h4>
+                            {% set payer = [
+                                form.payer_number] %}
+                            {% for item in payer %}
+                                <div class="form-group">
+                                    {{ form_label(item) }}
+                                    {{ form_widget(item) }}
+                                    {{ form_errors(item) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 dpd-shipping-services">
+                    <h4 class="mb-2">{{ 'Services'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h4>
+
+                    <div class="row mr-0">
+                        {% set services = [
+                            form.service_guarantee,
+                            form.service_guarantee_type,
+                            form.service_guarantee_value,
+                            form.service_in_pers,
+                            form.service_priv_pers,
+                            form.service_cod,
+                            form.service_cod_value,
+                            form.service_cod_currency,
+                            form.service_self_con,
+                            form.service_self_con_value,
+                            form.service_dpd_pickup,
+                            form.service_dpd_pickup_value,
+                            form.service_dpd_pickup_map,
+                            form.service_rod,
+                            form.service_dox,
+                            form.service_cud,
+                            form.service_tires,
+                            form.service_declared_value,
+                            form.service_declared_value_value,
+                            form.service_declared_value_currency,
+                            form.service_dpd_express,
+                            form.service_dpd_food,
+                            form.service_dpd_food_value,
+                            form.service_duty,
+                            form.service_duty_value,
+                            form.service_duty_currency,
+                            form.service_adr,
+                            form.service_return_label,
+                            form.service_return_label_address_company,
+                            form.service_return_label_address_name,
+                            form.service_return_label_address_street,
+                            form.service_return_label_address_city,
+                            form.service_return_label_address_postcode,
+                            form.service_return_label_address_country,
+                            form.service_return_label_address_phone,
+                            form.service_return_label_address_email
+                        ] %}
+                        {% for item in services %}
+                            <div class="{{ item.vars.name }} form-group mb-0
+                                        {% if item.vars.attr['data-hidden']|default(false) == true %} hidden {% endif %}
+                                        {% if item.vars.name starts with 'service_return_label_' or
+                                item.vars.name starts with 'service_dpd_food_value' %}  col-12
+                                        {% elseif item.vars.attr['data-attribute']|default(false) == true %}  m-0 pl-3 pt-1 p-0 col-xs-12 col-md-6
+                                        {% elseif
+                                item.vars.name starts with 'service_cod_value'  or
+                                item.vars.name starts with 'service_cod_currency'  or
+                                item.vars.name starts with 'service_duty_value'  or
+                                item.vars.name starts with 'service_duty_currency'  or
+                                item.vars.name starts with 'service_dpd_pickup_value'  or
+                                item.vars.name starts with 'service_dpd_pickup_map' %} m-0 pl-3 pt-1 p-0 col-xs-12 col-md-6
+                                        {% else %} col-12
+                                        {% endif %}">
+                                {{ form_label(item) }}
+                                {{ form_widget(item) }}
+                                {% if item.vars.block_prefixes[0] != 'button' %}
+                                    {{ form_errors(item) }}
+                                {% endif %}
+                            </div>
+                            {% if not item.vars.attr['data-attribute']|default(false) == true or
+                                item.vars.name starts with 'service_cod_value'  or
+                                item.vars.name starts with 'service_cod_currency'  or
+                                item.vars.name starts with 'service_duty_value'  or
+                                item.vars.name starts with 'service_duty_currency'  or
+                                item.vars.name starts with 'service_dpd_pickup_value'  or
+                                item.vars.name starts with 'service_dpd_pickup_map' %}
+                                <div class="clearfix"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col mt-2 mb-2">
+                    <button type="button" class="btn btn-sm btn-secondary" id="dpdShippingSingleShipping">
+                        {{ 'Single  Shipping'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary" id="dpdShippingGroupShipping">
+                        {{ 'Shipping for products group'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary" id="dpdShippingPackageShipping">
+                        {{ 'Shipping for each product'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    </button>
+
+                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#dpdShippingCustomShippingModal" id="dpdShippingCustomShipping">
+                        {{ 'Custom'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    </button>
+                </div>
+
+                <div class="col-12">
+                    <table class="table mb-2" id="packagesTable">
+                        <thead class="bg-light">
+                        <tr>
+                            <th class="col-1">{{ 'Weight [kg]'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="dpdShippingWeightAdr hidden" class="col-1">{{ 'Weight ADR [kg]'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-3">{{ 'Content'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-4">{{ 'Customer Data'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-1">{{ 'Size X [cm]'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-1">{{ 'Size Y [cm]'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-1">{{ 'Size Z [cm]'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                            <th class="col-1"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in form.packages %}
+                            <tr>
+                                <td>{{ form_widget(item.weight, {'attr': {'fieldType': 'weight'}}) }}</td>
+                                <td class="dpdShippingWeightAdr hidden">{{ form_widget(item.weightAdr, {'attr': {'fieldType': 'weightAdr'}}) }}</td>
+                                <td>{{ form_widget(item.content, {'attr': {'fieldType': 'content'}}) }}</td>
+                                <td>{{ form_widget(item.customerData, {'attr': {'fieldType': 'customerData'}}) }}</td>
+                                <td>{{ form_widget(item.sizeX, {'attr': {'fieldType': 'sizeX'}}) }}</td>
+                                <td>{{ form_widget(item.sizeY, {'attr': {'fieldType': 'sizeY'}}) }}</td>
+                                <td>{{ form_widget(item.sizeZ, {'attr': {'fieldType': 'sizeZ'}}) }}</td>
+                                <td><i class="material-icons btn btn-sm text-secondary delete-icon-gray dpdshipping-remove-row">delete</i></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12">
+                    <button type="button" class="btn btn-sm btn-secondary float-right" id="dpdShippingAddRow">
+                        {{ 'Add row'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+                    </button>
+                </div>
+
+                <div class="col-12">
+                    {% set additionalFields = [
+                        form.ref1,
+                        form.ref2] %}
+                    {% for item in additionalFields %}
+                        <div class="form-group additional-fields-generate-shipping">
+                            {{ form_label(item) }}
+                            {{ form_widget(item) }}
+                            {{ form_errors(item) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-white">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary float-right" id="save-button">
+                {{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}
+            </button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    {#  MODAL #}
+    <div class="modal fade" id="dpdShippingCustomShippingModal" tabindex="-1" role="dialog" aria-labelledby="dpdShippingCustomShippingModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dpdShippingCustomShippingModalLabel">{{ 'DPD Poland custom shipping'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-inline">
+                                <div class="form-group mr-3">
+                                    <label for="dpdShippingCustomShippingParcels" class="mr-2">{{ 'Packages'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</label>
+                                    <input type="number" class="form-control" id="dpdShippingCustomShippingParcels" name="dpdShippingCustomShippingParcels" value="1">
+                                </div>
+                                <button id="dpdShippingCalcShippingRows" type="button"
+                                        class="btn btn-secondary">{{ 'Change'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            {% for product in products %}
+                                <table class="table mb-0 pb-0">
+                                    <thead class="bg-light">
+                                    <tr>
+                                        <th class="col-xs-12 col-md-9">{{ 'Product'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                        <th class="col-xs-12 col-md-3">{{ 'Package'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for productRow in range(0, product.product_quantity-1) %}
+                                        <tr>
+                                            <td> {{ productRow+1 }} : {{ product.product_name }}
+                                                <input type="hidden" name="dpdShippingCustomShippingProductName[{{ productRow }}][]" value="{{ product.product_name }}">
+                                                <input type="hidden" name="dpdShippingCustomShippingProductId[{{ productRow }}][]" value="{{ product.product_id }}">
+                                                <input type="hidden" name="dpdShippingCustomShippingProductWeight[{{ productRow }}][]" value="{{ product.product_weight }}">
+                                                <input type="hidden" name="dpdShippingCustomShippingProductReference[{{ productRow }}][]" value="{{ product.product_reference }}">
+                                            </td>
+                                            <td>
+                                                <select class="form-control dpdShippingCustomParcelSelect" name="dpdShippingCustomShippingParcel[{{ productRow }}][]">
+                                                    <option value="">-</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="row hidden" id="dpdShippingParcelSummaryRow">
+                        <div class="col">
+                            <h3 class="mt-3">{{ 'Summary'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</h3>
+                            <table class="table mb-0 pb-0">
+                                <thead class="bg-light">
+                                <tr>
+                                    <th class="col-xs-12 col-md-2">{{ 'Package number'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                    <th class="col-xs-12 col-md-6">{{ 'Content'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                    <th class="col-xs-12 col-md-6">{{ 'Customer data'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                    <th class="col-xs-12 col-md-4">{{ 'Products weight'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="dpdShippingCustomParcelSummaryTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="dpdShippingCustomParcelSave" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{ 'Save'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="dpdshippingPudoModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dpd-xl" role="document">
+            <div class="modal-content modal-dpd-content">
+                <div class="modal-body modal-dpd-body">
+
+                    <script id="dpdshiping-widget-pudo" type="text/javascript">
+                        function dpdShippingPointSelected(pudoCode) {
+                            $('#dpd_shipping_generate_shipping_service_dpd_pickup_value').val(pudoCode);
+                            $('#dpdshippingPudoModal').modal('toggle');
+                            $(".modal-backdrop").hide();
+                        }
+                    </script>
+
+                    <script type="text/javascript">
+                        const dpdshipping_iframe = document.createElement("iframe");
+                        dpdshipping_iframe.setAttribute("id", "dpdshiping-widget-pudo-iframe");
+                        dpdshipping_iframe.setAttribute("allow", "geolocation");
+                        dpdshipping_iframe.src = '//pudofinder.dpd.com.pl/widget?key=1ae3418e27627ab52bebdcc1a958fa04';
+                        dpdshipping_iframe.style.width = "100%";
+                        dpdshipping_iframe.style.border = "none";
+                        dpdshipping_iframe.style.minHeight = "400px";
+                        dpdshipping_iframe.style.height = "700px";
+
+                        const dpdshipping_script = document.getElementById("dpdshiping-widget-pudo");
+                        if (dpdshipping_script)
+                            dpdshipping_script.parentNode.insertBefore(dpdshipping_iframe, dpdshipping_script);
+
+                        const dpdshipping_eventListener = window[window.addEventListener ? "addEventListener" : "attachEvent"];
+                        const dpdshipping_messageEvent = ("attachEvent" === dpdshipping_eventListener) ? "onmessage" : "message";
+                        dpdshipping_eventListener(dpdshipping_messageEvent, function (a) {
+                            if (a.data.height && !isNaN(a.data.height)) {
+                                dpdshipping_iframe.style.height = a.data.height + "px"
+                            } else if (a.data.point_id)
+                                dpdShippingPointSelected(a.data.point_id);
+                        }, !1);
+
+                    </script>
+                </div>
+                <div class="modal-footer modal-dpd-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'Close'|trans({}, 'Modules.Dpdshipping.AdminOrder') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/order-details.css?teaa') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('../modules/dpdshipping/views/js/order-details.js?taaaa') }}"></script>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+Changelog
+
+v1.2.0 - 22.11.2024
+- Hide generate shipping form if carrier is not DPD
+
+v1.1.5 - 24.09.2024
+ - Set default package weight when product weight is <= 0
+
+v1.1.4 - 30.07.2024
+ - Show courier pickup option for one time range

@@ -1,0 +1,1343 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Pos Greenfarm</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/images/favicon.ico.png" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.malihu.PageScroll2id.min.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/backtotop.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		
+		
+		$('#documenter_sidebar #documenter_nav li a').on('click', function(){
+			if($(this).hasClass('open_menu')) {
+				$(this).parent().siblings().find('a').removeClass( 'open_menu' );   
+				$(this).removeClass( 'open_menu' );  
+				$(this).next('#documenter_sidebar #documenter_nav ul').slideUp();
+				$(this).parent().siblings().find('ul').slideUp();
+			}
+			else {	
+				$(this).parent().siblings().find('a').removeClass( 'open_menu' );  
+				$(this).parent().siblings().find('ul').slideUp();
+				$(this).addClass( 'open_menu' );   
+				$(this).next('#documenter_sidebar #documenter_nav ul').slideDown();
+		
+			}
+			
+		});
+		(function(){
+			$(window).ready(function () {
+				
+				/ Page Scroll to id fn call /
+				$("#documenter_nav li a ").mPageScroll2id({
+					highlightSelector:"#documenter_nav li a ",
+					//offset:100,
+				});
+			});
+		})(jQuery); 
+	});
+	</script>
+	<style>
+		html{background-color:#EEEEEE;color:#383838;}
+		::-moz-selection{background:#333636;color:#c97178;}
+		::selection{background:#333636;color:#c97178;}
+		a{color:#c97178;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #c97178, #006673);
+			  background-image: -ms-linear-gradient(top, #c97178, #006673);
+			  background-image: -webkit-gradient(linear, 0 0, 0 #fe5b5a, from(#EEE), to(#006673));
+			  background-image: -webkit-linear-gradient(top, #c97178, #006673);
+			  background-image: -o-linear-gradient(top, #c97178, #006673);
+			  background-image: linear-gradient(to top, #c97178, #006673);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c97178', endColorstr='#006673', GradientType=0);
+			  border-color: #006673 #006673 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #c97178 #c97178 #bfbfbf;
+		  background-color: #006673;
+		}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#EEE;color:#333;}
+		#documenter_sidebar ul{border-top:1px solid #CFCFCF;}
+		#documenter_sidebar ul a{border-top:1px solid #CFCFCF;}
+		#documenter_sidebar ul a:hover{color:#c97178;}
+		#documenter_sidebar ul a.open_menu,#documenter_sidebar ul a.mPS2id-highlight{color:#c97178;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project">
+	<div class="container-fluid clearfix">
+		<div id="documenter_sidebar">
+			<a href="http://posthemes.com/" id="documenter_logo">
+				<img class="img-responsive" style="margin: 0 auto;" src="assets/images/logo.jpg" alt="logo"/>
+			</a>
+			<ul id="documenter_nav">
+				<li><a href="#documenter_cover">Start</a></li>
+				<li><a href="#install" title="Installation">Installation Guide<b class="caret"></b></a>
+					<ul class='menu-1'>
+						<li class='sub-1'><a href='#install_theme'>Install</a></li>
+						<li class='sub-1'><a href='#install_quickstart'>Install Quickstart</a></li>
+						<li class='sub-1'><a href='#install_template'>Install Theme</a></li>
+					</ul>
+				</li>
+				<li><a href="#features" title=" Features"> PrestaShop’s Features</a></li>
+				<li><a href="#layout" title="Layout">Modules names and Static Blocks on front-end<b class="caret"></b></a>
+					<ul class='menu-1'>
+						<li class='sub-1'><a href='#home1'>Layout1</a></li>
+						<li class='sub-1'><a href='#home2'>Layout2</a></li>
+						<li class='sub-1'><a href='#home3'>Layout3</a></li>
+						<li class='sub-1'><a href='#home4'>Layout4</a></li>
+					</ul>
+				</li>
+				<li><a href="#upload_logo" title="Logo">Upload your store logo and icon</a></li>
+				<li><a href="#contact_information" title="information">How to edit contact information on header</a></li>
+				<li><a href="#static" title="Static">Static Blocks and Static Footer<b class="caret"></b></a>
+					<ul class='menu-1'>
+						<li class='sub-1'><a href='#block'>Static Block</a></li>
+						<li class='sub-1'><a href='#footer'>Static Footer</a></li>
+					</ul>
+				</li>
+				<li><a href="#module" title="Module">Module Config<b class="caret"></b></a>
+					<ul class='menu-1'>
+						<li class='sub-1'><a href='#config'>Configure Module</a></li>
+						<li class='sub-1'><a href='#megamenu'>Megamenu Customer</a></li>
+						<li class='sub-1'><a href='#vermegamenu'>Vertical Megamenu</a></li>
+						<li class='sub-1'><a href='#slideshow'>Pos Slideshow Slider</a></li>
+						<li class='sub-1'><a href='#list_category'>Pos list categories</a></li>
+						<li class='sub-1'><a href='#product_tabs'>Product Tabs Slider</a></li>
+						<li class='sub-1'><a href='#special_products'>Pos Special Products module</a></li>
+						<li class='sub-1'><a href='#countdown_timer'>Pos Countdown time price</a></li>
+						<li class='sub-1'><a href='#topsellers'>Pos Bestseller products</a></li>
+						<li class='sub-1'><a href='#list_category_product'>Pos list category products</a></li>
+						<li class='sub-1'><a href='#recommended'>Pos recommended products</a></li>
+						<li class='sub-1'><a href='#brand_logo'>Pos Logo</a></li>
+						<li class='sub-1'><a href='#other'>Other modules</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#translate" title="Translate">Translate Greenfarm theme<b class="caret"></b></a>
+					<ul class='menu-1'>
+						<li class='sub-1'><a href='#install_module'>Modules</a></li>
+						<li class='sub-1'><a href='#static_content'>Staticblock content</a></li>
+						<li class='sub-1'><a href='#slideshow_slider'>Pos Slideshow Slider</a></li>
+					</ul>
+				</li>
+
+				<li><a href="#support" title="Module">Plazathemes Support</a></li>
+			</ul>
+			<div id="documenter_copyright">Copyright ©<a href="http://www.plazathemes.com/">Plazathemes</a>.<br>All rights reserved.
+			</div>
+		</div>
+		<div id="documenter_content">
+		<!-- Start -->
+		<section id="documenter_cover">
+		<h1>Pos Greenfarm Responsive Prestashop Theme 1.7</h1>
+		<hr>
+		<p><i>Pos Greenfarm is a <a href="http://posthemes.com/"><b> Organic Responsive Prestashop theme</b></a> with advanced admin modules, extremely customizable and fully responsive. It is suitable for every type of store. It is a standalone design package so you can easily create your own sub-themes.</i></p>
+		<br>
+		<p>And here you can find out more about theme updates, new features and about our upcoming themes:</p>
+		<p>-	Follow us on <a href="https://www.facebook.com/posthemes"><b> Facebook </b></a></p>
+		<p>- 	Follow us on <a href="https://twitter.com/posthemes"><b> Twitter </b></a></p>
+		<p>-	Follow us on <a href="http://www.plazathemes.com/"><b> Plazathemes </b></a></p>
+		<br>
+		<p><i><b>PlazaThemes,</b></i></p>
+		</section>
+		<!-- End Start -->
+		
+		<!-- Installation --> 
+		<section id="install">
+		<div class="page-header"><h2>Installation</h2></div>
+			<ul>
+				<li><p>Before you get started, make sure you have all the requirements available: Server space at a Hosting Provider, Domain Name, FTP client, Text Editor.<p>
+					<ul>
+						<li><strong>System</strong>: Unix, Linux or Windows. Unix is highly recommended.</li>
+						<li><strong>Web server</strong>:  Apache Web server 2.0 or later.</li>
+						<li><strong>PHP</strong> 5.4 or later.</li>
+						<li><strong>MySQL</strong> 5.0 or later.</li>
+						<li>At least <strong>128 Mb</strong> of RAM on your server.</li>
+					</ul>
+				</li>
+				<li><p>To install this theme you must have a working version of Prestashop already installed. For information in regard to installing the Prestashop platform, please see the Prestashop Wiki : <a rel="nofollow" href="http://doc.prestashop.com/display/PS17/Getting+started">http://doc.prestashop.com/display/PS17/Getting+started</a></p></li>
+				<li><p>After Prestashop is installed, you must delete “<b>install</b>” folder in your Prestashop.</p></li>
+			</ul>
+		</section>
+		
+			<!-- Install theme -->
+		<section id="install_theme">
+		<div class="page-header"><h3>Install</h3></div>
+				<p>For each package, you will have: quickstart package, theme package, PSD. There are two ways to install a <strong>Prestashop Theme</strong>: </p>
+			<ul> 
+				<li> <p> <strong>Install Quickstart Package</strong>: By using the quickstart package, you will set the theme exactly as our Demo with sample data.  </p></li> 
+				<li> <p> <strong>Install Theme </strong>: If you have available shop, you can install only theme.</p></li> 
+			</ul>	
+		<br>
+		<h4><u><strong>Enabling Static Block and Static Footer with other language</strong></u></h4>
+		<p>In your theme, if there are 3 languages or more,  please enabling static block by below guide:</p>
+		<ul>
+			<li>Login your prestashop admin</li>
+			<li>Navigate to <strong>International </strong> > <strong>Localization </strong>.</li>
+			<li class="img-in"><img src="assets/images/translate.jpg" alt="" />
+			<li>Choose tab <strong>Languages</strong>.</li>
+			<li class="img-in"><img src="assets/images/translate1.jpg" alt="" />
+			<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong>
+			<li>Choose “<strong>Modules</strong>” tab 
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Pos Staticblock </strong> or <strong>Pos Static Footer </strong> module, click "<strong>Configure</strong>" button. </li>
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click "<strong>Edit</strong>" button of your selected block</li>
+			<li>Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /> to show code HTML of this block in <strong>English</strong>. Then copy source code.
+			<li class="img-in"><img src="assets/images/translate2.jpg" alt="" />
+			<li>Click <img src="assets/images/lang.jpg" alt="" /> to choose language you want to translate. Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /></li>
+			<li class="img-in"><img src="assets/images/translate3.jpg" alt="" />
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		</section>
+			<!-- End Install theme --> 
+		
+			<!-- Install quickstart -->
+		<section id="install_quickstart">
+		<div class="page-header"><h3>Install Quickstart</h3></div> 
+			<p>You install new website with database sample. After you install your website like our demo.</p>
+			<p>Each theme we update has its quickstart, here, we guide quickstart installation in general.</p>
+			<ol>
+				<li><p> Create new database:</p>
+					<ul> 
+						<li><p> Open your Browser and type : <strong>localhost/phpmyadmin</strong> or <strong>yourdomain/phpmyadmin</strong></p>
+						</li>
+						<li> 
+							<p> Then create database</p>
+							<p> <img src="assets/images/create_database.jpg"  alt="create database" /> </p>
+						</li>
+						<li> 
+							<p> Click database you have just created </p> 
+							<p> <img src="assets/images/import_database.jpg"  alt="import database" /> </p>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<p>After import database, click that database and edit table <strong>ps_shop_url</strong> </p>
+					<p> <img src="assets/images/edit_database.jpg"  alt="edit database" /> </p>
+				</li>
+				<li>
+					<p>Change <strong>domain, domain_ssl, physical_uri</strong> based on your data.</p>
+					<p> <img src="assets/images/edit_database2.jpg"  alt="edit database" /> </p>
+				</li>
+				<li>
+					<p>Connect to file config <strong>\app\config\parameters.php</strong>, change <strong>database_host, database_name, database_user, database_password</strong>:</p>
+					<p> <img src="assets/images/change_config.jpg"  alt="change file config" /> </p>
+				</li>
+				<li>
+					<p>Generate file <strong>.htaccess</strong></p>
+					<ul> 
+						<li>
+							<p>Login your prestashop admin <strong>http://[<i>Pretashop host or IP</i>]/[<i>path to Prestashop</i>]/admin034ffwpo2</strong></p>
+							<p>- Username: <strong>demo@posthemes.com</strong></p>
+							<p>- Pass: <strong>admin123</strong></p>
+						</li>
+						<li>
+							<p>Navigate to <strong>Shop Parameters</strong> > <strong>Traffic & SEO</strong>, at tab <strong>SEO & URLs</strong>, set up URLS and click "<strong>Save</strong>"</p>
+							<p> <img src="assets/images/generate.jpg"  alt="generate file" /> </p>
+						</li>
+						<li> 
+							<p><strong>Note:</strong></p> 
+							<p>- If you use localhost you shoud generate file .htaccess</p>
+							<p>- If you use normal hosting, you have to set permission 666 before you generate file .htaccess</p>
+						</li>
+					</ul>
+				</li>
+				<li>Finish installer.</li>
+			</ol>
+		</section>
+			<!-- End Install quickstart -->
+		
+			<!-- Install theme -->
+		<section id="install_template">
+		<div class="page-header"><h3>Install Theme</h3></div>
+				<p>You must install default prestashop before. You can see instruction install default prestashop on Prestashop Wiki: <a href="http://doc.prestashop.com/display/PS17/Installing+PrestaShop">http://doc.prestashop.com/display/PS17/Installing+PrestaShop</a></p>
+				<ul>
+					<li>To install this theme automatically do the following the <a href="https://www.youtube.com/watch?v=LuI-ynLYlGY"><b>video</b></a>:</li>
+					<li class="img-in"><embed allowscriptaccess="never" src="http://www.youtube.com/v/LuI-ynLYlGY" type="application/x-shockwave-flash" height="480" width="853"></li>
+					<li>Config show left or right column in each page</li>
+					<li class="img-in"><ul>
+						<li class="img-in">1. Navigate to <strong>Advanced Parametters</strong> > <strong>Performance</strong></li>
+						<li class="img-in"><img src="assets/images/advanced_parameters.jpg" alt="" /></li>
+						<li class="img-in">2. Click "<strong>Clear cache</strong>"</li>
+						<li class="img-in"><img src="assets/images/clear_cache.jpg" alt="" /></li>
+						<li class="img-in">3. Navigate to <strong>Design</strong> > <strong>Theme & Logo</strong></li>
+						<li class="img-in"><img src="assets/images/design_theme.jpg" alt="" /></li>
+						<li class="img-in">4. Choose <strong>Choose layout</strong></li>
+							<li><i>Config Pos Greenfarm Layout1</i></li>
+							<li class="img-in"><img src="assets/images/config1.jpg" alt="" /></li>
+							<li><i>Config Pos Greenfarm Layout2</i></li>
+							<li class="img-in"><img src="assets/images/config2.jpg" alt="" /></li>
+							<li><i>Config Pos Greenfarm Layout3</i></li>
+							<li class="img-in"><img src="assets/images/config3.jpg" alt="" /></li>
+							<li><i>Config Pos Greenfarm Layout4</i></li>
+							<li class="img-in"><img src="assets/images/config4.jpg" alt="" /></li>
+							
+					</ul></li>
+					<li>Finish installer.</li>
+				</ul>
+			<br>
+			<h4><u><strong>How to add new language</strong></u></h4>
+			<p>When working with different languages in PrestaShop, you should add new language by <a rel="nofollow" href="http://doc.prestashop.com/display/PS17/Languages"><b>this guide</b></a></p>
+			<br>
+			<h4><u><strong>Create or edit size image and Regenerate thumbnails</strong></u></h4>
+			<ol>
+				<li>Navigate to <strong>Design</strong> > <strong>Images Settings</strong>
+				<ul><li class="img-in"><img src="assets/images/design_images.jpg" alt="" /></li></ul></li>
+				<li>Create or edit size image
+				<ul><li class="img-in"><img src="assets/images/edit_images.jpg" alt="" /></li></ul></li>
+				<li>Choose <strong>Regenerate thumbnails</strong> button
+				<ul><li class="img-in"><img src="assets/images/regenerate1.jpg" alt="" /></li>
+				<li class="img-in"><img src="assets/images/regenerate2.jpg" alt="" /></li></ul></li>
+				<li>After that, we got:
+				<ul><li class="img-in"><img src="assets/images/regenerate3.jpg" alt="" /></li></ul></li>
+			</ol>
+			<br>
+		</section>
+			<!-- End Install theme -->
+		<!-- End Installation -->
+		
+		
+		<!--  PrestaShop’s features -->
+		<section id="features">
+		<div class="page-header"><h2>PrestaShop’s Features</h2></div>
+			<p>User will also be able to efficiently manage your PrestaShop site without related the programming skill. You work in the front-office interface directly (in the <strong>Administration Area</strong>), which can be helpful to everyone, special for shop owners. To find more informations, please read on <i><a rel="nofollow" href="http://doc.prestashop.com/display/PS17/User+Guide">http://doc.prestashop.com/display/PS17/User+Guide</a></i></p>
+			<p><strong>Note</strong>: When you finish install theme, you should disable cache. This step will help your Prestashop site active normally.</p>
+			<ul>
+				<li><strong>Advanced Parameters</strong> > <strong>Performance</strong></li>
+				<li>At field <strong>Cache</strong>, choose <strong>No</strong></li>
+				<li class="img-in"><img src="assets/images/disable_cache.jpg" alt="" /></li>
+				<li>Click <strong>Save</strong> button</li>
+			</ul>
+		</section>
+		<!-- End  PrestaShop’s features -->
+		<!-- Layout -->
+		<section id="layout">
+		<div class="page-header"><h2>Modules names and Static Blocks on front-end</h2></div>
+		</section>
+		<p><strong><u>Note</u></strong><p>
+		<ul>
+			<li> <span class=name-block><strong>BLACK</strong></span> texts: name of blocks.</li>
+			<li> <span class=name-modules><strong>RED</strong></span> texts: name of modules.</li>
+		</ul>
+		<section id="home1" class=nonstop><h3>#Greenfarm Layout1</h3></section>
+		<h4>List of Modules</h4>
+		<ul>
+			<li><a href="#megamenu">Megamenu custommer</a></li>
+			<li><a href="#slideshow">Pos Slideshow Slider</a></li>
+			<li><a href="#list_category">Pos list categories</a></li>
+			<li><a href="#product_tabs">Product Tabs Slider</a></li>
+			<li><a href="#special_products">Pos Special Products module</a></li>
+			<li><a href="#countdown_timer">Pos Countdown time price</a></li>
+			<li><a href="#topsellers">Pos Bestseller products</a></li>
+			<li><a href="#brand_logo">Pos Logo</a></li>
+			<li><a href="#recommended">Pos recommended products</a></li>
+		</ul>
+		<h4>List of Staticblocks: </h4>
+		<ul>
+			<li>Banner Top</li>
+			<li>Banner Home</li>
+		</ul>
+		<h4>List of Static Footer: </h4>
+		<ul>
+			<li>Contact us</li>
+			<li>Links Footer</li>
+			<li>Copyright Block</li>
+		</ul>
+		<p><strong>Home page</strong></p>
+		<img src="assets/images/home1.jpg" alt="" />
+		<p><strong>Category page</strong></p>
+		<img src="assets/images/category1.jpg" alt="" />
+		<p><strong>Details page</strong></p>
+		<img src="assets/images/details1.jpg" alt="" />
+		<hr>
+		<section id="home2" class=nonstop><h3>#Greenfarm Layout2</h3></section>
+		<h4>List of Modules</h4>
+		<ul>
+			<li><a href="#megamenu">Megamenu custommer</a></li>
+			<li><a href="#vermegamenu">Vertical Megamenu</a></li>
+			<li><a href="#slideshow">Pos Slideshow Slider</a></li>
+			<li><a href="#list_category">Pos list categories</a></li>
+			<li><a href="#product_tabs">Product Tabs Slider</a></li>
+			<li><a href="#special_products">Pos Special Products module</a></li>
+			<li><a href="#countdown_timer">Pos Countdown time price</a></li>
+			<li><a href="#topsellers">Pos Bestseller products</a></li>
+			<li><a href="#brand_logo">Pos Logo</a></li>
+			<li><a href="#recommended">Pos recommended products</a></li>
+		</ul>
+		<h4>List of Staticblocks: </h4>
+		<ul>
+			<li>Banner Top</li>
+			<li>Banner Home</li>
+			<li>Banner Center</li>
+		</ul>
+		<h4>List of Static Footer: </h4>
+		<ul>
+			<li>Contact us</li>
+			<li>Links Footer</li>
+			<li>Copyright Block</li>
+		</ul>
+		<p><strong>Home page</strong></p>
+		<img src="assets/images/home2.jpg" alt="" />
+		<p><strong>Category page</strong></p>
+		<img src="assets/images/category2.jpg" alt="" />
+		<p><strong>Details page</strong></p>
+		<img src="assets/images/details2.jpg" alt="" />
+		<hr>
+		<section id="home3"><h3>#Greenfarm Layout3</h3></section>
+		<h4>List of Modules</h4>
+		<ul>
+			<li><a href="#megamenu">Megamenu custommer</a></li>
+			<li><a href="#vermegamenu">Vertical Megamenu</a></li>
+			<li><a href="#slideshow">Pos Slideshow Slider</a></li>
+			<li><a href="#product_tabs">Product Tabs Slider</a></li>
+			<li><a href="#special_products">Pos Special Products module</a></li>
+			<li><a href="#countdown_timer">Pos Countdown time price</a></li>
+			<li><a href="#topsellers">Pos Bestseller products</a></li>
+			<li><a href="#brand_logo">Pos Logo</a></li>
+			<li><a href="#recommended">Pos recommended products</a></li>
+		</ul>
+		<h4>List of Staticblocks: </h4>
+		<ul>
+			<li>Banner Top</li>
+			<li>Banner Home</li>
+			<li>Banner Center</li>
+			<li>Banner Right</li>
+		</ul>
+		<h4>List of Static Footer: </h4>
+		<ul>
+			<li>Contact us</li>
+			<li>Links Footer</li>
+			<li>Copyright Block</li>
+		</ul>
+		<p><strong>Home page</strong></p>
+		<img src="assets/images/home3.jpg" alt="" />
+		<p><strong>Category page</strong></p>
+		<img src="assets/images/category3.jpg" alt="" />
+		<p><strong>Details page</strong></p>
+		<img src="assets/images/details3.jpg" alt="" />
+		<hr>
+		<section id="home4" class=nonstop><h3>#Greenfarm Layout4</h3></section>
+		<h4>List of Modules</h4>
+		<ul>
+			<li><a href="#megamenu">Megamenu custommer</a></li>
+			<li><a href="#vermegamenu">Vertical Megamenu</a></li>
+			<li><a href="#slideshow">Pos Slideshow Slider</a></li>
+			<li><a href="#product_tabs">Product Tabs Slider</a></li>
+			<li><a href="#list_category_product">Pos list category products</a></li>
+			<li><a href="#topsellers">Pos Bestseller products</a></li>
+			<li><a href="#brand_logo">Pos Logo</a></li>
+			<li><a href="#recommended">Pos recommended products</a></li>
+		</ul>
+		<h4>List of Staticblocks: </h4>
+		<ul>
+			<li>Banner Top</li>
+			<li>Banner Center</li>
+			<li>Banner Right</li>
+		</ul>
+		<h4>List of Static Footer: </h4>
+		<ul>
+			<li>Contact us</li>
+			<li>Links Footer</li>
+			<li>Copyright Block</li>
+		</ul>
+		<p><strong>Home page</strong></p>
+		<img src="assets/images/home4.jpg" alt="" />
+		<p><strong>Category page</strong></p>
+		<img src="assets/images/category4.jpg" alt="" />
+		<p><strong>Details page</strong></p>
+		<img src="assets/images/details4.jpg" alt="" />
+		<hr>
+		
+		<!-- End Layout -->
+		
+		<!-- Upload your store logo and icon -->
+		<section id="upload_logo">
+		<div class="page-header"><h2>Upload your store logo and icon</h2></div>
+		<ol>
+			<li>Login your prestashop admin</li>
+			<li>
+				<p>Go to <strong>Design</strong> > <strong>Theme & Logo</strong></p>
+				<p><img src="assets/images/upload_logo.jpg" alt="" /></p>
+			</li>
+			<li>Upload <i>Header logo, Mail logo, Invoice logo or Favicon</i> then click "Save"</li>
+		</ol>
+		</section>
+		<!-- End Upload your store logo and icon -->
+		
+		<!-- How to contact information on header -->
+		<section id="contact_information">
+		<div class="page-header"><h2>How to edit contact information on header</h2></div>
+		<p><img src="assets/images/ex_info.jpg" alt="" /></p>
+			<ul>
+				<li>Login your prestashop admin</li>
+				<li>Navigate to <strong>Shop Parameters</strong> > <strong>Contact</strong></li>
+				<li class="img-in"><img src="assets/images/parameters_contact.jpg" alt="" />
+				<li>Choose tab <strong>Stores</strong>. At <strong>CONTACT DETAILS</strong> section, edit contact information of your store</li>
+				<li class="img-in"><img src="assets/images/edit_info.jpg" alt="" />
+				<li>Click “<strong>Save</strong>” button to save changes</li>
+			</ul>
+		</section>
+		<!-- End How to contact information on header -->
+		
+		<!-- Static Block & Static Footer -->
+		<section id="static">
+		<div class="page-header"><h2>Static Blocks and Static Footer</h2></div>
+		</section>
+			<!-- Static Block-->
+		<section id="block"><h3>Static Block</h3>
+		<ol>
+			<li>How to add Static Block
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab 
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Staticblock </strong>, click "<strong>Configure</strong>" button. </li>
+					<li>Choose <strong>Add New</strong> button <img src="assets/images/add.jpg" alt="" /> to add new static block</li>
+					<li class="img-in"><img src="assets/images/add_static_block.jpg" alt="" /></li>
+					<li>Enter the value of parameters and click "<strong>Save</strong>" button when you finish.</li>
+				</ul>
+			</li>
+			<li>How to edit Static Block
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong>
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab 
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Staticblock </strong>, click "<strong>Configure</strong>" button. </li>
+					<li>Choose <strong>Static Block</strong> you want to edit</li>
+					<li>Change the value of parameters. <i>If you want to change content, please click <strong>Source Code</strong> button <img src="assets/images/source_code.jpg" alt="" /> to show code HTML of this block. You can change the content by editing HTML</i>.</li>
+					<li>Click “<strong>Save</strong>” button to save changes</li>
+				</ul>
+			</li>
+		</ol>
+		</section>
+			<!-- End Static Block-->
+			
+			<!-- Static Footer -->
+		<section id="footer"><h3>Static Footer</h3>
+		<ol>
+			<li>How to add Static Footer
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong>
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab 
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Static Footer  </strong>, click "<strong>Configure</strong>" button. </li>
+					<li>Choose <strong>Add New</strong> button <img src="assets/images/add.jpg" alt="" /> to add new static footer</li>
+					<li class="img-in"><img src="assets/images/add_static_footer.jpg" alt="" /></li>
+					<li>Enter the value of parameters and click "<strong>Save</strong>" button when you finish.</li>
+				</ul>
+			</li>
+			<li>How to edit Static Footer
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong>
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab 
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Static Footer  </strong>, click "<strong>Configure</strong>" button. </li>
+					<li>Choose <strong>Static Footer</strong> you want to edit</li>
+					<li>Change the value of parameters. <i>If you want to change content, please click <strong>Source Code</strong> button <img src="assets/images/source_code.jpg" alt="" /> to show code HTML of this block. You can change the content by editing HTML</i>.</li>
+					<li>Click “<strong>Save</strong>” button to save changes</li>
+				</ul>
+			</li>
+		</ol>
+		</section>
+			<!-- End Static Footer -->
+		<!-- End Static Block & Static Footer -->
+		
+		<!-- Pos Greenfarm's Modules -->
+		<section id="module">
+		<div class="page-header"><h2>Module Config</h2></div>	
+		<p><strong>Name and position of the modules are shown in <a href="#layout">here</a>.</strong></p>
+			<!-- Configure Module-->
+		</section>
+		<section id="config"><h3>Configure Module</h3>
+			<ol>
+				<li>Login your Prestashop admin</li>
+				<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+				<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+				<li>Choose “<strong>Modules</strong>” tab 
+				<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+				<li>On selected module, click "<strong>Configure</strong>" button. 
+				<ul><li class="img-in"><img src="assets/images/config_module.jpg" alt="" /></li></ul>
+				<p>You will get a form with parameters of the module. Let's change the specified parameter with one suitable for your theme.</p></li>
+				<li>Click “<strong>Update</strong>” button to save config.</li>
+			</ol>
+		</section>
+		<!-- End Greenfarm's Module -->
+		
+		<!-- Megamenu Customer-->
+		<section id="megamenu"><h3>Megamenu Customer</h3>
+		<!-- Create new menu item -->
+		<h4>A. Create new menu item</h4>
+		<h5>1. <span>General Setting</span></h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU SETTINGS</strong>
+			<li class="img-in"> <img src="assets/images/general_setting.jpg"  alt="general setting" />
+			<p>We got:</p>				
+				<ul>
+					<li><strong>Background type</strong>: Select background type
+						<p>- <strong>None</strong>: Don't use background type</p>
+						<p>- <strong>Color</strong><p>
+							<ul>
+							<li><strong>Background color</strong>: Set color for background</li>
+							</ul>
+						<p>- <strong>Image</strong></p>
+							<ul>
+							<li><strong>Image source</strong>: Upload image background from computer</li>
+							<li><strong>Background repeat</strong>: Background image can be repeated along the horizontal and vertical axes, or not repeated at all</li>
+							</ul>
+					</li>
+					<li><strong>Sticky menu</strong>: Select <i>Yes</i> to enable Sticky menu</li>
+					<li><strong>Center main menu</strong>: Select <i>Yes</i> to center align the Main Menu </li>
+					<li><strong>Submenu animation</strong>: Select animations for dropown menu items</li>
+					<li><strong>Custom CSS</strong>: Add custom CSS for menu item</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>2. How to build a simple menu item?</h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Add new item</strong> <img src="assets/images/add_new_menu.jpg"  alt="add new menu" /> then add the info for the menu item.
+			<li class="img-in"> <img src="assets/images/add_new_menu2.jpg"  alt="add new menu" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Title</strong>: Add menu title (<i>>>> If use Prestashop link and want to use Prestashop title, leave it empty.</i>)</li>
+					<li><strong>Type Link</strong>: Select menu item type (<i>PrestaShop Link / Custom Link / None</i>)
+						<p>- <strong>PrestaShop Link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</p>
+						<p>- <strong>Custom Link</strong>: Enter internal or external link</p>
+					</li>
+					<li><strong>Sub Title</strong>: Enter sub title</li>
+					<li><strong>Use icon</strong>: Choose icon image
+						<p>- <strong>No</strong>: Don't use icon</p>
+						<p>- <strong>Font-Awesome Icon</strong>: Use font-awesome icon (<i>ex: <code><span>&lt;i class="</span>fab fa-angellist<span>"&gt;&lt;/i&gt;</span></code></i>)</p>
+						<p>- <strong>Image Icon</strong>: Click <strong>Select image ></strong> to upload icon from computer</p>
+					</li>
+					<li><strong>Main link style</strong>: Config CSS for menu item (<i>ex: color, color hover, background color...</i>)</li>
+					<li><strong>Subtitle style</strong>: Config CSS for sub title (<i>ex: color, background color, font size...</i>)</li>
+					<li><strong>Submenu type</strong>: There are 3 types of submenus: Mega, Flyout and None (<i>Flyout only is available when you select category in Type Link</i>)</li>
+					<li><strong>Add specific class</strong>: Class to style the menu item</li>
+					<li><strong>New window</strong>: Choose <strong>Yes/No</strong> to open new window/tab or not by clicking</li>
+					<li><strong>Active</strong>: Choose <strong>Yes</strong> pulish the menu item</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>3. How to build columns in Sub-menus?</h5>
+		<p><i>In here, you can set the width of the sub-megamenu, add column, and add class that style for it. To use this setting, select the menu item as <strong>Mega</strong> type in <strong>Submenu type</strong> field.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Build SubMenu</strong> <img src="assets/images/build_sub.jpg"  alt="build submenu" /> then add the info for the menu item.
+			<li class="img-in"> <img src="assets/images/build_sub2.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/build_sub3.jpg"  alt="build submenu" />
+			<li>Click on <strong>Add a row</strong> and then click <strong>Save</strong> to create new row</li>
+			<li class="img-in"> <img src="assets/images/build_sub4.jpg"  alt="build submenu" />
+			<li>Click on <strong>Add Column</strong> to add column for this row
+			<li class="img-in"> <img src="assets/images/build_sub5.jpg"  alt="build submenu" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Width</strong>: Configure column-width. The maximum of columns is 12 based on the bootstrap columns format.</li>
+					<li><strong>Column title</strong>: Enter title of column (<i>>>> If use Prestashop link and want to use Prestashop title, leave it empty.</i>)</li>
+					<li><strong>Type Link</strong>: Select type for column title(<i>PrestaShop Link / Custom Link / None</i>)
+						<p>- <strong>PrestaShop Link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</p>
+						<p>- <strong>Custom Link</strong>: Enter internal or external link</p>
+					</li>
+					<li><strong>Specific class</strong>: Class to style the column title</li>
+					<li><strong>Active in mobile</strong>: Choose <strong>Yes</strong> pulish in the mobile</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+			<li class="img-in"><img src="assets/images/build_sub6.jpg" alt="" />
+			<li>After that, you need configure submenu item
+			<li class="img-in"><img src="assets/images/build_sub7.jpg" alt="" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Type item</strong>: Select submenu item type (<i>Category tree, Prestashop Link, Custom Link, Product, Banner image, HTML block, Manufacturer logo</i>)
+						<p>- <strong>Category tree</strong></p>
+						<ul>
+							<li><strong>Select a category</strong>: Select category</li>
+						</ul>
+						<p>- <strong>Prestashop Link</strong></p>
+						<ul>
+							<li><strong>Prestashop link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</li>
+						</ul>
+						<p>- <strong>Custom Link</strong></p>
+						<ul>
+							<li><strong>Title</strong>: Enter custom block title</li>
+							<li><strong>URL</strong>: Enter internal or external link</li>
+						</ul>
+						<p>- <strong>Product</strong></p>
+						<ul>
+							<li><strong>Product</strong>: Choose product</li>
+						</ul>
+						<p>- <strong>Banner image</strong></p>
+						<ul>
+							<li>+ <strong>Image source</strong>: Upload banner image from computer</li>
+							<li>+ <strong>Image link</strong>: Enter internal or external link for banner image</li>
+						</ul>
+						<p>- <strong>HTML block</strong></p>
+						<ul>
+							<li><strong>HTML content</strong>: Enter the HTML to define the column</li>
+						</ul>
+						<p>- <strong>Manufacturer logo</strong>
+						</p>
+						<ul>
+							<li><strong>Select manufacturer</strong>: Select manufacturer logo from list</li>
+						</ul>
+					</li>
+					<li><strong>Active in mobile</strong>: Choose <strong>Yes</strong> pulish in the mobile</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- End Create new menu item -->
+		
+		<!-- Configure Megamenu -->
+		<h4>B. Configure Megamenu</h4>
+		<h5>1. General Configuration</h5>
+		<p><i>This allows you to to config selected elements as general configuration for the MegaMenu.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU SETTINGS</strong>
+			<li class="img-in"> <img src="assets/images/general_setting.jpg"  alt="general setting" />
+			<p>=> Configure parameters as you want</p></li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>2. Config menu item</h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU LIST</strong>, click <strong>Edit</strong> on selected menu item
+			<li class="img-in"> <img src="assets/images/edit_menu.jpg"  alt="edit menu" />
+			<li class="img-in"> <img src="assets/images/edit_menu2.jpg"  alt="edit menu" />
+			<p>=> Configure parameters as you want</p></li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<p><i><strong><u>Note:</u></strong> In part <strong>Menu List</strong>, using drag / drop function to move menu item into another position.</i></p>
+		<p> <img src="assets/images/position_menu.jpg"  alt="drag drop menu item" /></p>
+		<h5>3. Config Submenu</h5>
+		<p><i>Configure the width of the sub-megamenu, change title, link and add class that style for submenu.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong>Modules Manager</strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose “<strong>Modules</strong>” tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Megamenu custommer</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Build SubMenu</strong> <img src="assets/images/build_sub.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/build_sub2.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/config_sub.jpg"  alt="build submenu" />
+			<p>=> Configure parameters as you want (<i>edit, add new or delete row, column; add new submenu item</i>)</p></li>
+		</ul>
+		<p><i><strong><u>Note:</u></strong> In this part, using drag / drop function to move row in a single column, or the columns with each other.</i></p>
+		<p> <img src="assets/images/position_submenu.jpg"  alt="drag drop submenu item" /></p>
+		<p> <img src="assets/images/position_submenu2.jpg"  alt="drag drop submenu item" /></p>
+		</section>
+		<!-- End Configure Megamenu -->
+		<!-- End Megamenu Customer-->
+		
+		<!-- Vertical Megamenu-->
+		<section id="vermegamenu"><h3>Vertical Megamenu</h3>
+		<p>Allow you show vertical category navigation with subcategories follow the columns are configured.</p>
+		<!-- Create new menu item -->
+		<h4>A. Create new menu item</h4>
+		<h5>1. <span>General Setting</span></h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU SETTINGS</strong>
+			<li class="img-in"> <img src="assets/images/general_setting_ver.jpg"  alt="general setting" />
+			<p>We got:</p>				
+				<ul>
+					<li><strong>Heading title</strong>: Enter heading title</li>
+					<li><strong>Background type</strong>: Select background type
+						<p>- <strong>None</strong>: Don't use background type</p>
+						<p>- <strong>Color</strong><p>
+							<ul>
+							<li><strong>Background color</strong>: Set color for background</li>
+							</ul>
+						<p>- <strong>Image</strong></p>
+							<ul>
+							<li><strong>Image source</strong>: Upload image background from computer</li>
+							<li><strong>Background repeat</strong>: Background image can be repeated along the horizontal and vertical axes, or not repeated at all</li>
+							</ul>
+					</li>
+					<li><strong>Submenu animation</strong>: Select animations for dropown menu items</li>
+					<li><strong>Custom CSS</strong>: Add custom CSS for menu item</li>
+					<li><strong>Show categories</strong>: Limit the number of categories</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>2. How to build a simple menu item?</h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose  <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Add new item</strong> <img src="assets/images/add_new_menu.jpg"  alt="add new menu" /> then add the info for the menu item.
+			<li class="img-in"> <img src="assets/images/add_new_menu2.jpg"  alt="add new menu" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Title</strong>: Add menu title (<i>>>> If use Prestashop link and want to use Prestashop title, leave it empty.</i>)</li>
+					<li><strong>Type Link</strong>: Select menu item type (<i>PrestaShop Link / Custom Link / None</i>)
+						<p>- <strong>PrestaShop Link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</p>
+						<p>- <strong>Custom Link</strong>: Enter internal or external link</p>
+					</li>
+					<li><strong>Sub Title</strong>: Enter sub title</li>
+					<li><strong>Use icon</strong>: Choose icon image
+						<p>- <strong>No</strong>: Don't use icon</p>
+						<p>- <strong>Font-Awesome Icon</strong>: Use font-awesome icon (<i>ex: <code><span>&lt;i class="</span>fab fa-angellist<span>"&gt;&lt;/i&gt;</span></code></i>)</p>
+						<p>- <strong>Image Icon</strong>: Click <strong>Select image ></strong> to upload icon from computer</p>
+					</li>
+					<li><strong>Main link style</strong>: Config CSS for menu item (<i>ex: color, color hover, background color...</i>)</li>
+					<li><strong>Subtitle style</strong>: Config CSS for sub title (<i>ex: color, background color, font size...</i>)</li>
+					<li><strong>Submenu type</strong>: There are 3 types of submenus: Mega, Flyout and None (<i>Flyout only is available when you select category in Type Link</i>)</li>
+					<li><strong>Add specific class</strong>: Class to style the menu item</li>
+					<li><strong>New window</strong>: Choose <strong>Yes/No</strong> to open new window/tab or not by clicking</li>
+					<li><strong>Active</strong>: Choose <strong>Yes</strong> pulish the menu item</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>3. How to build columns in Sub-menus?</h5>
+		<p><i>In here, you can set the width of the sub-vertical megamenu, add column, and add class that style for it. To use this setting, select the menu item as <strong>Mega</strong> type in <strong>Submenu type</strong> field.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Build SubMenu</strong> <img src="assets/images/build_sub.jpg"  alt="build submenu" /> then add the info for the menu item.
+			<li class="img-in"> <img src="assets/images/build_sub2.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/build_sub3_ver.jpg"  alt="build submenu" />
+			<li>Click on <strong>Add a row</strong> and then click <strong>Save</strong> to create new row</li>
+			<li class="img-in"> <img src="assets/images/build_sub4.jpg"  alt="build submenu" />
+			<li>Click on <strong>Add Column</strong> to add column for this row
+			<li class="img-in"> <img src="assets/images/build_sub5_ver.jpg"  alt="build submenu" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Width</strong>: Configure column-width. The maximum of columns is 12 based on the bootstrap columns format.</li>
+					<li><strong>Column title</strong>: Enter title of column (<i>>>> If use Prestashop link and want to use Prestashop title, leave it empty.</i>)</li>
+					<li><strong>Type Link</strong>: Select type for column title(<i>PrestaShop Link / Custom Link / None</i>)
+						<p>- <strong>PrestaShop Link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</p>
+						<p>- <strong>Custom Link</strong>: Enter internal or external link</p>
+					</li>
+					<li><strong>Specific class</strong>: Class to style the column title</li>
+					<li><strong>Active in mobile</strong>: Choose <strong>Yes</strong> pulish in the mobile</li>
+				</ul>
+			</li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+			<li class="img-in"><img src="assets/images/build_sub6.jpg" alt="" />
+			<li>After that, you need configure submenu item
+			<li class="img-in"><img src="assets/images/build_sub7.jpg" alt="" />
+			<p>We got:</p>
+				<ul>
+					<li><strong>Type item</strong>: Select submenu item type (<i>Category tree, Prestashop Link, Custom Link, Product, Banner image, HTML block, Manufacturer logo</i>)
+						<p>- <strong>Category tree</strong></p>
+						<ul>
+							<li><strong>Select a category</strong>: Select category</li>
+						</ul>
+						<p>- <strong>Prestashop Link</strong></p>
+						<ul>
+							<li><strong>Prestashop link</strong>: Select link from Category, CMS, Supplier, Manufacturer or Page.</li>
+						</ul>
+						<p>- <strong>Custom Link</strong></p>
+						<ul>
+							<li><strong>Title</strong>: Enter custom block title</li>
+							<li><strong>URL</strong>: Enter internal or external link</li>
+						</ul>
+						<p>- <strong>Product</strong></p>
+						<ul>
+							<li><strong>Product</strong>: Choose product</li>
+						</ul>
+						<p>- <strong>Banner image</strong></p>
+						<ul>
+							<li>+ <strong>Image source</strong>: Upload banner image from computer</li>
+							<li>+ <strong>Image link</strong>: Enter internal or external link for banner image</li>
+						</ul>
+						<p>- <strong>HTML block</strong></p>
+						<ul>
+							<li><strong>HTML content</strong>: Enter the HTML to define the column</li>
+						</ul>
+						<p>- <strong>Manufacturer logo</strong>
+						</p>
+						<ul>
+							<li><strong>Select manufacturer</strong>: Select manufacturer logo from list</li>
+						</ul>
+					</li>
+					<li><strong>Active in mobile</strong>: Choose <strong>Yes</strong> pulish in the mobile</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- End Create new menu item -->
+		
+		<!-- Configure Vertical Megamenu -->
+		<h4>B. Configure Vertical Megamenu</h4>
+		<h5>1. General Configuration</h5>
+		<p><i>This allows you to to config selected elements as general configuration for the Vertical Megamenu.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU SETTINGS</strong>
+			<li class="img-in"> <img src="assets/images/general_setting.jpg"  alt="general setting" />
+			<p>=> Configure parameters as you want</p></li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<h5>2. Config menu item</h5>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to  <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>In part <strong>MENU LIST</strong>, click <strong>Edit</strong> on selected menu item
+			<li class="img-in"> <img src="assets/images/edit_menu.jpg"  alt="edit menu" />
+			<li class="img-in"> <img src="assets/images/edit_menu2.jpg"  alt="edit menu" />
+			<p>=> Configure parameters as you want</p></li>
+			<li>Click <strong>Save</strong> button when you finish</li>
+		</ul>
+		<p><i><strong><u>Note:</u></strong> In part <strong>Menu List</strong>, using drag / drop function to move menu item into another position.</i></p>
+		<p> <img src="assets/images/position_menu.jpg"  alt="drag drop menu item" /></p>
+		<h5>3. Config Submenu</h5>
+		<p><i>Configure the width of the sub-vertical megamenu, change title, link and add class that style for submenu.</i></p>
+		<ul>
+			<li>Login your Prestashop admin</li>
+			<li>Go to  <strong>Modules</strong> > <strong> Module Manager </strong>
+			<li class="img-in"><img src="assets/images/modules.jpg" alt="" />
+			<li>Choose <strong>Modules</strong> tab
+			<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+			<li>On <strong>Vertical Megamenu</strong> module, click "<strong>Configure</strong>" button. 
+			<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+			<li>Click the <strong>Build SubMenu</strong> <img src="assets/images/build_sub.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/build_sub2.jpg"  alt="build submenu" />
+			<li class="img-in"> <img src="assets/images/config_sub.jpg"  alt="build submenu" />
+			<p>=> Configure parameters as you want (<i>edit, add new or delete row, column; add new submenu item</i>)</p></li>
+		</ul>
+		<p><i><strong><u>Note:</u></strong> In this part, using drag / drop function to move row in a single column, or the columns with each other.</i></p>
+		<p> <img src="assets/images/position_submenu.jpg"  alt="drag drop submenu item" /></p>
+		<p> <img src="assets/images/position_submenu2.jpg"  alt="drag drop submenu item" /></p>
+		</section>
+		<!-- End Configure Vertical Megamenu -->
+		<!-- End Vertical Megamenu-->
+		
+		<!-- Pos Slideshow Slider-->
+		<section id="slideshow"><h3>Pos Slideshow Slider</h3>
+		<p>It allows to put banner on hompage. You can specify link, languages and status of slide.</p>
+		<ul><li class="img-in"><img src="assets/images/ad_slideshow.jpg" alt="" /></li></ul>	
+		<ul>
+			<li><strong>How to add item in Slideshow</strong>
+				<ul>
+					<li>Login your prestashop admin. Click "<strong>All shop</strong>", select the theme you want to add slideshow</li>
+					<li class="img-in"><img src="assets/images/select_theme.jpg" alt="" /></li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Slideshow Slider</strong> module, click "<strong>Configure</strong>" button. </li>
+					<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+					<li>At <strong>SLIDES LIST</strong> section, click <strong>Add New</strong> button <img src="assets/images/add.jpg" alt="" /></li>
+					<li class="img-in"><img src="assets/images/add_slideshow.jpg" alt="" /></li>
+					<li>We got: </li>
+					<li class="img-in"><img src="assets/images/add_slideshow1.jpg" alt="" /></li>
+					<li>Click “<strong>Save</strong>” button when you finish.</li>
+				</ul>
+			</li>
+			<li><strong>How to edit item in Slideshow</strong>
+				<ul>
+					<li>Login your prestashop admin. Click "<strong>All shop</strong>", select the theme you want to edit slide show</li>
+					<li class="img-in"><img src="assets/images/select_theme.jpg" alt="" /></li>
+					<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+					<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+					<li>Choose “<strong>Modules</strong>” tab
+					<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></li></ul></li>
+					<li>On <strong>Pos Slideshow Slider</strong> module, click "<strong>Configure</strong>" button. </li>
+					<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+					<li>At <strong>SLIDES LIST</strong> section, click "<strong>Edit</strong>" button of your selected slide.</li>
+					<li class="img-in"><img src="assets/images/slides_list.jpg" alt="" /></li>
+					<li>Then edit</li>
+					<li class="img-in"><img src="assets/images/edit_slide.jpg" alt="" /></li>
+					<li>Click “<strong>Save</strong>” button when you finish.</li>
+				</ul>
+			</li>
+		</ul>
+		</section>
+		<!-- End Pos Slideshow Slider-->
+
+		<!-- Pos list categories-->
+		<section id="list_category"><h3>Pos list categories </h3>
+		<p>Module show list categories with thumbnail which display in homepage . </p>
+		<ul><li class="img-in"><img src="assets/images/ad_list_cate.jpg" alt=""/></ul>	
+		</section>
+		<!-- End Pos list categories-->
+		
+		<!-- Product Tabs Slider -->
+		<section id="product_tabs"><h3>Product Tabs Slider</h3>
+		<p>The module allows you to show type of products (new, featured, bestseller, onsale) on homepage.</p>
+		<ul><li class="img-in"><img src="assets/images/ad_product_tabs.jpg" alt="" /></li></ul>	
+		</section>
+		<!-- End Product Tabs Slider-->
+		
+		<!-- Pos Special Products module -->
+		<section id="special_products"><h3>Pos Special Products module</h3>
+		<p>Shows specials products in slider on hompage</p>
+		<ul><li class="img-in"><img src="assets/images/ad_specials.jpg" alt="" /></ul>	
+		<p id="set_discount"><strong>How to set a product as discount product</strong>:</p>
+				<ul>
+					<li> Login your prestashop admin</li>
+					<li> Navigate to <strong>Catalog</strong> > <strong>Products</strong></li>
+					<li class="img-in"><img src="assets/images/catalog_products.jpg" alt="" />
+					<li class="img-in"><img src="assets/images/edit_item.jpg" alt="" />
+					<li>Choose item you want to edit, click <strong>Edit</strong></li>
+					<li>Choose tab “<strong>Prices</strong>”</li>
+					<li class="img-in"><img src="assets/images/special_products.jpg" alt="" />
+					<li>From the Prices data tab, look for a checkbox with the description "<strong>Display the 'on sale' icon on the product page, and in the text found within the product listing</strong>" Click on the checkbox to activate the 'On Sale' status.</li>
+					<li class="img-in"><img src="assets/images/special_products1.jpg" alt="" />
+					<li>Click on the <strong>Save and Stay</strong> button.</li>
+					<li class="img-in"><img src="assets/images/special_products2.jpg" alt="" />
+					<li class="img-in"><img src="assets/images/special_products3.jpg" alt="" />
+					<li>Click "<strong>Save</strong>" button</li>
+				</ul>
+		</section>
+		<!-- End Pos Special Products module -->
+		
+		<!-- Pos Countdown time price-->
+		<section id="countdown_timer"><h3>Pos Countdown time price</h3>
+		<p>Countdown time price comes with sale products.</p>
+		<p><strong>Configure</strong>:</p>
+				<p>When you config “<strong>Pos Countdown time price</strong>” module, choose “<strong>Disable</strong>” if you don’t want to show countdown time.</p>
+				<ul><li class="img-in"><img src="assets/images/count_down1.jpg" alt="" /></ul>
+				<p><strong>Set time for discount product</strong>: Select this check box to limit the duration that a discount is valid.</p>
+				<ul>
+					<li>You set product as discount product. Please see in <a href='#specials'>Pos Special Products module</a></li> 
+					<li>From the <strong>Specific Prices</strong> tab, when you <strong>Add a new specific price</strong>, you choose discount prior and set discount:<br>
+				- <i>from</i>: Select a beginning date for this discount.<br>
+				- <i>to</i>: Select an expiration date for this discount.</li>
+					<li class="img-in"><img src="assets/images/count_down2.jpg" alt="" />
+					<li>Click "<strong>Save</strong>" button</li>
+				</ul>
+		</section>
+		<!-- End Pos Countdown time price-->
+		
+		<!-- Pos Bestseller products-->
+		<section id="topsellers"><h3>Pos Bestseller products</h3>
+		<ul><li class="img-in"><img src="assets/images/ad_bestseller.jpg" alt="" /></ul>
+		</section>
+		<!-- End Pos Bestseller products-->
+		
+		<!-- Pos list category products-->
+		<section id="list_category_product"><h3>Pos list category products </h3>
+		<p>Module show products from categories which display in homepage  . </p>
+		<ul><li class="img-in"><img src="assets/images/ad_list_cate_product.jpg" alt=""/></ul>	
+		</section>
+		<!-- End Pos list category products-->
+		
+		<!-- Recommended Products-->
+		<section id="recommended"><h3>Pos recommended products</h3>
+		<p>Module which allows to show selected products on homepage.</p>
+		<ul><li class="img-in"><img src="assets/images/ad_recommended.jpg" alt="" /></ul>
+		</section>
+		<!-- End Recommended Products-->
+		
+		<!-- Pos Logo-->
+		<section id="brand_logo"><h3>Pos Logo</h3>
+		<p>The module allows you to configure which brand logo to display in the frontend.</p>
+		<ul><li class="img-in"><img src="assets/images/ad_logo.jpg" alt="" /></li></ul>	
+		<ul>
+			<li><strong>How to add logo in slider</strong>
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>POSEXTENSIONS</strong> > <strong> Manage Logo </strong>
+					<ul><li class="img-in"><img src="assets/images/manage_logo.jpg" alt="" /></li></ul></li>
+					<li class="img-in"><img src="assets/images/add_logo1.jpg" alt="" /></li>
+					<li class="img-in"><img src="assets/images/add_logo2.jpg" alt="" /></li>
+					<li>Click “<strong>Save</strong>” when you finish</li>
+				</ul>
+			</li>
+			<li><strong>How to edit logo in slider</strong>
+				<ul>
+					<li>Login your prestashop admin</li>
+					<li>Navigate to <strong>POSEXTENSIONS</strong> > <strong> Manage Logo </strong>
+					<ul><li class="img-in"><img src="assets/images/manage_logo.jpg" alt="" /></li></ul></li>
+					<li class="img-in"><img src="assets/images/edit_logo.jpg" alt="" /></li>
+					<li class="img-in"><img src="assets/images/edit_logo1.jpg" alt="" /></li>
+					<li>Click “<strong>Save</strong>” when you finish</li>
+				</ul>
+			</li>
+		</ul>
+		</section>
+		<!-- End Pos Logo-->
+		
+		<!-- Other modules-->
+		<section id="other"><h3>Other modules</h3>
+		<ol>
+			<li>Xpert Blog Display Posts on Home Page
+				<ul>
+					<li><strong>About Xpert Blog Display Posts on Home Page module</strong>
+						<ul>
+							<li>Login your prestashop admin</li>
+							<li>Navigate to <strong>Xpert Blog</strong></li>
+							<li class="img-in"><img src="assets/images/blog1.jpg" alt="" />
+							<p>- Blog Posts : Add, Delete or Edit Posts of Blog</p>
+							<p>- Blog Categories : Add, Delete or Edit Categories of Blog</p>
+							<p>- Blog Comments : Manage Comments</p>
+							<p>- Blog Image Type : Manage type of images</p>
+						</ul>
+					</li>
+					<li><strong>Add Blog Post</strong>
+						<ul>
+							<li>Login your prestashop admin</li>
+							<li>Navigate to <strong>Xpert Blog</strong> > <strong>Blog Posts</strong></li>
+							<li class="img-in"><img src="assets/images/add_blog.jpg" alt="" />
+							<li class="img-in"><img src="assets/images/add_blog1.jpg" alt="" />
+							<li>Click “<strong>Save</strong>” button when you finish.</li>
+						</ul>
+					</li>
+					<li><strong>Edit Blog Post</strong>
+						<ul>
+							<li>Login your prestashop admin</li>
+							<li>Navigate to <strong>Xpert Blog</strong> > <strong>Blog Posts</strong></li>
+							<li>Choose item you want to edit, click <strong>Edit</strong></li>
+							<li>Then edit</li>
+							<li>Click “<strong>Save</strong>” button when you finish.</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Link List
+			<p><strong>Link List</strong> allow you add a block with several links.</p>
+			<ul><li class="img-in"><img src="assets/images/ad_link_list.jpg" alt="" /></li></ul>	
+			<ul><li class="img-in"><img src="assets/images/ad_link_list2.jpg" alt="" /></li></ul>
+			<ul><li class="img-in"><img src="assets/images/ad_link_list3.jpg" alt="" /></li></ul>			
+			<p><strong>Note</strong>: After that, ticking the checkbox to display link on homepage</p>
+			</li>
+			<li>Newsletter subscription
+			<ul><li class="img-in"><img src="assets/images/ad_newsletter.jpg" alt="" /></li></ul>	
+			</li>
+			<li>Faceted search
+			<p> Displays a block allowing multiple filters.</p>
+			<ul><li class="img-in"><img src="assets/images/ad_faceted.jpg" alt="" /></li></ul>	
+			</li>
+			<li>Products in the same category
+			<p><strong>Products in the same category</strong> show products on the same category.</p>
+			<ul><li class="img-in"><img src="assets/images/ad_product_category.jpg" alt="" /></li></ul>	
+			</li>
+			<li>Social media follow links  
+			<p><strong>Social media follow links</strong> allows you to add information about your brand's social networking accounts</p>
+			<ul><li class="img-in"><img src="assets/images/ad_social.jpg" alt="" /></li></ul>	
+			</li>
+			<li>Social media share buttons
+			<ul><li class="img-in"><img src="assets/images/ex_social_media_share.jpg" alt="" /></li></ul>
+			<p><strong>Social media share buttons</strong> displays social media sharing buttons (Twitter, Facebook, Google+ and Pinterest) on every product page</p>
+			<ul><li class="img-in"><img src="assets/images/ad_social_button.jpg" alt="" /></li></ul>	
+			</li>
+			<li>Customer reassurance
+			<ul><li class="img-in"><img src="assets/images/ex_customer_reassurance.jpg" alt="" /></ul>
+			<p><strong>Customer reassurance</strong> module offering helpful information to reassure customers that your store is trustworthy.</p>
+			<ul><li class="img-in"><img src="assets/images/ad_customer_reassurance.jpg" alt="" /></ul>	
+			</li>
+			<li>Category tree links
+			<p><strong>Category tree links</strong> displays a block featuring product categories</p>
+			<ul><li class="img-in"><img src="assets/images/ad_category.jpg" alt="" /></ul>	
+			</li>
+		</ol>
+		</section>
+		<!-- End Other modules-->
+		<!-- End Pos Greenfarm 's Modules -->
+		
+		<!-- Translate theme-->
+		<section id="translate">
+		<div class="page-header"><h2>Translate Greenfarm theme</h2></div>
+		<!-- Installed Modules-->
+		<section id="install_module"><h3>Modules</h3>
+			<ul>
+				<li> Login your prestashop admin</li>
+				<li> Go to <strong>International</strong> > <strong>Translations</strong></li>
+				<li class="img-in"><img src="assets/images/international_translations.jpg" alt="" />
+				<li>At "<strong>Modify translations</strong>" section:
+					<ul>
+						<li><strong>Type of translation</strong> : Translate anything in Prestashop (and not just modules)</li>
+						<li><strong>Select your module</strong> : Select the module that you want to translate</li>
+						<li><strong>Select your language</strong> : Choose language you want to translate</li>
+					</ul>
+				</li>
+				<li>Choose <strong>Modify</strong></li>
+				<li>Then Search <i>titles</i> or <i>text</i> need translate</li>
+				<li>After typing your language, click <strong>Save and stay</strong> or <strong>Save</strong> to finish.</li>
+				<li>In the footer, you can choose another module for translation.</li>
+				<li class="img-in"><img src="assets/images/another_module.jpg" alt="" />
+				<li><strong>Note:</strong> To find more informations, please read on <i><a rel="nofollow" href="http://doc.prestashop.com/display/PS17/Translations">http://doc.prestashop.com/display/PS17/Translations</a></i>
+			</ul>
+			<p><strong>Example</strong>: In Greenfarm Layout1, you want to translate title <strong>Our Categories</strong> of <a href="#list_category"><strong>Pos list categories</strong></a> module from English to Arabic.</p>
+			<ul>
+				<li> Login your prestashop admin</li>
+				<li> Go to <strong>International</strong> > <strong>Translations</strong></li>
+				<li class="img-in"><img src="assets/images/international_translations.jpg" alt="" />
+				<li>At "<strong>Modify translations</strong>" section:
+					<ul>
+						<li><strong>Type of translation</strong> : Choose “<strong>Installed modules translations</strong>”</li>
+						<li><strong>Select your module</strong> : Choose “<strong>Pos list categories</strong>”</li>
+						<li><strong>Select your language</strong> : Choose “<strong>Arabic</strong>”</li>
+					</ul>
+				</li>
+				<li>Choose <strong>Modify</strong></li>
+				<li>Then Search <i>Our Categories</i> to translate</li>
+				<li class="img-in"><img src="assets/images/international_translations2.jpg" alt="" />
+				<li>After a translation has been completed, click <strong>Save and stay</strong> or <strong>Save</strong> to finish.</li>
+			</ul>
+		</section>
+		<!-- End Installed Modules-->
+		<!-- Staticblock content-->
+		<section id="static_content"><h3>Staticblock content</h3>
+			<ul>
+				<li>Login your prestashop admin</li>
+				<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+				<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+				<li>Choose “<strong>Modules</strong>” tab 
+				<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></ul>
+				<li>On <strong>Pos Staticblock </strong> or <strong>Pos Static Footer </strong> module, click "<strong>Configure</strong>" button. </li>
+				<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+				<li>Click "<strong>Edit</strong>" button of your selected block.</li>
+				<li>Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /> to show code HTML of this block in <strong>English</strong>. Then copy source code. </li>
+				<li>Click <img src="assets/images/lang.jpg" alt="" /> to choose language you want to translate</li>
+				<li>Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /> and paste code HTML. Then translate</li>
+				<li>Click <strong>Save</strong> button when you finish</li>
+			</ul>
+			<p><strong>Example</strong>: In <strong>Greenfarm Layout 1</strong>, you want to translate text <strong> Copyright Posthemes. All Rights Reserved</strong> of <strong>Copyright Block</strong> from English to Arabic.</p>
+			<ul>
+				<li>Login your prestashop admin</li>
+				<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong>
+				<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+				<li>Choose “<strong>Modules</strong>” tab 
+				<ul><li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" /></ul>
+				<li>On <strong>Pos Static Footer </strong> module, click "<strong>Configure</strong>" button. </li>
+				<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+				<li>At <strong>Copyright Block</strong>, click "<strong>Edit</strong>" button.</li>
+				<li>Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /> to show code HTML of this block in <strong>English</strong>. Then copy source code. </li>
+				<li>Click <img src="assets/images/lang.jpg" alt="" /> to choose <strong>Arabic</strong></li>
+				<li>Choose <strong>Source Code</strong> <img src="assets/images/source_code.jpg" alt="" /> and paste code HTML. Then translate to <strong>Arabic</strong></li>
+				<li>Click <strong>Save</strong> button when you finish</li>
+			</ul>
+		</section>
+		<!-- End Staticblock content-->
+		<!-- Pos Slideshow Slider-->
+		<section id="slideshow_slider"><h3>Translate text in Pos Slideshow Slider</h3>
+			<ul>
+				<li>Login your prestashop admin. Click "<strong>All shop</strong>", select the theme you want to translate</li>
+				<li class="img-in"><img src="assets/images/select_theme.jpg" alt="" /></li>
+				<li>Navigate to <strong>Modules</strong> > <strong>Module Manager</strong> 
+				<ul><li class="img-in"><img src="assets/images/modules.jpg" alt="" /></li></ul></li>
+				<li>Choose “<strong>Modules</strong>” tab 
+				<li class="img-in"><img src="assets/images/installed_modules.jpg" alt="" />
+				<li>On <strong>Pos Slideshow Slider</strong> module, click "<strong>Configure</strong>" button. </li>
+				<li class="img-in"><img src="assets/images/config_module.jpg" alt="" />
+				<li>At <strong>SLIDES LIST</strong> section, click "<strong>Edit</strong>" button of your selected slide.</li>
+				<li class="img-in"><img src="assets/images/slides_list.jpg" alt="" /></li>
+				<li>Click <img src="assets/images/lang.jpg" alt="" /> of each value of parameters (<i>Slide title, Caption or Description</i>) to choose language then translate.</li>
+				<li class="img-in"><img src="assets/images/edit_slide.jpg" alt="" /></li>
+				<li>Enter your language & click <strong>Save</strong> button when you finish</li>
+			</ul>
+		</section>
+		<!-- End Pos Slideshow Slider-->
+		</section>
+		<!-- End Translate theme -->
+		<!-- Posthemes Support-->
+		<section id="support">
+		<div class="page-header"><h2>Plazathemes Support</h2></div>
+		<p>Support Working time: Monday - Friday</p>
+		<p>Estimated ticket and answers review time: 1-3 business days.</p>
+		<p>We have hundreds of questions and provide answers asap, but this can take up to 3 days after your submitted request. Please be patient and wait for answer.</p>
+		<p><i>Send us email to <a href="mailto:posthemes@gmail.com">posthemes@gmail.com</a>.</i></p>
+		</section>
+		</div>
+	</div>
+	<span id="back-top"><a href="javascript(0)"><span class="icon fa fa-arrow-up"></span></a></span>
+</body>
+</html>

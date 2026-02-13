@@ -1,0 +1,81 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.form.type.dpdshipping_pickup_courier_settings_list:
+    class: 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsType'
+    parent: 'form.type.translatable.aware'
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_list_form_data_provider:
+    class: 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsFormDataProvider'
+    arguments: [  '@prestashop.core.query_bus', '@prestashop.core.command_bus' ]
+
+  prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_list_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_list_form_data_provider'
+      - 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsType'
+      - 'DpdShippingPickupCourierSettings'
+  
+  dpdshipping.grid.definition.factory.configuration.pickup.courier.settings.list:
+    class: 'DpdShipping\Grid\Configuration\PickupCourierSettings\Definition\Factory\PickupCourierSettingsGridDefinitionFactory'
+    parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+    public: false
+  
+  dpdshipping.grid.query_builder.configuration.pickup.courier.settings.list:
+    class: 'DpdShipping\Grid\Configuration\PickupCourierSettings\Query\PickupCourierSettingsQueryBuilder'
+    parent: 'prestashop.core.grid.abstract_query_builder'
+    public: true
+    arguments:
+      - '@prestashop.core.query.doctrine_search_criteria_applicator'
+      - "@=service('prestashop.adapter.legacy.context').getContext().language.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id_shop_group"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.getGroup().share_stock"
+      - '@prestashop.core.grid.query.filter.doctrine_filter_applicator'
+  
+  dpdshipping.grid.data_provider.configuration.pickup.courier.settings.list:
+    class: '%prestashop.core.grid.data.factory.doctrine_grid_data_factory%'
+    arguments:
+      - '@dpdshipping.grid.query_builder.configuration.pickup.courier.settings.list'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.core.grid.query.doctrine_query_parser'
+      - 'dpdshipping_pickup_courier_settings'
+  
+  dpdshipping.grid.factory.configuration.pickup.courier.settings.list:
+    class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+    public: true
+    arguments:
+      - '@dpdshipping.grid.definition.factory.configuration.pickup.courier.settings.list'
+      - '@dpdshipping.grid.data_provider.configuration.pickup.courier.settings.list'
+      - '@prestashop.core.grid.filter.form_factory'
+      - '@prestashop.core.hook.dispatcher'
+
+  prestashop.module.dpdshipping.domain.pickup.courier.settings.command.delete.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Command\DeletePickupOrderSettingsAddressHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.settings.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Command\DeletePickupOrderSettingsAddressCommand'
+
+  prestashop.module.dpdshipping.domain.pickup.courier.settings.command.add.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Command\AddPickupOrderSettingsHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.settings.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Command\AddPickupOrderSettingsCommand'
+
+  prestashop.module.dpdshipping.domain.pickup.courier.settings.command.get.list.handler:
+    class: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Query\GetPickupCourierSettingsListHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.settings.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\PickupCourierSettings\Query\GetPickupCourierSettingsList'

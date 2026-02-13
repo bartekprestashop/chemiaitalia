@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="44d33fd61f93faed4afa8905c776e70c">
+        <source>Shippings</source>
+        <target>Wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4049d979b8e6b7d78194e96c3208a5a5">
+        <source>Order number</source>
+        <target>Nr zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="910d956cb2615e5739ac06c7f08fba26">
+        <source>Shipping number</source>
+        <target>Numer wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b485f83157e1fe0e4aa134060e4010a0">
+        <source>Receiver address</source>
+        <target>Adres Odbiorcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="914419aa32f04011357d3b604a86d7eb">
+        <source>Carrier</source>
+        <target>Przewoźnicy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a23cc4268282ace40355528d27b09b16">
+        <source>Ref 1</source>
+        <target>Ref 1</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c2b6dddebb2b678891b2a3afff33586f">
+        <source>Ref 2</source>
+        <target>Ref 2</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="992a0f0542384f1ee5ef51b7cf4ae6c4">
+        <source>Services</source>
+        <target>Usługi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="14b068383798fc29581c8762eceef6bd">
+        <source>Label Datetime</source>
+        <target>Data wygenerowania etykiety</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a68b4a34a3d02606bc665f02a3664d14">
+        <source>Protocol Datetime</source>
+        <target>Data wygenerowania protokołu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="67edd3b99247c9eb5884a02802a20fa7">
+        <source>Delivered</source>
+        <target>Dostarczono</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435">
+        <source>Yes</source>
+        <target>Tak</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b">
+        <source>No</source>
+        <target>Nie</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5c0a951f54c0c7bf4c66dd2e6d0fe2de">
+        <source>Shipping date</source>
+        <target>Data wysyłki</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa">
+        <source>Actions</source>
+        <target>Akcje</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>Usuń</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b69120f025424daa72509a6e073acebc">
+        <source>Remove selected row?</source>
+        <target>Czy chcesz usunąć zaznaczone rekordy?</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Zamknij</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9a781e2d0f9323faf2a2afb26437807f">
+        <source>Print protocol</source>
+        <target>Drukuj protokół</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="165977bc8006193936272e96ef4fd7a2">
+        <source>Print label</source>
+        <target>Drukuj etykietę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6fde42aa0857eb92fc0d0c3fb1c6c8b7">
+        <source>ID Order</source>
+        <target>Nr zamówienia</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e129ae480280e47ef82fc7702f8321ba">
+        <source>Refresh list</source>
+        <target>Odśwież listę</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c879cb3351593188d1178647eb2032fe">
+        <source>Print labels</source>
+        <target>Drukuj etykiety</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bf03978e17efd4fc0dd803fce0fe339d">
+        <source>Print protocols</source>
+        <target>Drukuj protokoły</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

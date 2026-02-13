@@ -1,0 +1,72 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.order.command.add.shipping.history.handler:
+    class: 'DpdShipping\Domain\Order\Command\AddShippingHistoryHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.sender.repository'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.receiver.repository'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.parcel.repository'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.services.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Order\Command\AddShippingHistoryCommand'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.query.get.label.handler:
+    class: 'DpdShipping\Domain\ShippingHistory\Query\GetLabelHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+      - '@prestashop.core.command_bus'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ShippingHistory\Query\GetLabel'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.query.get.protocol.handler:
+    class: 'DpdShipping\Domain\ShippingHistory\Query\GetProtocolHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+      - '@prestashop.core.command_bus'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ShippingHistory\Query\GetProtocol'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.query.get.shipping.history.handler:
+    class: 'DpdShipping\Domain\ShippingHistory\Query\GetShippingHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ShippingHistory\Query\GetShipping'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.domain.order.query.get.last.shipping.history.handler:
+    class: 'DpdShipping\Domain\ShippingHistory\Query\GetShippingByOrderIdHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ShippingHistory\Query\GetShippingByOrderId'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+
+  prestashop.module.dpdshipping.domain.order.command.delete.shipping.handler:
+    class: 'DpdShipping\Domain\ShippingHistory\Command\DeleteShippingHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\ShippingHistory\Command\DeleteShipping'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]

@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.form.type.dpdshipping_pickup_courier_settings:
+    class: 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsType'
+    parent: 'form.type.translatable.aware'
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_form_data_provider:
+    class: 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsFormDataProvider'
+    arguments: [ '@prestashop.core.query_bus', '@prestashop.core.command_bus' ]
+
+  prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.dpdshipping.form.dpdshipping_pickup_courier_settings_form_data_provider'
+      - 'DpdShipping\Form\Configuration\PickupCourierSettings\DpdShippingPickupCourierSettingsType'
+      - 'DpdShippingPickupCourierSettings'

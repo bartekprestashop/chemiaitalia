@@ -1,0 +1,258 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    <div class="container-fluid pt-2 pb-2 bg-white">
+
+        <h2 class="pt-2">
+            {{ 'Shipping details'|trans({}, 'Modules.Dpdshipping.Admin') }}
+            <p class="dpdshipping-order-detail-shipping-subtitle">2024-03-15 10:30:00</p>
+            <p class="dpdshipping-order-detail-shipping-subtitle">{{ 'Order'|trans({}, 'Modules.Dpdshipping.Admin') }}: <b>{{ orderId }}</b></p>
+        </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Sender Address'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Company'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">Company name</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Sender Name'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">John Doe</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Address'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">123 Main Street, City, State, ZIP</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Phone'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">123-456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Receiver Address'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Company'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">Company name</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Sender Name'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">John Doe</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Address'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">123 Main Street, City, State, ZIP</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Phone'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">123-456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Services'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text"><strong>COD</strong> 70,00 PLN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Additional Fields'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Reference 1'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">ref 1</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Reference 2'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">ref 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Payer'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="card-text"><strong>{{ 'Payer FID'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text">14002</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="mb-0">{{ 'Tracking'|trans({}, 'Modules.Dpdshipping.Admin') }}</p>
+                    </div>
+                    <div class="card-body">
+
+                        <table class="table table-bordered pb-0 mb-0">
+                            <thead class="bg-light">
+                            <tr>
+                                <th class="col-md-6 col-xl-5 border-0">{{ 'Date and time'|trans({}, 'Modules.Dpdshipping.Admin') }}</th>
+                                <th class="col-md-6 col-xs-7 border-0">{{ 'State'|trans({}, 'Modules.Dpdshipping.Admin') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><strong>2024-03-15 10:30:00</strong></td>
+                                <td>In transit</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2024-03-16 08:45:00</strong></td>
+                                <td>Arrived at destination</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2024-03-17 14:20:00</strong></td>
+                                <td>Delivered</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3 class="">Parcels</h3>
+                <div class="card-columns">
+
+                    {% for item in range(0,10) %}
+                        <div class="card bg-light mb-4" style="">
+                            <div class="card-header"><a href="https://tracktrace.dpd.com.pl/parcelDetails?typ=1&amp;p1=1000729568879U"
+                                                        target="_blank">1000729568879U</a></div>
+                            <div class="card-body bg-white ">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text"><strong>{{ 'Content'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="card-text">Content data</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text"><strong>{{ 'Customer data'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="card-text">Customer data</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text"><strong>{{ 'Size X'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text"><strong>{{ 'Size Y'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text"><strong>{{ 'Size Z'|trans({}, 'Modules.Dpdshipping.Admin') }}:</strong></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/admin/shipping-detail.css?teaa') }}"/>
+{% endblock %}

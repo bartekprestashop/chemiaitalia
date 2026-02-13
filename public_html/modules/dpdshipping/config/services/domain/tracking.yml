@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.tracking.query.get.events.for.waybill:
+    class: 'DpdShipping\Domain\Tracking\Query\GetEventsForWaybillHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Tracking\Query\GetEventsForWaybill'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.service.tracking.service:
+    class: 'DpdShipping\Domain\Tracking\TrackingService'
+    public: true
+    arguments:
+      - '@prestashop.core.query_bus'
+
+  prestashop.module.dpdshipping.domain.order.query.get.shipping.list.for.order.handler:
+    class: 'DpdShipping\Domain\Tracking\Query\GetShippingListForOrderHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.parcel.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Tracking\Query\GetShippingListForOrder'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]

@@ -1,0 +1,51 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.sender.address.query.get.sender.address.list.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetSenderAddressListHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetSenderAddressList'
+
+  prestashop.module.dpdshipping.domain.sender.address.query.get.order.sender.address.list.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetOrderSenderAddressListHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetOrderSenderAddressList'
+
+  prestashop.module.dpdshipping.domain.sender.address.query.get.default.order.sender.address.list.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetDefaultOrderSenderAddressHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetDefaultOrderSenderAddress'
+
+  prestashop.module.dpdshipping.domain.sender.address.query.get.sender.address.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetSenderAddressHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Query\GetSenderAddress'
+
+  prestashop.module.dpdshipping.domain.sender.address.command.add.sender.address.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Command\AddSenderAddressHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Command\AddSenderAddressCommand'
+
+  prestashop.module.dpdshipping.domain.sender.address.command.delete.sender.address.handler:
+    class: 'DpdShipping\Domain\Configuration\SenderAddress\Command\DeleteSenderAddressHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\SenderAddress\Command\DeleteSenderAddressCommand'

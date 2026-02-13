@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.hook.repository:
+    class: 'DpdShipping\Hook\HookRepository'
+    public: true
+
+  prestashop.module.dpdshipping.hook.factory:
+    class: 'DpdShipping\Hook\HookFactory'
+    public: true
+    arguments:
+      - '@prestashop.module.dpdshipping.hook.repository'
+
+  prestashop.module.dpdshipping.api:
+    class: 'DpdShipping\Api\DpdApiService'
+    public: true
+    arguments:
+      - '@prestashop.core.command_bus'

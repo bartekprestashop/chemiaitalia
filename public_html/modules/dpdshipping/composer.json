@@ -1,0 +1,23 @@
+{
+  "name": "dpdpoland/dpdshipping",
+  "description": "Moduł Wysyłkowy - DPD Polska sp. z o. o.",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "DPD Poland sp. z o.o."
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DpdShipping\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2.0"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false
+  },
+  "type": "prestashop-module"
+}

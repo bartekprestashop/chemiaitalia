@@ -1,0 +1,41 @@
+imports:
+  - { resource: services/common.yml }
+
+  - { resource: services/repository/repository.yml }
+
+  - { resource: services/generateShipping.yml }
+  - { resource: services/shippingHistory.yml }
+
+  - { resource: services/configuration/configuration.yml }
+  - { resource: services/configuration/connection.yml }
+  - { resource: services/configuration/onboarding.yml }
+  - { resource: services/configuration/address.yml }
+  - { resource: services/configuration/parameters.yml }
+  - { resource: services/configuration/carrier.yml }
+  - { resource: services/configuration/specialPrices.yml }
+  - { resource: services/configuration/pickupCourierSettings.yml }
+  - { resource: services/configuration/pickupCourierSettingsList.yml }
+
+  - { resource: services/pickupCourier.yml }
+  - { resource: services/pickupCourierEdit.yml }
+  - { resource: services/tracking.yml }
+
+  - { resource: services/domain/tracking.yml }
+  - { resource: services/domain/payer.yml }
+  - { resource: services/domain/senderAddress.yml }
+  - { resource: services/domain/carrier.yml }
+  - { resource: services/domain/testConnection.yml }
+  - { resource: services/domain/specialPrice.yml }
+  - { resource: services/domain/order.yml }
+  - { resource: services/domain/shippingHistory.yml }
+  - { resource: services/domain/returnLabel.yml }
+
+services:
+  _defaults:
+    public: true
+
+  DpdShipping\Controller\RedirectController:
+    class: 'DpdShipping\Controller\RedirectController'
+    public: true
+    tags:
+      - { name: controller.service_arguments }

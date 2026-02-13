@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.domain.tracking.query.test.dpd.connection:
+    class: 'DpdShipping\Domain\TestConnection\Query\TestDpdConnectionHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.api'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\TestConnection\Query\TestDpdConnection'

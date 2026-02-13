@@ -1,0 +1,46 @@
+services:
+  
+  dpdshipping.grid.definition.factory.shipping.history:
+    class: 'DpdShipping\Grid\ShippingHistory\Definition\Factory\ShippingHistoryGridDefinitionFactory'
+    parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+  
+  dpdshipping.grid.query_builder.shipping.history:
+    class: 'DpdShipping\Grid\ShippingHistory\Query\ShippingHistoryQueryBuilder'
+    parent: 'prestashop.core.grid.abstract_query_builder'
+    public: true
+    arguments:
+      - '@prestashop.core.query.doctrine_search_criteria_applicator'
+      - "@=service('prestashop.adapter.legacy.context').getContext().language.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.id_shop_group"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.getGroup().share_stock"
+      - '@prestashop.core.grid.query.filter.doctrine_filter_applicator'
+      - '@prestashop.adapter.legacy.configuration'
+  
+  dpdshipping.grid.data_provider.shipping.history:
+    class: '%prestashop.core.grid.data.factory.doctrine_grid_data_factory%'
+    arguments:
+      - '@dpdshipping.grid.query_builder.shipping.history'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.core.grid.query.doctrine_query_parser'
+      - 'dpdshipping_shipping_history'
+  
+  dpdshipping.grid.factory.shipping.history:
+    class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+    public: true
+    arguments:
+      - '@dpdshipping.grid.definition.factory.shipping.history'
+      - '@dpdshipping.grid.data_provider.shipping.history'
+      - '@prestashop.core.grid.filter.form_factory'
+      - '@prestashop.core.hook.dispatcher'
+
+  DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController:
+    class: 'DpdShipping\Controller\ShippingHistory\DpdShippingShippingHistoryController'
+    public: true
+    autowire: true
+    arguments:
+      - '@prestashop.core.command_bus'
+      - '@twig'
+      - '@translator'
+    tags:
+      - { name: controller.service_arguments }

@@ -1,0 +1,43 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.form.type.dpdshipping_configuration:
+    class: 'DpdShipping\Form\Configuration\Configuration\DpdShippingConfigurationType'
+    parent: 'form.type.translatable.aware'
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.dpdshipping.form.dpdshipping_configuration_form_data_provider:
+    class: 'DpdShipping\Form\Configuration\Configuration\DpdShippingConfigurationFormDataProvider'
+    arguments:
+      - '@prestashop.core.query_bus'
+      - '@prestashop.core.command_bus'
+
+  prestashop.module.dpdshipping.form.dpdshipping_configuration_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.dpdshipping.form.dpdshipping_configuration_form_data_provider'
+      - 'DpdShipping\Form\Configuration\Configuration\DpdShippingConfigurationType'
+      - 'DpdShippingConfiguration'
+
+
+
+  prestashop.module.dpdshipping.domain.configuration.query_handler.get_configuration:
+    class: 'DpdShipping\Domain\Configuration\Configuration\Query\GetConfigurationHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.configuration.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Configuration\Query\GetConfiguration'
+
+  prestashop.module.dpdshipping.domain.configuration.command_handler.save_configuration:
+    class: 'DpdShipping\Domain\Configuration\Configuration\Command\SaveConfigurationHandler'
+    arguments:
+      - '@prestashop.module.dpdshipping.repository.dpdshipping.configuration.repository'
+    tags:
+      - name: tactician.handler
+        command: 'DpdShipping\Domain\Configuration\Configuration\Command\SaveConfigurationCommand'

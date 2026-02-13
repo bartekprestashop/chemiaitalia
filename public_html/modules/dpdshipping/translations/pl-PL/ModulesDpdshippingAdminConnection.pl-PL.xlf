@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="99dea78007133396a7b8ed70578ac6ae">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dc647eb65e6711e155375218212b3964">
+        <source>Password</source>
+        <target>Hasło</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="70624500cf90a1728f4b180af451f8aa">
+        <source>Master FID</source>
+        <target>Numer płatnika (MASTERFID)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="68316cc3f7592e22df395efefb40b96f">
+        <source>Connection with DPD Poland</source>
+        <target>Połączenie z API DPD Polska</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9c1b667f793e7893cf237087c87d3516">
+        <source>Payer data</source>
+        <target>Dane płatnika</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7e9b76c938aa6f95dcebd1dd57e64be1">
+        <source>FID number</source>
+        <target>Nazwa płatnika</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4938769faba74db205954397ad06cc24">
+        <source>FID name</source>
+        <target>Numer płatnika (FID)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7a1920d61156abc05a60135aefe8bc67">
+        <source>Default</source>
+        <target>Domyślny</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,110 @@
+/*
+ * Copyright 2024 DPD Polska Sp. z o.o.
+ *
+ * NOTICE OF LICENSE
+ *
+ * Licensed under the EUPL-1.2 or later.
+ * You may not use this work except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ * It is also bundled with this package in the file LICENSE.txt
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the Licence is distributed on an AS IS basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the Licence for the specific language governing permissions
+ * and limitations under the Licence.
+ *
+ * @author    DPD Polska Sp. z o.o.
+ * @copyright 2024 DPD Polska Sp. z o.o.
+ * @license   https://joinup.ec.europa.eu/software/page/eupl
+ */
+
+.dpdshipping-logo {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.dpd-shipping-generate-form .form-group {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.dpd-shipping-generate-form .form-group .form-control-label {
+    margin-bottom: 0;
+}
+
+.dpd-shipping-generate-form .form-control::placeholder {
+    font-size: 13px;
+}
+
+.dpd-shipping-services .form-check {
+    margin-bottom: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.border-generate-shipping {
+    border-right: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+}
+
+@media (min-width: 1299px) {
+    .modal-dpd-xl {
+        max-width: 1200px;
+    }
+}
+
+.modal-dpd-body {
+    padding: 5px 5px 0 5px;
+}
+
+.modal-dpd-content {
+    padding: 0 !important;
+    margin: 0;
+}
+
+.modal-dpd-footer {
+    padding: 5px;
+}
+
+.dpdshipping-pudo-cod-container {
+    padding: 0 0 15px 0;
+}
+
+.additional-fields-generate-shipping {
+    width: 50%;
+    float: left;
+    padding: 5px;
+}
+
+.dpdshipping-pudo-change-map-btn, #form_service_cod_currency, #form_service_guarantee_value, #form_service_declared_value_currency {
+    width: 70%;
+}
+
+.btn-icon-right {
+    position: relative;
+}
+
+.btn-icon-right .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dpdshipping-btn-full-width {
+    width: 100%;
+    text-align: left;
+    padding: 15px 0 15px 5px;
+    background: #f8f8f8;
+}
+
+.dpdshipping-carrier-name {
+    text-align: right;
+    font-size: 12px;
+    font-weight: normal;
+}

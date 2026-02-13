@@ -1,0 +1,33 @@
+{% set currentPath = app.request.pathinfo %}
+
+{% block content %}
+    {% trans_default_domain 'Modules.Dpdshipping.AdminNav' %}
+    {% set menuItems = [
+        {'path': 'connection', 'label': 'Connection with DPD Poland'|trans, 'form':'dpdshipping_connection_form'},
+        {'path': 'address', 'label': 'Sender addresses'|trans, 'form':'dpdshipping_address_form'},
+        {'path': 'carrier', 'label': 'Carriers'|trans, 'form':'dpdshipping_carrier_form'},
+        {'path': 'specialPrice', 'label': 'Special prices'|trans, 'form':'dpdshipping_special_price_form'},
+        {'path': 'parameters', 'label': 'Default parameters'|trans, 'form':'dpdshipping_parameters_form'},
+        {'path': 'configuration', 'label': 'Settings'|trans, 'form':'dpdshipping_configuration_form'},
+        {'path': 'pickupCourierSettingsList', 'label': 'Pickup courier settings'|trans, 'form':'dpdshipping_pickup_courier_settings_list_form'},
+        {'path': 'onboarding', 'label': 'Onboarding'|trans, 'form':'dpdshipping_onboarding_form'},
+    ] %}
+
+    <nav class="navbar navbar-light bg-white mb-3 dpdshipping-box-shadow">
+        <ul class="navbar-nav text-dark">
+            {% for item in menuItems %}
+                <li class="nav-item {% if currentPath == '/modules/dpdshipping/configuration/' ~ item.path %} dpdshipping-nav-active active {% endif %}">
+                    <a class="nav-link" href="{{ path(item.form) }}">{{ item.label }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/navbar.css') }}"/>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="b0f02bf692d5b2f33953b1e845d08e8e">
+        <source>Special price enabled</source>
+        <target>Włącz ceny specjalne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="346b9abd10b5d1f62a93cf4cfec979eb">
+        <source>Special prices</source>
+        <target>Ceny specjalne</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="59716c97497eb9694541f7c3d37b1a4d">
+        <source>Country</source>
+        <target>Kraj</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="05f40470963640054fbb0cc0bd853f25">
+        <source>Cart price from (PLN)</source>
+        <target>Cena koszyka od (PLN)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5ad8c6af186ea8d1d21d0fabe339e47b">
+        <source>Cart price up to (PLN)</source>
+        <target>Cena koszyka do (PLN)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="69a65276ca859b66d32260b30aa21a1e">
+        <source>Package weight from (kg)</source>
+        <target>Waga paczki od (kg)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d4bcf0191c4a67089f8cc147ecc8a121">
+        <source>Package weight up to (kg)</source>
+        <target>Waga paczki do (kg)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fe0b228cc46b7bca22342c9b725c76d1">
+        <source>Price per package (PLN)</source>
+        <target>Cena za pakowanie (PLN)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6310f29293c902c64db619c29179d99a">
+        <source>Delivery method</source>
+        <target>Sposób dostawy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fbdb948577440b10009573cf528c2b00">
+        <source>Price for COD service (PLN)</source>
+        <target>Cena za usługę za pobraniem (PLN)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53">
+        <source>Action</source>
+        <target>Akcje</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

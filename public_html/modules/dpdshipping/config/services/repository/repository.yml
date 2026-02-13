@@ -1,0 +1,100 @@
+services:
+  _defaults:
+    public: true
+
+  prestashop.module.dpdshipping.repository.dpdshipping.configuration.repository:
+    class: 'DpdShipping\Repository\DpdshippingConfigurationRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingConfiguration'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.payer.repository:
+    class: 'DpdShipping\Repository\DpdshippingPayerRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingPayer'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.sender.address.repository:
+    class: 'DpdShipping\Repository\DpdshippingSenderAddressRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingSenderAddress'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.carrier.repository:
+    class: 'DpdShipping\Repository\DpdshippingCarrierRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingCarrier'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.carrier.pickup.repository:
+    class: 'DpdShipping\Repository\DpdshippingCarrierPickupRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingCarrierPickup'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.settings.repository:
+    class: 'DpdShipping\Repository\DpdshippingPickupCourierSettingsRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingPickupCourierSettings'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.pickup.courier.repository:
+    class: 'DpdShipping\Repository\DpdshippingPickupCourierRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingPickupCourier'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.special.price.repository:
+    class: 'DpdShipping\Repository\DpdshippingSpecialPriceRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingSpecialPrice'
+    calls:
+      - [ 'setLogger', [ '@logger' ] ]
+
+  prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.repository:
+    class: 'DpdShipping\Repository\DpdshippingShippingHistoryRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingShippingHistory'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.sender.repository:
+    class: 'DpdShipping\Repository\DpdshippingShippingHistorySenderRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingShippingHistorySender'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.receiver.repository:
+    class: 'DpdShipping\Repository\DpdshippingShippingHistoryReceiverRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingShippingHistoryReceiver'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.parcel.repository:
+    public: true
+    class: 'DpdShipping\Repository\DpdshippingShippingHistoryParcelRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingShippingHistoryParcel'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.shipping.history.services.repository:
+    class: 'DpdShipping\Repository\DpdshippingShippingHistoryServicesRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingShippingHistoryServices'
+
+  prestashop.module.dpdshipping.repository.dpdshipping.cart.pickup.repository:
+    class: 'DpdShipping\Repository\DpdshippingCartPickupRepository'
+    factory: [ '@doctrine.orm.default_entity_manager', getRepository ]
+    arguments:
+      - 'DpdShipping\Entity\DpdshippingCartPickup'

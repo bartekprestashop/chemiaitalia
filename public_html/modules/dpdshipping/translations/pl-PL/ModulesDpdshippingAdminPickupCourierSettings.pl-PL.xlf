@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin4577" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="715d29a4ccae9642a011658894b1b076">
+        <source>Pickup order settings</source>
+        <target>Zamów kuriera</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b718adec73e04ce3ec720dd11a06a308">
+        <source>ID</source>
+        <target>ID</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d29f8ca283ceabb3d98a70d658649247">
+        <source>Customer company</source>
+        <target>Firma Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b8e97dd2df718b18ba0111008a745c57">
+        <source>Customer name</source>
+        <target>Imię i nazwisko Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6fea3790794582b91e890c2465dc699d">
+        <source>Customer phone</source>
+        <target>Numer telefonu Klienta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="eb721d0a6d0dedf3bda393da125d1bd5">
+        <source>Payer number </source>
+        <target>Numer płatnika (FID)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e4433a3b2732105f9bd6fd98ff41fe56">
+        <source>Sender company</source>
+        <target>Firma Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="90ed58883831551ef960da4f7cde1240">
+        <source>Sender name</source>
+        <target>Imię i nazwisko Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Adres Nadawcy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa">
+        <source>Actions</source>
+        <target>Akcje</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35">
+        <source>Edit</source>
+        <target>Edytuj</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>Usuń</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b69120f025424daa72509a6e073acebc">
+        <source>Remove selected row?</source>
+        <target>Usunąć zaznaczony wiersz?</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Zamknij</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

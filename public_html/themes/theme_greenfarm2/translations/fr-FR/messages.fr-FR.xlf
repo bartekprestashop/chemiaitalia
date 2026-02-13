@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\postabcateslider\views\templates\admin\_configure\helpers\form\form.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="92fbf0e5d97b8afd7e73126b52bdc4bb">
+        <source>Choose a file</source>
+        <target>Choisissez un fichier</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\postabcateslider\views\templates\admin\_configure\helpers\form\form.tpl:42</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="c82324ebbcea34f55627a897b37190e3">
+        <source>Slides list</source>
+        <target>Slides list</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl:25</note>
+      </trans-unit>
+      <trans-unit id="ef61fb324d729c341ea8ab9901e23566">
+        <source>Add new</source>
+        <target>Ajouter</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl:28</note>
+      </trans-unit>
+      <trans-unit id="379a88861412d686cfaf475c84a24920">
+        <source>Shared slide</source>
+        <target>Shared slide</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl:51</note>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35">
+        <source>Edit</source>
+        <target>Modifier</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl:62</note>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>Supprimer</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posslideshows\views\templates\hook\list.tpl:67</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posspecialproducts\views\templates\hook\posspecialproducts.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="6c9813d2d8630c3da662774d517d0383">
+        <source>greenfarm deal of the day</source>
+        <target>greenfarm deal of the day</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\posspecialproducts\views\templates\hook\posspecialproducts.tpl:20</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\postabcateslider\views\templates\hook\categories-tree.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="99078a8f3786817fbaa593c08ff04a5d">
+        <source>Select categories</source>
+        <target>Select categories</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\postabcateslider\views\templates\hook\categories-tree.tpl:5</note>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Enregistrer</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\postabcateslider\views\templates\hook\categories-tree.tpl:13</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\ps_customersignin\ps_customersignin.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="9ae79c1fccd231ac7fbbf3235dbf6326">
+        <source>My wishlist</source>
+        <target>My wishlist</target>
+        <note>Context:
+File: C:\xampp\htdocs\posthemes\pos_greenfarm\themes\theme_greenfarm2\modules\ps_customersignin\ps_customersignin.tpl:63</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

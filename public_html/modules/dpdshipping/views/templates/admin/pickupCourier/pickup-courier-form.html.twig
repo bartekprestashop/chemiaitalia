@@ -1,0 +1,31 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@Modules/dpdshipping/views/templates/admin/_partials/navbar.html.twig' %}
+
+    {% block quotes_list_panel %}
+        <div class="row">
+            <div class="col-12 mb-2">
+                <a class="btn btn-primary float-right"
+                   href="{{ path('dpdshipping_pickup_courier_edit_form') }}">{{ 'Pickup courier'|trans({}, 'Modules.Dpdshipping.AdminPickupCourier') }}</a>
+            </div>
+            <div class="col">
+                {% include '@PrestaShop/Admin/Common/Grid/grid_panel.html.twig' with {'grid': quoteGrid} %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/dpdshipping/views/css/admin/pickup-courier.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('../modules/dpdshipping/views/js/pickup-courier-grid.js') }}"></script>
+    <script src="{{ asset('themes/default/js/bundle/pagination.js') }}"></script>
+{% endblock %}
+
+
