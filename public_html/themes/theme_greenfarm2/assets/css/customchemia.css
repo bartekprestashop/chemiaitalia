@@ -107,3 +107,7 @@
 .banner-center{
     margin-top: 0px;
 }
+
+.modal-body .pos_content {
+    display: none;
+}
