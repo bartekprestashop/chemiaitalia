@@ -28,7 +28,7 @@
 		<a href="{$my_account_url}" rel="nofollow" class="dropdown-item"> {l s='My account' d='Shop.Theme.Customeraccount'}</a>
 	</li>
 	<li>
-		<a class="dropdown-item" href="{$link->getModuleLink('blockwishlist', 'lists')}" title="{l s='My wishlist' mod='blockuserinfo'}">{l s='My wishlist' d='Shop.Theme.Actions'}</a>
+		<a class="dropdown-item" href="{$link->getModuleLink('blockwishlist', 'lists')}" title="{l s='My wishlist' d='Shop.Theme.Actions'}">{l s='My wishlist' d='Shop.Theme.Actions'}</a>
 	</li>
 	<li>
 		<a href="{$link->getPageLink("cart", true)|escape:"html":"UTF-8"}?action=show" class="dropdown-item">{l s='Checkout' d='Shop.Theme.Actions'}</a>
@@ -60,7 +60,7 @@
 			<a href="{$my_account_url}" rel="nofollow" class="dropdown-item">{l s='My account' d='Shop.Theme.Customeraccount'}</a>
 		</li>
 		<li>
-			<a class="dropdown-item" href="{$link->getModuleLink('blockwishlist', 'mywishlist')}" title="{l s='My wishlist' mod='blockuserinfo'}">{l s='My wishlist' d='Shop.Theme.Actions'}</a>
+			<a class="dropdown-item" href="{$link->getModuleLink('blockwishlist', 'mywishlist')}" title="{l s='My wishlist' d='Shop.Theme.Actions'}">{l s='My wishlist' d='Shop.Theme.Actions'}</a>
 		</li>
 		<li>
 			<a href="{$link->getPageLink('cart', true)|escape:'html':'UTF-8'}?action=show" class="dropdown-item" >{l s='Checkout' d='Shop.Theme.Actions'}</a>
