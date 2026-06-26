@@ -113,3 +113,7 @@
 .modal-body .pos_content {
     display: none;
 }
+
+#tab_feature_product .owl-item {
+    min-height: 422px;
+}
