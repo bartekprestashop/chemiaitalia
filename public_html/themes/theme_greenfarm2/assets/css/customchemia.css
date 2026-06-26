@@ -114,6 +114,6 @@
     display: none;
 }
 
-#tab_feature_product .owl-item {
+#tab_feature_product .product-miniature {
     min-height: 422px;
 }
