@@ -5302,16 +5302,9 @@ function accordionFooter(status)
 
 function bindGrid()
 {
-
-	var view = $.totalStorage('display');
-
-	if (!view && (typeof displayList != 'undefined') && displayList)
-		view = 'list';
-
-	if (view && view != 'grid')
-		display(view);
-	else
-		$('.display').find('li#grid').addClass('selected');
+	$.totalStorage.deleteItem('display');
+	display('grid');
+	$('.display').find('li#grid').addClass('selected');
 
 	$(document).on('click', '#grid', function(e){
 		e.preventDefault();
@@ -5323,9 +5316,7 @@ function bindGrid()
 
 	$(document).on('click', '#list', function(e){
 		e.preventDefault();
-		display('list');
-		$(this).parents("#products-list").find(".list .item-product").addClass(" animated fadeInRight");
-		$(this).parents("#products-list").find(".list .item-product").removeClass(" zoomIn"); 
+		display('grid');
 
 	});
 
@@ -5333,6 +5324,7 @@ function bindGrid()
 
 function display(view)
 {
+	view = 'grid';
 	if (view == 'grid')
 	{
 		$('#js-product-list .product_content').removeClass('list').addClass('grid row');
@@ -5367,38 +5359,5 @@ function display(view)
 		$('.display').find('li#grid').addClass('selected');
 		$('.display').find('li#list').removeAttr('class');
 		$.totalStorage('display', 'grid');
-	}
-	else
-	{	
-		$('#js-product-list .product_content').removeClass('grid').addClass('list row');
-		$('.product_content .item-product').removeClass('col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4').addClass('col-xs-12');
-		$('.product_content .item-product').each(function(index, element) {
-			var html = '';
-			var id_product = $(this).children('article.js-product-miniature').attr('data-id-product');
-			var id_product_attr = $(this).children('article.js-product-miniature').attr('data-id-product-attribute');
-			html = '<article class="js-product-miniature item_in" data-id-product="'+ id_product +'" data-id-product-attribute="'+ id_product_attr +'" itemscope itemtype="http://schema.org/Product"><div class="row">';
-			html += '<div class="img_block col-xs-4 col-sm-4 col-md-4 col-lg-4 ">' + $(element).find('.img_block').html() + '</div>';
-			html += '<div class="product_desc col-xs-8 col-sm-8 col-md-8 col-lg-8 ">';
-			html += '<div class="manufacturer">'+ $(element).find('.manufacturer').html() + '</div>';				
-			html += '<h1>'+ $(element).find('h1').html() + '</h1>';
-			var hookReviews = $(element).find('.hook-reviews');
-			if (hookReviews.length) {
-				html += hookReviews.clone().wrap('<div>').parent().html();
-			}
-		
-			var price = $(element).find('.product-price-and-shipping').html();       // check : catalog mode is enabled
-			if (price != null) {
-				html += '<div class="product-price-and-shipping">'+ price + '</div>';
-			}
-			html += '<div itemprop="description" class="product-desc desc_grid">'+ $(element).find('.product-desc.desc_grid').html() + '</div>';
-			html += '<div itemprop="description" class="product-desc desc_list">'+ $(element).find('.product-desc.desc_list').html() + '</div>';
-			html += '<ul class="add-to-links">'+ $(element).find('.add-to-links').html() + '</ul>';	
-			html += '<div class="variant-links">'+ $(element).find('.variant-links').html() + '</div>';
-			html += '</div></article>';
-			$(element).html(html);
-		});
-		$('.display').find('li#list').addClass('selected');
-		$('.display').find('li#grid').removeAttr('class');
-		$.totalStorage('display', 'list');
 	}
 }

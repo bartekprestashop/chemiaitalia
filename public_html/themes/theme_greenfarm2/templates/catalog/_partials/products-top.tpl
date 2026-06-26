@@ -25,10 +25,6 @@
 <div id="js-product-list-top" class=" products-selection">
 <div class="row">
   <div class="col-md-6 hidden-sm-down total-products">
-    <ul class="display hidden-xs">
-		<li id="grid"> <i class="material-icons show_grid">&#xE8F0;</i></li>
-		<li id="list"> <i class="material-icons show_list">&#xE8EF;</i></li>
-	</ul>
     {if $listing.pagination.total_items > 1}
       <p>{l s='There are %product_count% products.' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
     {else if $listing.pagination.total_items > 0}
