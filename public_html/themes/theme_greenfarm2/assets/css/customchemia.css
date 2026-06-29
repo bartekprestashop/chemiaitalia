@@ -117,3 +117,14 @@
 #tab_feature_product .product-miniature {
     min-height: 422px;
 }
+
+.header-nav-top .mobile > .row-mobile .mobile-center.col-mobile.col-md-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#header .logo.img-responsive {
+    max-width: 300px;
+    margin-left: 0px;
+    margin-right: 0px;
+}

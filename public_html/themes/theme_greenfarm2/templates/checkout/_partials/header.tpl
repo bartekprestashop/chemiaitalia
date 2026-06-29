@@ -81,11 +81,11 @@
 		<div class="col col-xs-12 col-md-2 col-lg-3" id="_desktop_logo">
 			{if $page.page_name == 'index'}
 			<a href="{$urls.base_url}">
-			<img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}" style="max-width: 250px;">
+			<img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
 			</a>
 			{else}
 			<a href="{$urls.base_url}">
-			<img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}" style="max-width: 250px;">
+			<img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
 			</a>
 			{/if}
 		</div>
