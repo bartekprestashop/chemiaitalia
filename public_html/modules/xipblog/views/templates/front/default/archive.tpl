@@ -4,7 +4,7 @@
 <section class="kr_blog_post_area">
 	<div class="kr_blog_post_inner">
 		{foreach from=$xipblogpost item=xpblgpst}
-			<article id="blog_post" class="blog_post blog_post_{$xpblgpst.post_format} clearfix col-xs-12 col-md-6">
+			<article class="blog_post blog_post_item blog_post_{$xpblgpst.post_format} clearfix col-xs-12 col-md-6">
 				<div class="blog_post_content">
 					<div class="blog_post_content_top">
 						<div class="post_thumbnail">
