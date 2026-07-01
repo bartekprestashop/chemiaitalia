@@ -128,3 +128,374 @@
     margin-left: 0px;
     margin-right: 0px;
 }
+
+/* Product page, quickview and listing typography normalization */
+.page-product .h1.namne_details,
+.page-product .product_name_h1,
+.quickview .h1.namne_details,
+.quickview .product_name_h1 {
+    color: #242424;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: 0;
+    margin: 0 0 18px;
+    text-transform: none;
+}
+
+.page-product .reference,
+.quickview .reference {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 0 18px;
+}
+
+.page-product .product-prices,
+.quickview .product-prices {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin: 0 0 22px;
+}
+
+.page-product .product-prices div,
+.quickview .product-prices div {
+    margin: 0;
+}
+
+.page-product .product-prices .current-price,
+.quickview .product-prices .current-price {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+}
+
+.page-product .product-prices .price,
+.page-product .product-prices .current-price span:first-child,
+.quickview .product-prices .price,
+.quickview .product-prices .current-price span:first-child {
+    color: #78b900;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.15;
+    text-transform: none;
+}
+
+.page-product .product-discount,
+.quickview .product-discount {
+    display: inline-block;
+    margin: 0;
+}
+
+.page-product .product-discount .regular-price,
+.quickview .product-discount .regular-price,
+.js-product-miniature .product-price-and-shipping .regular-price {
+    color: #9a9a9a;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.page-product .has-discount.product-price,
+.quickview .has-discount.product-price {
+    color: #9a9a9a;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.page-product .has-discount p,
+.quickview .has-discount p {
+    color: #202020;
+    flex: 0 0 100%;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.45;
+    margin-top: 2px;
+    text-transform: none;
+}
+
+.page-product .has-discount .discount,
+.quickview .has-discount .discount,
+.product-price-and-shipping-top .discount-product,
+.product-flag .discount span {
+    background: #f35833;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 6px 10px;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.page-product .tax-shipping-delivery-label,
+.quickview .tax-shipping-delivery-label {
+    flex: 0 0 100%;
+    color: #777777;
+    font-size: 0;
+    line-height: 1.45;
+    margin-top: 2px;
+}
+
+.page-product #roxomnibus,
+.quickview #roxomnibus {
+    color: #202020;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.45;
+    margin-top: 16px;
+}
+
+.page-product #roxomnibus span,
+.quickview #roxomnibus span {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.page-product .product-information,
+.quickview .product-information {
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.page-product .product-information .product-desc,
+.quickview .product-information .product-desc {
+    color: #666666;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 760px;
+    padding: 0 0 10px;
+}
+
+.page-product .product-add-to-cart .control-label,
+.quickview .product-add-to-cart .control-label {
+    color: #9a9a9a;
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0 0 6px;
+}
+
+.page-product .product-quantity,
+.quickview .product-quantity {
+    align-items: stretch;
+    display: flex;
+    gap: 10px;
+}
+
+.page-product .product-quantity .qty,
+.quickview .product-quantity .qty {
+    flex: 0 0 auto;
+    margin-right: 0;
+}
+
+.page-product .product-quantity #quantity_wanted,
+.quickview .product-quantity #quantity_wanted {
+    height: 48px;
+    min-width: 58px;
+}
+
+.page-product .product-quantity .btn-touchspin,
+.quickview .product-quantity .btn-touchspin {
+    height: 25px;
+}
+
+.page-product .product-quantity .add,
+.quickview .product-quantity .add {
+    flex: 1 1 280px;
+    max-width: 420px;
+}
+
+.page-product #product-availability:empty,
+.page-product .product-minimal-quantity:empty,
+.page-product .product-additional-info:empty,
+.quickview #product-availability:empty,
+.quickview .product-minimal-quantity:empty,
+.quickview .product-additional-info:empty {
+    display: none;
+}
+
+.page-product #product-availability,
+.page-product .product-minimal-quantity,
+.page-product .product-additional-info,
+.quickview #product-availability,
+.quickview .product-minimal-quantity,
+.quickview .product-additional-info {
+    margin: 0;
+    min-height: 0;
+}
+
+.page-product #product-availability,
+.page-product .product-minimal-quantity,
+.quickview #product-availability,
+.quickview .product-minimal-quantity {
+    line-height: 0;
+}
+
+.page-product .product-actions .add-to-cart,
+.quickview .product-actions .add-to-cart {
+    font-size: 14px;
+    font-weight: 600;
+    height: 48px;
+    line-height: 48px;
+    max-width: 100%;
+    padding: 0 28px;
+    width: 100%;
+}
+
+.page-product .blockreassurance_product,
+.quickview .blockreassurance_product {
+    margin-top: 0;
+}
+
+.page-product #block-reassurance,
+.quickview #block-reassurance {
+    margin-top: 0;
+}
+
+.page-product #block-reassurance li .block-reassurance-item,
+.quickview #block-reassurance li .block-reassurance-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.page-product .blockreassurance_product > div:not(.clearfix),
+.quickview .blockreassurance_product > div:not(.clearfix) {
+    align-items: center;
+    column-gap: 8px;
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    margin-bottom: 6px;
+}
+
+.page-product .blockreassurance_product .item-product,
+.quickview .blockreassurance_product .item-product {
+    display: flex;
+    grid-row: 1 / 3;
+    justify-content: center;
+    margin-right: 0;
+    width: 58px;
+}
+
+.page-product .blockreassurance_product .block-title,
+.page-product .blockreassurance_product p,
+.quickview .blockreassurance_product .block-title,
+.quickview .blockreassurance_product p {
+    display: block;
+    grid-column: 2;
+    margin: 0;
+}
+
+.js-product-miniature .product_desc .manufacturer,
+.js-product-miniature .product_desc .manufacturer a {
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.js-product-miniature .product_desc .product_name {
+    color: #242424;
+    display: -webkit-box;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    min-height: 41px;
+    overflow: hidden;
+    text-transform: none;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.js-product-miniature .product-price-and-shipping {
+    margin-top: 8px;
+    min-height: 32px;
+}
+
+.js-product-miniature .product-price-and-shipping .price {
+    color: #78b900;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.js-product-miniature .product_desc .product-desc {
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 991px) {
+    .page-product .h1.namne_details,
+    .page-product .product_name_h1,
+    .quickview .h1.namne_details,
+    .quickview .product_name_h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 575px) {
+    .page-product .h1.namne_details,
+    .page-product .product_name_h1,
+    .quickview .h1.namne_details,
+    .quickview .product_name_h1 {
+        font-size: 23px;
+        line-height: 1.22;
+        margin-bottom: 14px;
+    }
+
+    .page-product .reference,
+    .quickview .reference {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .page-product .product-prices .price,
+    .page-product .product-prices .current-price span:first-child,
+    .quickview .product-prices .price,
+    .quickview .product-prices .current-price span:first-child {
+        font-size: 24px;
+    }
+
+    .page-product .has-discount.product-price,
+    .quickview .has-discount.product-price {
+        font-size: 15px;
+    }
+
+    .page-product .has-discount p,
+    .quickview .has-discount p {
+        font-size: 14px;
+    }
+
+    .page-product #roxomnibus,
+    .page-product #roxomnibus span,
+    .quickview #roxomnibus,
+    .quickview #roxomnibus span {
+        font-size: 14px;
+    }
+
+    .page-product .product-information .product-desc,
+    .quickview .product-information .product-desc {
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    .page-product .product-quantity,
+    .quickview .product-quantity {
+        gap: 8px;
+    }
+
+    .page-product .product-actions .add-to-cart,
+    .quickview .product-actions .add-to-cart {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
