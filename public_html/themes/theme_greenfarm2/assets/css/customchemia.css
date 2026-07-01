@@ -427,6 +427,29 @@
     line-height: 1.2;
 }
 
+.js-product-miniature .listing-omnibus {
+    margin-top: 4px;
+}
+
+.js-product-miniature .listing-omnibus:empty {
+    display: none;
+}
+
+.js-product-miniature .listing-omnibus #roxomnibus {
+    color: #666666;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0;
+    text-align: center;
+}
+
+.js-product-miniature .listing-omnibus #roxomnibus span {
+    color: #242424;
+    font-size: 11px;
+    font-weight: 600;
+}
+
 .js-product-miniature .product_desc .product-desc {
     color: #666666;
     font-size: 13px;

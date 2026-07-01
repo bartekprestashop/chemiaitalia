@@ -98,6 +98,10 @@
               <span itemprop="price" class="price {if $product.has_discount}price-sale{/if}">{$product.price}</span>
               {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 
+              <div class="listing-omnibus">
+                {hook h='displayOmnibusInfo' product=$product}
+              </div>
+
               {hook h='displayProductPriceBlock' product=$product type='weight'}
             </div>
           {/if}
