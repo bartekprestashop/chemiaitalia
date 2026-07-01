@@ -415,9 +415,20 @@
     -webkit-line-clamp: 2;
 }
 
+#js-product-list .product_content.grid .js-product-miniature .product_desc .product_name {
+    height: 61px;
+    margin-bottom: 0;
+    min-height: 61px;
+    -webkit-line-clamp: 3;
+}
+
 .js-product-miniature .product-price-and-shipping {
     margin-top: 8px;
     min-height: 32px;
+}
+
+#js-product-list .product_content.grid .js-product-miniature .product-price-and-shipping {
+    margin-top: 6px;
 }
 
 .js-product-miniature .product-price-and-shipping .price {
