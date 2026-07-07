@@ -39,7 +39,7 @@
 							<div id="_mobile_language_selector"></div>
 						</div>			
 						<div class="menu-close"> 
-							{l s='menu' d='Shop.Theme.Global'} <i class="material-icons float-xs-right">arrow_back</i>
+							{l s='menu' d='Shop.Theme.Global'} <i class="material-icons float-xs-right">&#xE5C4;</i>
 						</div>
 						<div class="menu-tabs">							
 							<div class="js-top-menu-bottom">												

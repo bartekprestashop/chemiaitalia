@@ -97,7 +97,7 @@
 		{block name='my_account_links'}
 		<a href="{$logout_url}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 			<span class="link-item">
-				<i class="material-icons">tag_faces</i>
+				<i class="material-icons">&#xE420;</i>
 					{l s='Sign out' d='Shop.Theme.Actions'}
 			  </span>
 		  </a>

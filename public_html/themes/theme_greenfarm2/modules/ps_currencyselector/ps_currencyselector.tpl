@@ -44,7 +44,7 @@
   <div class="currency-selector localiz_block dropdown js-dropdown">
     <button data-target="#" data-toggle="dropdown" class=" btn-unstyle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Currency dropdown' d='Shop.Theme.Global'}">
       <span class="expand-more _gray-darker">{$current_currency.iso_code} {$current_currency.sign}</span>
-   	<i class="material-icons">expand_more</i>
+   	<i class="material-icons">&#xE5CF;</i>
     </button>
     <ul class="dropdown-menu">
       {foreach from=$currencies item=currency}

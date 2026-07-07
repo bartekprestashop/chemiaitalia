@@ -53,7 +53,7 @@
 	    <button data-target="#" data-toggle="dropdown" class=" btn-unstyle">
 		  <span class="icon icon-Settings"></span>
 		  <span class="expand-more">{l s='Setting' d='Shop.Theme.Customeraccount'}</span>
-		  <i class="material-icons">expand_more</i>
+		  <i class="material-icons">&#xE5CF;</i>
 		</button>
 		<ul class="dropdown-menu">
 		<li>
