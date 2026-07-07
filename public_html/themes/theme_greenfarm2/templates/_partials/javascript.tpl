@@ -22,8 +22,10 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+{assign var="js_version" value=Configuration::get('PS_CCCJS_VERSION')}
+
 {foreach $javascript.external as $js}
-  <script type="text/javascript" src="{$js.uri}" {$js.attribute}></script>
+  <script type="text/javascript" src="{$js.uri}{if strpos($js.uri, '?') === false}?{else}&{/if}v={$js_version}" {$js.attribute}></script>
 {/foreach}
 
 {foreach $javascript.inline as $js}

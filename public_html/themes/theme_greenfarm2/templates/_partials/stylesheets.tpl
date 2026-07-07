@@ -22,15 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+{assign var="css_version" value=Configuration::get('PS_CCCCSS_VERSION')}
+
 {foreach $stylesheets.external as $stylesheet}
-  <link rel="stylesheet" href="{$stylesheet.uri}" type="text/css" media="{$stylesheet.media}">
+  <link rel="stylesheet" href="{$stylesheet.uri}{if strpos($stylesheet.uri, '?') === false}?{else}&{/if}v={$css_version}" type="text/css" media="{$stylesheet.media}">
 {/foreach}
-<link rel="stylesheet" href="{$urls.theme_assets}css/customchemia.css" type="text/css" media="all">
+<link rel="stylesheet" href="{$urls.theme_assets}css/customchemia.css?v={$css_version}" type="text/css" media="all">
 
 {foreach $stylesheets.inline as $stylesheet}
   <style>
     {$stylesheet.content}
   </style>
 {/foreach}
-
 
