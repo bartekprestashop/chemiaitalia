@@ -2,9 +2,9 @@
 
 header('Access-Control-Allow-Origin: *');
 
-$errorReportingLevel = E_ALL & ~E_DEPRECATED & ~E_NOTICE; 
-@ini_set('display_errors', 'on');
-@error_reporting($errorReportingLevel);
+//$errorReportingLevel = E_ALL & ~E_DEPRECATED & ~E_NOTICE;
+//@ini_set('display_errors', 'on');
+//@error_reporting($errorReportingLevel);
  
 class bgomnibuscronModuleFrontController extends ModuleFrontController
 {

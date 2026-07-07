@@ -76,9 +76,11 @@
 		{/block}
 	</div>
     <div class="product_desc">
-		{if isset($product.id_manufacturer)}
-		 <div class="manufacturer"><a href="{url entity='manufacturer' id=$product.id_manufacturer }">{Manufacturer::getnamebyid($product.id_manufacturer)}</a></div>
-		{/if}
+			<div class="manufacturer">
+				{if !empty($product.id_manufacturer)}
+					<a href="{url entity='manufacturer' id=$product.id_manufacturer }">{Manufacturer::getnamebyid($product.id_manufacturer)}</a>
+				{/if}
+			</div>
         {block name='product_name'}
           <h3 itemprop="name"><a href="{$product.url}" class="product_name">{$product.name|truncate:50:'...'}</a></h3>
         {/block}
@@ -96,6 +98,9 @@
 
               <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
               <span itemprop="price" class="price {if $product.has_discount}price-sale{/if}">{$product.price}</span>
+              {if $product.unit_price_full}
+                <span class="product-unit-price listing-unit-price">{l s='(%unit_price%)' d='Shop.Theme.Catalog' sprintf=['%unit_price%' => $product.unit_price_full]}</span>
+              {/if}
               {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 
               <div class="listing-omnibus">
