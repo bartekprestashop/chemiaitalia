@@ -174,9 +174,8 @@ class Calculator
             throw new \Exception('Cart must be processed before getting its total');
         }
 
-        $amount = $this->getRowTotalWithoutDiscount();
-        $amount = $amount->sub($this->rounded($this->getDiscountTotal(), $this->computePrecision));
-        $shippingFees = $this->fees->getInitialShippingFees();
+        $amount = $this->getRowTotal();
+        $shippingFees = $this->fees->getFinalShippingFees();
         if (null !== $shippingFees) {
             $amount = $amount->add($this->rounded($shippingFees, $this->computePrecision));
         }
