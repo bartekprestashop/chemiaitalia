@@ -39,6 +39,7 @@ class Sorter
             'CustomerIP',
             'Title',
             'ReceiverName',
+            'CustomerPhone',
             'BlikUIDKey',
             'BlikUIDLabel',
             'BlikAMKey',
@@ -57,6 +58,8 @@ class Sorter
             'PlatformName',
             'PlatformVersion',
             'PlatformPluginVersion',
+            'Nip',
+            'AccountHolderName',
             'Hash',
         ];
 

@@ -10,551 +10,608 @@
  *
  * @category       BlueMedia
  * @package        BlueMedia_BluePayment
- * @copyright      Copyright (c) 2015-2024
+ * @copyright      Copyright (c) 2015-2026
  * @license        https://www.gnu.org/licenses/lgpl-3.0.en.html GNU Lesser General Public License
 *}
 {literal}
 <script type="text/javascript">
-	{/literal}
-	var aplitudeUserId = '{$amplitude_user_id}';
-    var aplitudeId = '{$amplitude_id}';
-	{literal}
-	(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-    ;r.type="text/javascript"
-    ;r.integrity="sha384-piO8kfwxl9OAS2doXzmrLEai7u7SSevgU0P09hOnRm8ZjFfhZbHCudfgSxdTMd/s"
-    ;r.crossOrigin="anonymous";r.async=true
-    ;r.src="https://cdn.amplitude.com/libs/amplitude-8.18.2-min.gz.js"
-    ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){console.log(
-    "[Amplitude] Error: could not load SDK")}};var s=t.getElementsByTagName("script"
-    )[0];s.parentNode.insertBefore(r,s);function i(e,t){e.prototype[t]=function(){
-    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-	var o=function(){this._q=[];return this};var a=["add","append","clearAll",
-		"prepend","set","setOnce","unset","preInsert","postInsert","remove"];for(
-		var c=0;c<a.length;c++){i(o,a[c])}n.Identify=o;var l=function(){this._q=[]
-    ;return this};var u=["setProductId","setQuantity","setPrice","setRevenueType",
-		"setEventProperties"];for(var p=0;p<u.length;p++){i(l,u[p])}n.Revenue=l;var d=[
-		"init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut",
-		"setVersionName","setDomain","setDeviceId","enableTracking",
-		"setGlobalUserProperties","identify","clearUserProperties","setGroup",
-		"logRevenueV2","regenerateDeviceId","groupIdentify","onInit","onNewSessionStart"
-		,"logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId",
-		"getDeviceId","getUserId","setMinTimeBetweenSessionsMillis",
-		"setEventUploadThreshold","setUseDynamicConfig","setServerZone","setServerUrl",
-		"sendEvents","setLibrary","setTransport"];function v(t){function e(e){
-    t[e]=function(){t._q.push([e].concat(Array.prototype.slice.call(arguments,0)))}}
-	for(var n=0;n<d.length;n++){e(d[n])}}v(n);n.getInstance=function(e){e=(
-    !e||e.length===0?"$default_instance":e).toLowerCase();if(
-    !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
-    return n._iq[e]};e.amplitude=n})(window,document);
-	amplitude.getInstance().init(
+    {/literal}
+    var aplitudeUserId = '{$amplitude_user_id|escape:'javascript':'UTF-8'}';
+    var aplitudeId = '{$amplitude_id|escape:'javascript':'UTF-8'}';
+    {literal}
+    (function (e, t) {
+        var n = e.amplitude || {_q: [], _iq: {}};
+        var r = t.createElement("script")
+        ;r.type = "text/javascript"
+        ;r.integrity = "sha384-piO8kfwxl9OAS2doXzmrLEai7u7SSevgU0P09hOnRm8ZjFfhZbHCudfgSxdTMd/s"
+        ;r.crossOrigin = "anonymous";
+        r.async = true
+        ;r.src = "https://cdn.amplitude.com/libs/amplitude-8.18.2-min.gz.js"
+        ;r.onload = function () {
+            if (!e.amplitude.runQueuedFunctions) {
+                console.log(
+                    "[Amplitude] Error: could not load SDK")
+            }
+        };
+        var s = t.getElementsByTagName("script"
+        )[0];
+        s.parentNode.insertBefore(r, s);
+
+        function i(e, t) {
+            e.prototype[t] = function () {
+                this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                return this
+            }
+        }
+
+        var o = function () {
+            this._q = [];
+            return this
+        };
+        var a = ["add", "append", "clearAll",
+            "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove"];
+        for (
+            var c = 0; c < a.length; c++) {
+            i(o, a[c])
+        }
+        n.Identify = o;
+        var l = function () {
+            this._q = []
+            ;
+            return this
+        };
+        var u = ["setProductId", "setQuantity", "setPrice", "setRevenueType",
+            "setEventProperties"];
+        for (var p = 0; p < u.length; p++) {
+            i(l, u[p])
+        }
+        n.Revenue = l;
+        var d = [
+            "init", "logEvent", "logRevenue", "setUserId", "setUserProperties", "setOptOut",
+            "setVersionName", "setDomain", "setDeviceId", "enableTracking",
+            "setGlobalUserProperties", "identify", "clearUserProperties", "setGroup",
+            "logRevenueV2", "regenerateDeviceId", "groupIdentify", "onInit", "onNewSessionStart"
+            , "logEventWithTimestamp", "logEventWithGroups", "setSessionId", "resetSessionId",
+            "getDeviceId", "getUserId", "setMinTimeBetweenSessionsMillis",
+            "setEventUploadThreshold", "setUseDynamicConfig", "setServerZone", "setServerUrl",
+            "sendEvents", "setLibrary", "setTransport"];
+
+        function v(t) {
+            function e(e) {
+                t[e] = function () {
+                    t._q.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }
+
+            for (var n = 0; n < d.length; n++) {
+                e(d[n])
+            }
+        }
+
+        v(n);
+        n.getInstance = function (e) {
+            e = (
+                !e || e.length === 0 ? "$default_instance" : e).toLowerCase();
+            if (
+                !Object.prototype.hasOwnProperty.call(n._iq, e)) {
+                n._iq[e] = {_q: []};
+                v(n._iq[e])
+            }
+            return n._iq[e]
+        };
+        e.amplitude = n
+    })(window, document);
+    amplitude.getInstance().init(
         aplitudeId,
-		aplitudeUserId
-	)
+        aplitudeUserId
+    )
 </script>
 {/literal}
 
 <div class="bm-menu">
-	<ul class="nav nav-pills">
+    <ul class="nav nav-pills">
         {$tabk = 0}
 
         {foreach $fields as $fkey => $fvalue}
 
             {if $fkey === 0}
-				<li class="nav-item">
-					<a href="tab_rule_{$tabk}" data-hash="authorization" class="nav-link tab " id="tab_rule_link_{$tabk}"
-					   href="javascript:displaythemeeditorTab('{$tabk}');">
-                        {$fvalue.form.section.title}
-					</a>
-				</li>
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="authorization" class="nav-link tab "
+                       id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
             {/if}
 
-            {if $fkey === 2}
-				<li class="nav-item">
-					<a href="tab_rule_{$tabk}" data-hash="payment-options" class="nav-link tab " id="tab_rule_link_{$tabk}"
-					   href="javascript:displaythemeeditorTab('{$tabk}');">
-                        {$fvalue.form.section.title}
-					</a>
-				</li>
+            {if $fkey === 3}
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="payment-options" class="nav-link tab "
+                       id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
             {/if}
 
-            {if $fkey === 6}
-				<li class="nav-item">
-					<a href="tab_rule_{$tabk}" data-hash="analitics" class="nav-link tab " id="tab_rule_link_{$tabk}"
-					   href="javascript:displaythemeeditorTab('{$tabk}');">
-                        {$fvalue.form.section.title}
-					</a>
-				</li>
+            {if $fkey === 4}
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="analitics" class="nav-link tab " id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
             {/if}
 
-            {if $fkey === 8}
-		        <li class="nav-item">
-			        <a href="tab_rule_{$tabk}" data-hash="help" class="nav-link tab " id="tab_rule_link_{$tabk}"
-			           href="javascript:displaythemeeditorTab('{$tabk}');">
-                        {$fvalue.form.section.title}
-			        </a>
-		        </li>
+            {if $fkey === 9}
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="help" class="nav-link tab " id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
             {/if}
 
-			{if $fkey === 10}
-				<li class="nav-item">
-					<a href="tab_rule_{$tabk}" data-hash="services-for-you" class="nav-link tab " id="tab_rule_link_{$tabk}"
-					   href="javascript:displaythemeeditorTab('{$tabk}');">
-						{$fvalue.form.section.title}
-					</a>
-				</li>
-			{/if}
+            {if $fkey === 11}
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="services-for-you" class="nav-link tab "
+                       id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
+            {/if}
+
+            {if $fkey === 13}
+                <li class="nav-item">
+                    <a href="tab_rule_{$tabk|escape:'html':'UTF-8'}" data-hash="product-feed-xml" class="nav-link tab "
+                       id="tab_rule_link_{$tabk|escape:'html':'UTF-8'}"
+                       href="javascript:displaythemeeditorTab('{$tabk|escape:'javascript':'UTF-8'}');">
+                        {$fvalue.form.section.title|escape:'html':'UTF-8'}
+                    </a>
+                </li>
+            {/if}
 
             {$tabk = $tabk+1}
         {/foreach}
-	</ul>
+    </ul>
 </div>
 
 <div class="bm-configure">
 
-	<div class="col-md-9">
+    <div class="col-md-9">
 
         {if isset($fields.title)}
-			<h3>{$fields.title}</h3>
+            <h3>{$fields.title|escape:'html':'UTF-8'}</h3>
         {/if}
 
         {block name="defaultForm"}
 
-            {if isset($identifier_bk) && $identifier_bk == $identifier}
+            {if isset($identifier_bk) && $identifier_bk === $identifier}
                 {capture name='identifier_count'}{counter name='identifier_count'}{/capture}
             {/if}
 
             {assign var='identifier_bk' value=$identifier scope='parent'}
-            {if isset($table_bk) && $table_bk == $table}
+            {if isset($table_bk) && $table_bk === $table}
                 {capture name='table_count'}{counter name='table_count'}{/capture}
             {/if}
 
             {assign var='table_bk' value=$table scope='parent'}
-			<form id="{if isset($fields.form.form.id_form)}{$fields.form.form.id_form|escape:'html':'UTF-8'}{else}{if $table == null}configuration_form{else}{$table}_form{/if}{if isset($smarty.capture.table_count) && $smarty.capture.table_count}_{$smarty.capture.table_count|intval}{/if}{/if}"
-			      class="defaultForm form-horizontal{if isset($name_controller) && $name_controller} {$name_controller}{/if}"{if isset($current) && $current} action="{$current|escape:'html':'UTF-8'}{if isset($token) && $token}&amp;token={$token|escape:'html':'UTF-8'}{/if}"{/if}
-			      method="post" enctype="multipart/form-data"{if isset($style)} style="{$style}"{/if} novalidate>
+            <form id="{if isset($fields.form.form.id_form)}{$fields.form.form.id_form|escape:'html':'UTF-8'}{else}{if $table === null}configuration_form{else}{$table|escape:'html':'UTF-8'}_form{/if}{if isset($smarty.capture.table_count) && $smarty.capture.table_count}_{$smarty.capture.table_count|intval}{/if}{/if}"
+                  class="defaultForm form-horizontal{if isset($name_controller) && $name_controller} {$name_controller|escape:'html':'UTF-8'}{/if}"{if isset($current) && $current} action="{$current|escape:'html':'UTF-8'}{if isset($token) && $token}&amp;token={$token|escape:'html':'UTF-8'}{/if}"{/if}
+                  method="post" enctype="multipart/form-data"{if isset($style)} style="{$style|escape:'html':'UTF-8'}"{/if} novalidate>
                 {if $form_id}
-					<input type="hidden" name="{$identifier}"
-					       id="{$identifier}{if isset($smarty.capture.identifier_count) && $smarty.capture.identifier_count}_{$smarty.capture.identifier_count|intval}{/if}"
-					       value="{$form_id}"/>
+                    <input type="hidden" name="{$identifier|escape:'html':'UTF-8'}"
+                           id="{$identifier|escape:'html':'UTF-8'}{if isset($smarty.capture.identifier_count) && $smarty.capture.identifier_count}_{$smarty.capture.identifier_count|intval}{/if}"
+                           value="{$form_id|escape:'html':'UTF-8'}"/>
                 {/if}
                 {if !empty($submit_action)}
-					<input type="hidden" name="{$submit_action}" value="1"/>
+                    <input type="hidden" name="{$submit_action|escape:'html':'UTF-8'}" value="1"/>
                 {/if}
                 {$tabkey = 0}
-
 
                 {foreach $fields as $f => $fieldset}
                 {foreach $fieldset.form.section as $fieldset2}
 
+                        {if $f === 0}
+                            <div id="tab_rule_{$tabkey|escape:'html':'UTF-8'}" class="{$submit_action|escape:'html':'UTF-8'} tab_rule_tab ">
+                            {include file="./benefits.tpl"}
+                        {elseif $f === 3 || $f === 4 ||  $f === 9 || $f === 11 || $f === 13}
+					        <div id="tab_rule_{$tabkey|escape:'html':'UTF-8'}" class="{$submit_action|escape:'html':'UTF-8'} tab_rule_tab ">
+                        {/if}
 
-                {if $f == 0}
-				<div id="tab_rule_{$tabkey}" class="{$submit_action} tab_rule_tab ">
+                        {block name="fieldset"}
+                            {capture name='fieldset_name'}{counter name='fieldset_name'}{/capture}
+                            <div class="panel"
+                                 id="fieldset_{$f|escape:'html':'UTF-8'}{if isset($smarty.capture.identifier_count) && $smarty.capture.identifier_count}_{$smarty.capture.identifier_count|intval}{/if}{if $smarty.capture.fieldset_name > 1}_{($smarty.capture.fieldset_name - 1)|intval}{/if}">
+                                {foreach $fieldset.form as $key => $field}
 
-                    {include file="./benefits.tpl"}
-{*                    {include file="./benefits2.tpl"}*}
+                                    {if $key === 'legend'}
+                                        {block name="legend"}
+                                            <div class="panel-heading">
+                                                {if isset($field.image) && isset($field.title)}<img src="{$field.image}"
+                                                                                                    alt="{$field.title|escape:'html':'UTF-8'}" />{/if}
+                                                {if isset($field.icon)}<i class="{$field.icon|escape:'html':'UTF-8'}"></i>{/if}
+                                                {$field.title|escape:'html':'UTF-8'}
+                                            </div>
+                                        {/block}
+                                    {elseif $key === 'description' && $field}
+                                        <!-- <div class="alert alert-info">{$field|escape:'html':'UTF-8'}</div> -->
+                                    {elseif $key === 'input'}
 
-                    {elseif $f == 2 || $f == 6 || $f == 8 || $f == 10}
-					<div id="tab_rule_{$tabkey}" class="{$submit_action} tab_rule_tab ">
+                                        {foreach $field as $input}
+                                            {include file="./configure_fields.tpl" _input=$input}
+                                        {/foreach}
 
-{*                        {elseif $f == 6}*}
-{*						<div id="tab_rule_{$tabkey}" class="{$submit_action} tab_rule_tab ">*}
-                            {/if}
+                                    {elseif $key === 'form_group'}
 
+                                        {foreach $fieldset.form.form_group.fields as $key2 => $fields_group_input}
+                                            {foreach $fields_group_input as $kkk => $fields_group_form}
+                                                {foreach $fields_group_form as $form_key => $form_subgroup_input}
 
-                            {block name="fieldset"}
-                                {capture name='fieldset_name'}{counter name='fieldset_name'}{/capture}
-								<div class="panel"
-								     id="fieldset_{$f}{if isset($smarty.capture.identifier_count) && $smarty.capture.identifier_count}_{$smarty.capture.identifier_count|intval}{/if}{if $smarty.capture.fieldset_name > 1}_{($smarty.capture.fieldset_name - 1)|intval}{/if}">
-                                    {foreach $fieldset.form as $key => $field}
+                                                    {if $form_key === 'legend'}
+                                                        <div class="section-heading">
+                                                            {$form_subgroup_input.title|escape:'html':'UTF-8'}
+                                                        </div>
+                                                    {elseif $form_key === 'input'}
 
-                                        {if $key == 'legend'}
-                                            {block name="legend"}
-												<div class="panel-heading">
-                                                    {if isset($field.image) && isset($field.title)}<img src="{$field.image}"
-													                                                    alt="{$field.title|escape:'html':'UTF-8'}" />{/if}
-                                                    {if isset($field.icon)}<i class="{$field.icon}"></i>{/if}
-                                                    {$field.title}
-												</div>
-                                            {/block}
-                                        {elseif $key == 'description' && $field}
-											<!-- <div class="alert alert-info">{$field}</div> -->
-                                        {elseif $key == 'input'}
+                                                        {foreach $form_subgroup_input as $form_subgroup_field}
+                                                            {include file="./configure_fields.tpl" _input=$form_subgroup_field}
+                                                        {/foreach}
 
-                                            {foreach $field as $input}
-                                                {include file="./configure_fields.tpl" _input=$input}
-                                            {/foreach}
+                                                    {/if}
 
-                                        {elseif $key == 'form_group'}
-
-                                            {foreach $fieldset.form.form_group.fields as $key2 => $fields_group_input}
-                                                {foreach $fields_group_input as $kkk => $fields_group_form}
-                                                    {foreach $fields_group_form as $form_key => $form_subgroup_input}
-
-                                                        {if $form_key === 'legend'}
-															<div class="section-heading">
-                                                                {$form_subgroup_input.title}
-															</div>
-                                                        {elseif $form_key === 'input'}
-
-                                                            {foreach $form_subgroup_input as $form_subgroup_field}
-                                                                {include file="./configure_fields.tpl" _input=$form_subgroup_field}
-                                                            {/foreach}
-
-                                                        {/if}
-
-                                                    {/foreach}
                                                 {/foreach}
                                             {/foreach}
+                                        {/foreach}
+                                    {/if}
+                                {/foreach}
 
-
-
-                                        {/if}
-
-
-
-                                    {/foreach}
-
-                                    {block name="footer"}
-                                        {capture name='form_submit_btn'}{counter name='form_submit_btn'}{/capture}
-                                        {if isset($fieldset['form']['submit']) || isset($fieldset['form']['buttons'])}
-											<div class="panel-footer">
-
-                                                {if isset($fieldset['form']['submit']) && !empty($fieldset['form']['submit'])}
-													<button type="submit" value="1"
-                                                            {if isset($fieldset['form']['submit']['save_event']) && !empty($fieldset['form']['submit']['save_event'])}
-													        data-save-event="{$fieldset['form']['submit']['save_event']}"
-													        {/if}
-													        id="{if isset($fieldset['form']['submit']['id'])}{$fieldset['form']['submit']['id']}{else}{$table}_form_submit_btn{/if}{if $smarty.capture.form_submit_btn > 1}_{($smarty.capture.form_submit_btn - 1)|intval}{/if}"
-													        name="{if isset($fieldset['form']['submit']['name'])}{$fieldset['form']['submit']['name']}{else}{$submit_action}{/if}{if isset($fieldset['form']['submit']['stay']) && $fieldset['form']['submit']['stay']}AndStay{/if}"
-													        class="{if isset($fieldset['form']['submit']['class'])}{$fieldset['form']['submit']['class']}{else}btn btn-primary pull-right{/if}">
-                                                        {$fieldset['form']['submit']['title']}
-													</button>
-                                                {/if}
-
-                                                {if isset($fieldset['form']['buttons'])}
-                                                    {foreach from=$fieldset['form']['buttons'] item=btn key=k}
-                                                        {if isset($btn.href) && trim($btn.href) != ''}
-															<a href="{$btn.href}"
-                                                               {if isset($btn['id'])}id="{$btn['id']}"{/if}
-															   class="btn btn-primary{if isset($btn['class'])} {$btn['class']}{/if}" {if isset($btn.js) && $btn.js} onclick="{$btn.js}"{/if}>{if isset($btn['icon'])}
-																	<i class="{$btn['icon']}"></i>
-                                                                {/if}{$btn.title}</a>
-                                                        {else}
-															<button type="button"
-                                                                    {if isset($btn['id'])}id="{$btn['id']}"{/if}
-															        class="btn btn-primary{if isset($btn['class'])} {$btn['class']}{/if}"
-															        name="{if isset($btn['name'])}{$btn['name']}{else}submitOptions{$table}{/if}"{if isset($btn.js) && $btn.js} onclick="{$btn.js}"{/if}>{if isset($btn['icon'])}
-																	<i class="{$btn['icon']}"></i>
-                                                                {/if}{$btn.title}
-															</button>
+                                {block name="footer"}
+                                    {capture name='form_submit_btn'}{counter name='form_submit_btn'}{/capture}
+                                    {if isset($fieldset['form']['submit']) || isset($fieldset['form']['buttons'])}
+                                        <div class="panel-footer">
+                                            {if isset($fieldset['form']['submit']) && !empty($fieldset['form']['submit'])}
+                                                <button type="submit" value="1"
+                                                        {if isset($fieldset['form']['submit']['save_event']) && !empty($fieldset['form']['submit']['save_event'])}
+                                                            data-save-event="{$fieldset['form']['submit']['save_event']|escape:'html':'UTF-8'}"
                                                         {/if}
-                                                    {/foreach}
-                                                {/if}
+                                                        id="{if isset($fieldset['form']['submit']['id'])}{$fieldset['form']['submit']['id']|escape:'html':'UTF-8'}{else}{$table|escape:'html':'UTF-8'}_form_submit_btn{/if}{if $smarty.capture.form_submit_btn > 1}_{($smarty.capture.form_submit_btn - 1)|intval}{/if}"
+                                                        name="{if isset($fieldset['form']['submit']['name'])}{$fieldset['form']['submit']['name']|escape:'html':'UTF-8'}{else}{$submit_action|escape:'html':'UTF-8'}{/if}{if isset($fieldset['form']['submit']['stay']) && $fieldset['form']['submit']['stay']}AndStay{/if}"
+                                                        class="{if isset($fieldset['form']['submit']['class'])}{$fieldset['form']['submit']['class']|escape:'html':'UTF-8'}{else}btn btn-primary pull-right{/if}">
+                                                    {$fieldset['form']['submit']['title']|escape:'html':'UTF-8'}
+                                                </button>
+                                            {/if}
 
-											</div>
-                                        {/if}
-                                    {/block}
-								</div>
-                            {/block}
-                            {block name="other_fieldsets"}{/block}
+                                            {if isset($fieldset['form']['buttons'])}
+                                                {foreach from=$fieldset['form']['buttons'] item=btn key=k}
+                                                    {if isset($btn.href) && trim($btn.href) != ''}
+                                                        <a href="{$btn.href|escape:'html':'UTF-8'}"
+                                                           {if isset($btn['id'])}id="{$btn['id']|escape:'html':'UTF-8'}"{/if}
+                                                           class="btn btn-primary{if isset($btn['class'])} {$btn['class']|escape:'html':'UTF-8'}{/if}" {if isset($btn.js) && $btn.js} onclick="{$btn.js|escape:'html':'UTF-8'}"{/if}>{if isset($btn['icon'])}
+                                                                <i class="{$btn['icon']|escape:'html':'UTF-8'}"></i>
+                                                            {/if}{$btn.title|escape:'html':'UTF-8'}</a>
+                                                    {else}
+                                                        <button type="button"
+                                                                {if isset($btn['id'])}id="{$btn['id']|escape:'html':'UTF-8'}"{/if}
+                                                                class="btn btn-primary{if isset($btn['class'])} {$btn['class']|escape:'html':'UTF-8'}{/if}"
+                                                                name="{if isset($btn['name'])}{$btn['name']|escape:'html':'UTF-8'}{else}submitOptions{$table|escape:'html':'UTF-8'}{/if}"{if isset($btn.js) && $btn.js} onclick="{$btn.js|escape:'html':'UTF-8'}"{/if}>{if isset($btn['icon'])}
+                                                                <i class="{$btn['icon']|escape:'html':'UTF-8'}"></i>
+                                                            {/if}{$btn.title|escape:'html':'UTF-8'}
+                                                        </button>
+                                                    {/if}
+                                                {/foreach}
+                                            {/if}
 
-                            {if $f == 1}
-						</div>
-                        {elseif $f == 2}
-                        {hook h='adminPayments'}
-                        {elseif  $f == 5 || $f == 7 || $f == 9}
-					</div>
-                    {/if}
+                                        </div>
+                                    {/if}
+                                {/block}
+                            </div>
+                        {/block}
+                        {block name="other_fieldsets"}{/block}
 
+                        {if $f === 2}
+                            </div>
+                        {elseif $f === 4}
+                            {hook h='adminPayments'}
+                        {elseif $f === 3 ||  $f === 8 || $f === 10 || $f === 12 || $f === 13}
+                            </div>
+                        {/if}
                     {/foreach}
-
                     {$tabkey = $tabkey+1}
-                    {/foreach}
+                {/foreach}
 
-			</form>
+            </form>
         {/block}
         {block name="after"}{/block}
+    </div>
 
 
-	</div>
+    <script type="text/javascript">
+
+        // $(document).ready(function () {
+
+        createSlideShow();
+
+        function createSlideShow() {
+
+            const slideshows = document.querySelectorAll('.bm-slideshow');
+
+            for (const el of slideshows) {
+
+                const parent = el.dataset.slideshow;
+
+                const elmm = document.querySelector('.paymentList');
+                const slideShowClass = '.bm-' + parent + '-slideshow';
+                // const slideShow = document.querySelector(slideShowClass);
+
+                if (elmm.querySelector('.bm-slideshow')) {
+                    const slider = new Slideshow1(slideShowClass);
+                    slider.init();
+                }
+            }
+        }
+
+        function Slideshow1(element) {
+            this.el = document.querySelector(element);
+
+            this.init = function () {
+
+                // this.wrapper = element.querySelector( ".bm-slideshow" );
+                this.slides = this.el.querySelectorAll(".slide");
+                this.previous = this.el.querySelector(".slider-previous");
+                this.next = this.el.querySelector(".slider-next");
+                this.index = 0;
+                this.total = this.slides.length;
+                this.timer = null;
+
+                this.action();
+            },
+                this._slideTo = function (slide) {
+                    var currentSlide = this.slides[slide];
+                    currentSlide.style.opacity = 1;
+
+                    for (var i = 0; i < this.slides.length; i++) {
+                        var slide = this.slides[i];
+                        if (slide !== currentSlide) {
+                            slide.style.opacity = 0;
+                        }
+                    }
+                },
+                this.action = function () {
+                    var self = this;
+                    self.timer = setInterval(function () {
+                        self.index++;
+                        if (self.index == self.slides.length) {
+                            self.index = 0;
+                        }
+                        self._slideTo(self.index);
+
+                    }, 3000);
+                }
+        }
 
 
+        $('.tab_rule_tab').hide();
+
+        if (window.location.hash) {
+          var backToSectionName = window.location.hash.replace('#', '');
+          var backToSectionNavItem = $('.bm-menu [data-hash="' + backToSectionName + '"]');
+
+          $('#' + backToSectionNavItem.attr('id')).addClass('active');
+          $('#' + backToSectionNavItem.attr('href')).show();
+        } else {
+          window.location.hash = '#authorization';
+
+          $('#tab_rule_link_0').addClass('active');
+          $('#tab_rule_0').show();
+        }
+
+        amplitudeMenuEvents();
 
 
-	<script type="text/javascript">
+        $('.bm-menu li').on('click', function (e) {
+            e.preventDefault();
 
-		// $(document).ready(function () {
+            var target = $(e.target).attr("href");
 
-			createSlideShow();
-			function createSlideShow() {
-
-				const slideshows = document.querySelectorAll('.bm-slideshow');
-
-				for (const el of slideshows) {
-
-					const parent = el.dataset.slideshow;
-
-					const elmm = document.querySelector('.paymentList');
-					const slideShowClass = '.bm-' + parent + '-slideshow';
-					// const slideShow = document.querySelector(slideShowClass);
-
-					if(elmm.querySelector('.bm-slideshow')) {
-						const slider =  new Slideshow1(slideShowClass);
-						slider.init();
-					}
-				}
-			}
-
-			function Slideshow1( element ) {
-				this.el = document.querySelector( element );
-
-				this.init = function() {
-
-					// this.wrapper = element.querySelector( ".bm-slideshow" );
-					this.slides = this.el.querySelectorAll( ".slide" );
-					this.previous = this.el.querySelector( ".slider-previous" );
-					this.next = this.el.querySelector( ".slider-next" );
-					this.index = 0;
-					this.total = this.slides.length;
-					this.timer = null;
-
-					this.action();
-				},
-					this._slideTo = function( slide ) {
-					var currentSlide = this.slides[slide];
-					currentSlide.style.opacity = 1;
-
-					for( var i = 0; i < this.slides.length; i++ ) {
-						var slide = this.slides[i];
-						if( slide !== currentSlide ) {
-							slide.style.opacity = 0;
-						}
-					}
-				},
-					this.action = function() {
-					var self = this;
-					self.timer = setInterval(function() {
-						self.index++;
-						if( self.index == self.slides.length ) {
-							self.index = 0;
-						}
-						self._slideTo( self.index );
-
-					}, 3000);
-				}
-			}
+            $('.bm-menu li a').removeClass('active');
+            $(this).find('a').addClass('active');
+            $('.tab_rule_tab').hide();
+            $('#' + target).show();
 
 
-		$('.tab_rule_tab').hide();
-		$('#tab_rule_link_0').addClass('active');
-		$('#tab_rule_0').show();
-		window.location.hash = 'authorization';
-		amplitudeMenuEvents();
+            const hash = $(this).find('a').data('hash');
+            window.location.hash = hash;
+            amplitudeMenuEvents();
+        });
 
+        function amplitudeMenuEvents() {
+            const hash = window.location.hash.slice(1);
+            amplitude.getInstance().logEvent(hash + ' page viewed');
+        }
 
-		$('.bm-menu li').on('click', function (e) {
-			e.preventDefault();
-
-			var target = $(e.target).attr("href");
-
-			$('.bm-menu li a').removeClass('active');
-			$(this).find('a').addClass('active');
-			$('.tab_rule_tab').hide();
-			$('#' + target).show();
-
-
-			const hash = $(this).find('a').data('hash');
-			window.location.hash = hash;
-			amplitudeMenuEvents();
-		});
-
-		function amplitudeMenuEvents() {
-			const hash = window.location.hash.slice(1);
-			amplitude.getInstance().logEvent( hash + ' page viewed');
-		}
-
-	</script>
+    </script>
 
     {if $firstCall}
-		<script type="text/javascript">
-			var module_dir = '{$smarty.const._MODULE_DIR_}';
-			var id_language = {$defaultFormLanguage|intval};
-			var languages = [];
+        <script type="text/javascript">
+            var module_dir = '{$smarty.const._MODULE_DIR_|escape:'javascript':'UTF-8'}';
+            var id_language = {$defaultFormLanguage|intval};
+            var languages = [];
 
             {foreach $languages as $k => $language}
-			languages[{$k}] = {
-				id_lang: {$language.id_lang},
-				iso_code: '{$language.iso_code}',
-				name: '{$language.name}',
-				is_default: '{$language.is_default}'
-			};
+            languages[{$k}] = {
+                id_lang: {$language.id_lang|intval},
+                iso_code: '{$language.iso_code|escape:'javascript':'UTF-8'}',
+                name: '{$language.name|escape:'javascript':'UTF-8'}',
+                is_default: '{$language.is_default|escape:'javascript':'UTF-8'}'
+            };
             {/foreach}
 
-			allowEmployeeFormLang = {$allowEmployeeFormLang|intval};
-			displayFlags(languages, id_language, allowEmployeeFormLang);
+            allowEmployeeFormLang = {$allowEmployeeFormLang|intval};
+
+            function initChangesTable() {
+                $('.blue_gateway_channels').find('th, td').filter(':nth-child(2)').append(function () {
+                    return $(this).next().html();
+                }).next().remove();
+            }
+
+            $(document).ready(function () {
+
+                const gaType = $('input[name=BLUEPAYMENT_GA_TYPE]');
+                const payTest = $("input[name=BLUEPAYMENT_TEST_ENV]");
+                const showPayWay = $("input[name=BLUEPAYMENT_SHOW_PAYWAY]");
+
+                const payTestValue = $("input[name=BLUEPAYMENT_TEST_ENV]:checked").val();
+                const showPayWayValue = $("input[name=BLUEPAYMENT_SHOW_PAYWAY]:checked").val();
+                const gaTypeValue = $('input[name=BLUEPAYMENT_GA_TYPE]:checked').val();
 
 
-			function initChangesTable() {
-				$('.blue_gateway_channels').find('th, td').filter(':nth-child(2)').append(function () {
-					return $(this).next().html();
-				}).next().remove();
-			}
+                const trackerGaId = $('.bluepayment_ga_tracker_id');
+                const trackerGa4Id = $('.bluepayment_ga4_tracker_id');
+                const trackerGa4Secret = $('.bluepayment_ga4_secret');
 
-			$(document).ready(function () {
+                trackerGaId.hide();
+                trackerGa4Id.hide();
+                trackerGa4Secret.hide();
 
-				const gaType= $('input[name=BLUEPAYMENT_GA_TYPE]');
-				const payTest = $("input[name=BLUEPAYMENT_TEST_ENV]");
-				const showPayWay = $("input[name=BLUEPAYMENT_SHOW_PAYWAY]");
+                function checkGaType(state) {
+                    if (state === '1') {
+                        trackerGaId.show();
+                        trackerGa4Id.hide();
+                        trackerGa4Secret.hide();
+                    } else if (state === '2') {
+                        trackerGaId.hide();
+                        trackerGa4Id.show();
+                        trackerGa4Secret.show();
+                    }
+                }
 
-				const payTestValue = $("input[name=BLUEPAYMENT_TEST_ENV]:checked").val();
-				const showPayWayValue = $("input[name=BLUEPAYMENT_SHOW_PAYWAY]:checked").val();
-				const gaTypeValue = $('input[name=BLUEPAYMENT_GA_TYPE]:checked').val();
-
-
-				const trackerGaId = $('.bluepayment_ga_tracker_id');
-				const trackerGa4Id = $('.bluepayment_ga4_tracker_id');
-				const trackerGa4Secret = $('.bluepayment_ga4_secret');
-
-				trackerGaId.hide();
-				trackerGa4Id.hide();
-				trackerGa4Secret.hide();
-
-				function checkGaType(state) {
-					if (state === '1') {
-						trackerGaId.show();
-						trackerGa4Id.hide();
-						trackerGa4Secret.hide();
-					} else if(state === '2') {
-						trackerGaId.hide();
-						trackerGa4Id.show();
-						trackerGa4Secret.show();
-					}
-				}
-				checkGaType(gaTypeValue);
+                checkGaType(gaTypeValue);
 
 
-				$("button[name=submitbluepayment]").click(function (e) {
+                $("button[name=submitbluepayment]").click(function (e) {
                     {literal}
-					amplitude.getInstance().logEvent('section updated',
-						{
-							'section': $(this).data('save-event')
-						},
-					);
-					{/literal}
-				});
+                    amplitude.getInstance().logEvent('section updated',
+                        {
+                            'section': $(this).data('save-event')
+                        },
+                    );
+                    {/literal}
+                });
 
-				showPayWay.click(function () {
-					checkShowPayway($(this).val());
-				})
+                showPayWay.click(function () {
+                    checkShowPayway($(this).val());
+                })
 
-				payTest.click(function () {
-					checkPayTest($(this).val());
-				})
+                payTest.click(function () {
+                    checkPayTest($(this).val());
+                })
 
-				gaType.click(function () {
-					checkGaType($(this).val());
-				})
+                gaType.click(function () {
+                    checkGaType($(this).val());
+                })
 
-				function checkShowPayway(state) {
-					if (state === '1') {
-						$('.bluepayment_payment_group_name').show();
-						$('.bluepayment_payment_name').hide();
-						$('.paymentList').show();
+                function checkShowPayway(state) {
+                    if (state === '1') {
+                        $('.bluepayment_payment_group_name').show();
+                        $('.bluepayment_payment_name').hide();
+                        $('.paymentList').show();
 
-					} else {
-						$('.bluepayment_payment_group_name').hide();
-						$('.bluepayment_payment_name').show();
-						$('.paymentList').hide();
-					}
-				}
+                    } else {
+                        $('.bluepayment_payment_group_name').hide();
+                        $('.bluepayment_payment_name').show();
+                        $('.paymentList').hide();
+                    }
+                }
 
-				function checkPayTest(state) {
-					if (state === '1') {
-						$('.bm-info--dev').show();
-					} else {
-						$('.bm-info--dev').hide();
-					}
-				}
+                function checkPayTest(state) {
+                    if (state === '1') {
+                        $('.bm-info--dev').show();
+                    } else {
+                        $('.bm-info--dev').hide();
+                    }
+                }
 
-				checkPayTest(payTestValue);
-				checkShowPayway(showPayWayValue);
+                checkPayTest(payTestValue);
+                checkShowPayway(showPayWayValue);
 
-				initChangesTable();
+                initChangesTable();
 
                 {if isset($use_textarea_autosize)}
-				$(".textarea-autosize").autosize();
+                $(".textarea-autosize").autosize();
                 {/if}
-			});
+            });
 
-			state_token = '{getAdminToken tab='AdminStates'}';
+            state_token = '{getAdminToken tab='AdminStates'}';
             {block name="script"}{/block}
-		</script>
+        </script>
+        <script type="text/javascript">
+            let bm_ajax = "{$ajax_controller|escape:'javascript':'UTF-8'}"
+            let bm_token = "{$ajax_token|escape:'javascript':'UTF-8'}";
+            let bm_token2 = "{$ajax_payments_token|escape:'javascript':'UTF-8'}";
 
+            let success_msg = "{l s='Configuration saved successfully' mod='bluepayment'}"
+            let error_msg = "{l s='Error, configuration not saved' mod='bluepayment'}"
 
-		<script type="text/javascript">
-			let bm_ajax = "{$ajax_controller}"
-			let bm_token = "{$ajax_token}";
-			let bm_token2 = "{$ajax_payments_token}";
+            $(document).ready(function () {
+                $('form').on('submit', function (e) {
+                    e.preventDefault();
+                    var data = $(this).serialize() + '&ajax=true&action=SaveConfiguration&token=' + bm_token;
+                    $.ajax({
+                        type: 'POST',
+                        cache: false,
+                        dataType: 'json',
+                        url: bm_ajax,
+                        data: data,
+                        success: function (data) {
+                            if (data.success) {
 
-			let success_msg = "{l s='Configuration saved successfully' mod='bluepayment'}"
-			let error_msg = "{l s='Error, configuration not saved' mod='bluepayment'}"
+                                reloadPaymentGateway();
+                                showSuccessMessage(success_msg);
 
-			$(document).ready(function () {
-				$('form').on('submit', function (e) {
-					e.preventDefault();
-					var data = $(this).serialize() + '&ajax=true&action=SaveConfiguration&token=' + bm_token;
-					$.ajax({
-						type: 'POST',
-						cache: false,
-						dataType: 'json',
-						url: bm_ajax,
-						data: data,
-						success: function (data) {
-							if(data.success) {
+                                if (window.location.hash === '#payment-options') window.location.reload();
 
-								reloadPaymentGateway();
-								showSuccessMessage(success_msg);
+                            } else {
+                                showErrorMessage(error_msg);
+                            }
+                        },
+                        error: function (data) {
+                            showErrorMessage(error_msg);
+                        }
+                    });
+                });
+            });
 
-							} else {
-								showErrorMessage(error_msg);
-							}
-						},
-						error: function (data) {
-							showErrorMessage(error_msg);
-						}
-					});
-				});
-			});
+            var data2 = 'ajax=true&action=ReloadPaymentsGateway';
 
-			var data2 = 'ajax=true&action=ReloadPaymentsGateway';
+            function reloadPaymentGateway() {
+                $.ajax({
+                    url: bm_ajax,
+                    type: 'GET',
+                    cache: false,
+                    dataType: 'html',
+                    data: data2,
+                    success: function (data2) {
+                        $('.paymentList').html($(data2).find('.paymentList').html());
+                        initChangesTable();
+                    },
+                    error: function (data2) {
+                        console.log(data2);
+                    }
+                });
+            }
 
-			function reloadPaymentGateway() {
-				$.ajax({
-					url: bm_ajax,
-					type: 'GET',
-					cache: false,
-					dataType: 'html',
-					data: data2,
-					success: function (data2) {
-						$('.paymentList').html($(data2).find('.paymentList').html());
-						initChangesTable();
-					},
-					error: function (data2) {
-						console.log(data2);
-					}
-				});
-			}
+            $('a[data-amplitude="true"]').on('click', function (e) {
+                var event = $(this).data('amplitude-event');
+                amplitude.getInstance().logEvent(event);
+            });
 
-			$('a[data-amplitude="true"]').on('click', function (e) {
-				var event = $(this).data('amplitude-event');
-				amplitude.getInstance().logEvent(event);
-			});
+            $('#BLUEPAYMENT_STATUS_WAIT_PAY_ID, #BLUEPAYMENT_STATUS_ACCEPT_PAY_ID, #BLUEPAYMENT_STATUS_ERROR_PAY_ID').on('change', function (e) {
+                amplitude.getInstance().logEvent('payments statuses updated');
+            });
 
-			$('#BLUEPAYMENT_STATUS_WAIT_PAY_ID, #BLUEPAYMENT_STATUS_ACCEPT_PAY_ID, #BLUEPAYMENT_STATUS_ERROR_PAY_ID').on('change', function (e) {
-				amplitude.getInstance().logEvent('payments statuses updated');
-			});
-
-		</script>
+        </script>
     {/if}
 
 </div>

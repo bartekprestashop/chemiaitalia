@@ -1,4 +1,38 @@
 # Changelog
+## [3.5.0] 07.04.2026
+- change payment description for redirect option
+- added translations for Spanish, Italian and German
+- add translation of messages for test connection
+
+## [3.4.1] 22.12.2025
+- fixes for ISTN parsing
+- fixes translate
+- fixes test connection
+
+## [3.4.0] 09.12.2025
+- adaptation for PrestaShop 9.0
+
+## [3.3.0] 06.11.2025
+- Gateway list v. 3.0
+- Fixed a bug with add test controller 
+
+## [3.2.1] 7.10.2025
+- Add test connection
+- Change image in README.md
+
+## [3.2.0] 15.08.2025
+- Update functionality of refunds
+
+## [3.1.2] 05.08.2025
+- Fixed a bug with module thecheckout
+
+## [3.1.1] 06.05.2025
+- Add Autopay pixel - product feed
+- Add customer phone number to start transaction
+
+## [3.1.0] 13.01.2025
+- Fixed a bug with blik
+
 ## [3.0.9] 04.12.2024
 - Fixed a bug with changing order statuses
 - Fixed a bug redirect payment

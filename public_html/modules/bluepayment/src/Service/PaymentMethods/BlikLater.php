@@ -22,6 +22,7 @@ if (!defined('_PS_VERSION_')) {
 use BluePayment\Api\BlueGatewayChannels;
 use BluePayment\Config\Config;
 use BluePayment\Until\Helper;
+use BluePayment\Until\PaymentPresentationHelper;
 use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
 
 class BlikLater implements GatewayType
@@ -43,12 +44,16 @@ class BlikLater implements GatewayType
             [],
             true
         );
+        $cardIdTime = \Context::getContext()->cart->id . '-' . time();
 
         \Context::getContext()->smarty->assign([
             'blikLater_merchantInfo' => $blikLaterMerchantInfo,
         ]);
 
         $option = new PaymentOption();
+
+        PaymentPresentationHelper::assign($data, $data['gateway_name'] ?? 'BLIK Pay Later', Config::GATEWAY_ID_BLIK_LATER);
+
         $option
             ->setInputs([
                 [
@@ -60,6 +65,11 @@ class BlikLater implements GatewayType
                     'type' => 'hidden',
                     'name' => 'bluepayment_gateway_id',
                     'value' => Config::GATEWAY_ID_BLIK_LATER,
+                ],
+                [
+                    'type' => 'hidden',
+                    'name' => 'bluepayment_cart_id',
+                    'value' => $cardIdTime,
                 ],
             ])
             ->setCallToActionText($data['gateway_name'])

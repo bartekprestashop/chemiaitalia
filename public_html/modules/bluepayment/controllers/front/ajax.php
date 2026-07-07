@@ -16,6 +16,9 @@ if (!defined('_PS_VERSION_')) {
 
 class BluepaymentAjaxModuleFrontController extends ModuleFrontController
 {
+    /** @var BluePayment */
+    public $module;
+
     public $ajax;
 
     public function __construct()
@@ -29,7 +32,24 @@ class BluepaymentAjaxModuleFrontController extends ModuleFrontController
         parent::init();
     }
 
-    // Helper do analityki
+    /**
+     * Ajax die method compatible with different PrestaShop versions
+     *
+     * @param string $value Value to output
+     * @param string|null $controller Controller name
+     * @param string|null $method Method name
+     *
+     * @phpstan-ignore-next-line Method exists in some PrestaShop versions
+     */
+    protected function ajaxDie($value, $controller = null, $method = null)
+    {
+        if (method_exists(get_parent_class($this), 'ajaxDie')) {
+            /* @phpstan-ignore-next-line */
+            return parent::ajaxDie($value, $controller, $method);
+        }
+
+        exit($value);
+    }
 
     public function initContent()
     {
@@ -51,7 +71,7 @@ class BluepaymentAjaxModuleFrontController extends ModuleFrontController
                 (int) Context::getContext()->shop->id
             );
 
-            $this->ajaxDie(
+            exit(
                 json_encode(
                     [
                         'success' => true,

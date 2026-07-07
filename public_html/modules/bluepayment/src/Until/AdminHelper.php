@@ -20,8 +20,6 @@ if (!defined('_PS_VERSION_')) {
 }
 
 use BluePayment\Config\Config;
-use Currency;
-use HelperList;
 
 class AdminHelper
 {
@@ -67,7 +65,7 @@ class AdminHelper
 
         if ($gatewayLogo === $name . 'payments.png') {
             $context->smarty->assign([
-                'gateway_slideshow' => Helper::getImgPayments(
+                'gateway_slideshow' => \BluePayment\Until\Helper::getImgPayments(
                     'transfers',
                     $context->currency->iso_code,
                     $context->shop->id
@@ -81,7 +79,7 @@ class AdminHelper
             );
         } elseif ($gatewayLogo === $name . 'cards.png') {
             $context->smarty->assign([
-                'gateway_slideshow' => Helper::getImgPayments(
+                'gateway_slideshow' => \BluePayment\Until\Helper::getImgPayments(
                     'wallet',
                     $context->currency->iso_code,
                     $context->shop->id
@@ -104,10 +102,10 @@ class AdminHelper
     {
         if ($gatewayLogo == 1) {
             return '<div class="btn-info" data-toggle="modal" data-target="#' . str_replace(
-                ' ',
-                '_',
-                $object['gateway_name']
-            ) . '_' . $object['gateway_currency'] . '">
+                    ' ',
+                    '_',
+                    (string) $object['gateway_id']
+                ) . '_' . $object['gateway_currency'] . '">
             <img class="img-fluid" width="24" src="' . Config::BM_IMAGES_PATH . 'question.png" alt=""></div>';
         } else {
             return '';
@@ -117,12 +115,13 @@ class AdminHelper
     public function getListChannels($currency)
     {
         $idShop = \Context::getContext()->shop->id;
+        $idLang = (int) \Context::getContext()->language->id;
 
         $query = new \DbQuery();
-        $query->select('gc.*, gcs.id_shop');
+        $query->select('gc.id_blue_gateway_channels, gc.gateway_id, gc.gateway_status, gc.bank_name, gc.position, gc.gateway_currency, gc.gateway_type, gc.gateway_payments, gc.gateway_logo_url, gc.min_amount, gc.max_amount, gcs.id_shop, gcl.gateway_name, gcl.gateway_description, gcl.group_title, gcl.group_short_description, gcl.group_description, gcl.button_title, gcl.description, gcl.short_description');
         $query->from('blue_gateway_channels', 'gc');
-        $query->leftJoin('blue_gateway_channels_shop', 'gcs', 'gc.id_blue_gateway_channels 
-        = gcs.id_blue_gateway_channels');
+        $query->leftJoin('blue_gateway_channels_shop', 'gcs', 'gc.id_blue_gateway_channels = gcs.id_blue_gateway_channels');
+        $query->leftJoin('blue_gateway_channels_lang', 'gcl', 'gcl.id_blue_gateway_channels = gc.id_blue_gateway_channels AND gcl.id_lang = ' . $idLang);
 
         $query->where('gc.gateway_currency = "' . pSql($currency) . '"');
 
@@ -169,20 +168,22 @@ class AdminHelper
     public function getListAllPayments($currency = 'PLN', $type = null)
     {
         $idShop = \Context::getContext()->shop->id;
+        $idLang = (int) \Context::getContext()->language->id;
 
         $q = '';
         if ($type === 'wallet') {
-            $q = 'IN (' . Helper::getWalletsList() . ')';
+            $q = 'IN (' . \BluePayment\Until\Helper::getWalletsList() . ')';
         } elseif ($type === 'transfer') {
-            $q = 'NOT IN (' . Helper::getGatewaysList() . ')';
+            $q = 'NOT IN (' . \BluePayment\Until\Helper::getGatewaysList() . ')';
         }
 
         $query = new \DbQuery();
-        $query->select('gt.*');
+        $query->select('gt.*, gtl.gateway_name');
         $query->from('blue_gateway_transfers', 'gt');
         $query->leftJoin('blue_gateway_transfers_shop', 'gcs', 'gcs.id = gt.id');
-        $query->where('gt.gateway_id ' . $q);
-        $query->where('gt.gateway_currency = "' . pSql($currency) . '"');
+        $query->leftJoin('blue_gateway_transfers_lang', 'gtl', 'gtl.id = gt.id AND gtl.id_lang = ' . $idLang);
+        $query->where('gt.gateway_id ' . pSQL($q));
+        $query->where('gt.gateway_currency = "' . pSQL($currency) . '"');
 
         if (\Shop::isFeatureActive()) {
             $query->where('gcs.id_shop = ' . (int) $idShop);
@@ -197,13 +198,13 @@ class AdminHelper
     /**
      * Sort currency by id
      *
-     * @param null $currency
+     * @param array|null $currency
      *
      * @return array
      */
-    public static function getSortCurrencies($currency = null): array
+    public static function getSortCurrencies(array $currency = null): array
     {
-        $sortCurrencies = $currency ?: \Currency::getCurrenciesByIdShop(\Context::getContext()->shop->id);
+        $sortCurrencies = $currency ?? self::getCurrenciesByIdShop(\Context::getContext()->shop->id);
 
         usort($sortCurrencies, function ($a, $b) {
             if ($a['id_currency'] == $b['id_currency']) {
@@ -214,5 +215,60 @@ class AdminHelper
         });
 
         return (array) $sortCurrencies;
+    }
+
+    public static function getCurrenciesByIdShop($idShop = 0)
+    {
+        $sql = (new \DbQuery())
+            ->select('*')
+            ->from('currency', 'c')
+            ->innerJoin('currency_shop', 'cs', 'c.`id_currency` = cs.`id_currency`')
+            ->where('c.`deleted` = 0')
+            ->where('c.`active` = 1')
+            ->orderBy('c.`iso_code` ASC');
+
+        if ($idShop) {
+            $sql->where('cs.`id_shop` = ' . (int) $idShop);
+        }
+
+        $currencies = \Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+
+        return self::addCldrDatasToCurrency($currencies);
+    }
+
+    protected static function addCldrDatasToCurrency($currencies, $isObject = false)
+    {
+        if (is_array($currencies)) {
+            foreach ($currencies as $k => $c) {
+                $currencies[$k] = \Currency::getCurrencyInstance($c['id_currency']);
+                if (!$isObject) {
+                    $currencies[$k] = (array) $currencies[$k];
+                    $currencies[$k]['id_currency'] = $currencies[$k]['id'];
+                }
+            }
+        } else {
+            $currencies = \Currency::getCurrencyInstance($currencies['id_currency']);
+            if (!$isObject) {
+                $currencies = (array) $currencies;
+                $currencies['id_currency'] = $currencies['id'];
+            }
+        }
+
+        return $currencies;
+    }
+
+    public static function getSortLanguages($languages = null): array
+    {
+        $sortLanguage = $languages ?: \Language::getLanguages(false, \Context::getContext()->shop->id);
+
+        usort($sortLanguage, function ($a, $b) {
+            if ($a['id_lang'] == $b['id_lang']) {
+                return 0;
+            }
+
+            return $a['id_lang'] > $b['id_lang'] ? 1 : -1;
+        });
+
+        return (array) $sortLanguage;
     }
 }

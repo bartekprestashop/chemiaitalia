@@ -10,7 +10,7 @@
  *
  * @category       BlueMedia
  * @package        BlueMedia_BluePayment
- * @copyright      Copyright (c) 2015-2024
+ * @copyright      Copyright (c) 2015-2026
  * @license        https://www.gnu.org/licenses/lgpl-3.0.en.html GNU Lesser General Public License
 *}
 <div class="row">
@@ -21,7 +21,7 @@
                 {l s='Bluemedia Refunds' mod='bluepayment'}
             </div>
 
-            {$BM_CANCEL_ORDER_MESSAGE}
+            {$BM_CANCEL_ORDER_MESSAGE nofilter}
 
             <div class="card-body">
 
@@ -63,7 +63,7 @@
                     <div role="alert" class="alert alert-danger">
                         <p class="alert-text">
                             {foreach from = $REFUND_ERRORS item = error}
-                        <div>{$error}</div>
+                        <div>{$error|escape:'html':'UTF-8'}</div>
                         {/foreach}
                         </p>
                     </div>
@@ -72,7 +72,7 @@
                     <div role="alert" class="alert alert-success">
                         <p class="alert-text">
                             {foreach from = $REFUND_SUCCESS item = success}
-                        <div>{$success}</div>
+                        <div>{$success|escape:'html':'UTF-8'}</div>
                         {/foreach}
                         </p>
                     </div>
@@ -95,6 +95,35 @@
                         });
                         {/literal}
                     </script>
+
+                    {if isset($BM_REFUNDS) && $BM_REFUNDS|count}
+                        <hr>
+                        <p><b>{l s='Refunds history' mod='bluepayment'}</b></p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>{l s='ID' mod='bluepayment'}</th>
+                                    <th>{l s='Remote Out ID' mod='bluepayment'}</th>
+                                    <th>{l s='Amount' mod='bluepayment'}</th>
+                                    <th>{l s='Status' mod='bluepayment'}</th>
+                                    <th>{l s='Date' mod='bluepayment'}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {foreach from=$BM_REFUNDS item=refund}
+                                    <tr>
+                                        <td>{$refund.id_blue_gateway_refunds|escape:'html':'UTF-8'}</td>
+                                        <td>{$refund.remote_out_id|escape:'html':'UTF-8'}</td>
+                                        <td>{$refund.amount|escape:'html':'UTF-8'} {$refund.currency|escape:'html':'UTF-8'}</td>
+                                        <td>{$refund.status|escape:'html':'UTF-8'}</td>
+                                        <td>{dateFormat date=$refund.created_at full=true}</td>
+                                    </tr>
+                                {/foreach}
+                                </tbody>
+                            </table>
+                        </div>
+                    {/if}
                 {/if}
             </div>
         </div>

@@ -16,10 +16,15 @@ if (!defined('_PS_VERSION_')) {
 
 use BlueMedia\OnlinePayments\Model\Gateway;
 use BluePayment\Config\Config;
+use BluePayment\Service\Payment\GatewayInitParametersProvider;
 use BluePayment\Until\Helper;
+use Configuration as Cfg;
 
 class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
 {
+    /** @var BluePayment */
+    public $module;
+
     /**
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
@@ -76,6 +81,11 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
         $customer = new Customer($cart->id_customer);
         $customerEmail = $customer->email;
 
+        $customerPhone = null;
+        if (Cfg::get('BLUEPAYMENT_SEND_CUSTOM_PHONE')) {
+            $customerPhone = Helper::getPhoneNumberByCartId($cart->id);
+        }
+
         if (Validate::isLoadedObject($this->context->cart) && !$this->context->cart->OrderExists()) {
             $this->moduleValidateOrder($cart->id, $amount, $customer);
         }
@@ -93,7 +103,8 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
             $amount,
             $currency,
             $customerEmail,
-            $blikCode
+            $blikCode,
+            $customerPhone
         );
 
         echo json_encode($result);
@@ -124,7 +135,7 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
         return Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($query, false);
     }
 
-    private function initTransaction($serviceId, $sharedKey, $orderId, $amount, $currency, $customerEmail, $blikCode): array
+    private function initTransaction($serviceId, $sharedKey, $orderId, $amount, $currency, $customerEmail, $blikCode, $customerPhone = null): array
     {
         $transaction = $this->getTransactionData($orderId, $blikCode);
 
@@ -136,7 +147,8 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
                 $amount,
                 $currency,
                 $customerEmail,
-                $blikCode
+                $blikCode,
+                $customerPhone
             );
 
             $result = $this->validateRequest($request, $orderId, $blikCode);
@@ -161,7 +173,7 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
         return $result;
     }
 
-    private function sendRequest($serviceId, $sharedKey, $orderId, $amount, $currency, $customerEmail, $blikCode)
+    private function sendRequest($serviceId, $sharedKey, $orderId, $amount, $currency, $customerEmail, $blikCode, $customerPhone = null)
     {
         $test_mode = Configuration::get($this->module->name_upper . '_TEST_ENV');
         $gateway_mode = $test_mode
@@ -180,6 +192,7 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
             'CustomerEmail' => $customerEmail,
             'CustomerIP' => $_SERVER['REMOTE_ADDR'],
             'Title' => 'BLIK Payment',
+            'CustomerPhone' => $customerPhone,
             'AuthorizationCode' => $blikCode,
             'ScreenType' => 'FULL',
             'PlatformName' => 'PrestaShop',
@@ -187,11 +200,25 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
             'PlatformPluginVersion' => $this->module->version,
         ];
 
+        $data = array_filter($data, function ($value) {
+            return !is_null($value);
+        });
+
+        try {
+            $provider = new GatewayInitParametersProvider();
+            $extra = $provider->forGateway((int) Gateway::GATEWAY_ID_BLIK, (string) $currency, $this->context->cart, (int) $this->context->shop->id);
+            if (is_array($extra) && !empty($extra)) {
+                $data = array_merge($data, $extra);
+            }
+        } catch (Exception $e) {
+            Tools::error_log($e);
+        }
+
         $hash = array_merge($data, [$sharedKey]);
         $hash = Helper::generateAndReturnHash($hash);
 
         $data['Hash'] = $hash;
-        $fields = is_array($data) ? http_build_query($data) : $data;
+        $fields = http_build_query($data);
 
         try {
             $curl = curl_init($gateway::getActionUrl($gateway::PAYMENT_ACTON_PAYMENT));
@@ -230,8 +257,8 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
 
         $transaction = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($query, false);
 
-        if (isset($response->confirmation) && $response->confirmation == 'CONFIRMED') {
-            if ($response->paymentStatus == 'PENDING') {
+        if (isset($response->confirmation) && (string) $response->confirmation == 'CONFIRMED') {
+            if (isset($response->paymentStatus) && (string) $response->paymentStatus == 'PENDING') {
                 $array = [
                     'status' => 'PENDING',
                     'message' => $this->module->l('Confirm the operation in your bank\'s application.', 'chargeblik'),
@@ -239,7 +266,7 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
 
                 $data['blik_status'] = 'PENDING';
                 $this->transactionQuery($transaction, $orderId, $data);
-            } elseif ($response->paymentStatus == 'SUCCESS') {
+            } elseif (isset($response->paymentStatus) && (string) $response->paymentStatus == 'SUCCESS') {
                 $array = [
                     'status' => 'SUCCESS',
                     'message' => $this->module->l('Payment has been successfully completed.', 'chargeblik'),
@@ -255,7 +282,8 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
             }
         } elseif (isset($response->confirmation)
             && $response->confirmation == 'NOTCONFIRMED'
-            && $response->reason == 'WRONG_TICKET'
+            && isset($response->reason)
+            && (string) $response->reason == 'WRONG_TICKET'
         ) {
             $array = [
                 'status' => 'FAILURE',
@@ -265,7 +293,8 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
             $this->transactionQuery($transaction, $orderId, $data);
         } elseif (isset($response->confirmation)
             && $response->confirmation == 'NOTCONFIRMED'
-            && $response->reason == 'MULTIPLY_PAID_TRANSACTION'
+            && isset($response->reason)
+            && (string) $response->reason == 'MULTIPLY_PAID_TRANSACTION'
         ) {
             $array = [
                 'status' => 'FAILURE',
@@ -348,7 +377,7 @@ class BluePaymentChargeBlikModuleFrontController extends ModuleFrontController
     {
         $this->module->validateOrder(
             $cartId,
-            Configuration::get($this->module->name_upper . '_STATUS_WAIT_PAY_ID'),
+            (int) Configuration::get($this->module->name_upper . '_STATUS_WAIT_PAY_ID'),
             $amount,
             $this->module->displayName,
             null,

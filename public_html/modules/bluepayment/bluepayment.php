@@ -23,6 +23,7 @@ if (!defined('_PS_VERSION_')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 use BluePayment\Adapter\ConfigurationAdapter;
+use BluePayment\Adapter\TranslatorAdapter;
 use BluePayment\Analyse\Amplitude;
 use BluePayment\Api\BlueAPI;
 use BluePayment\Api\BlueGateway;
@@ -127,7 +128,7 @@ class BluePayment extends PaymentModule
         $this->name_upper = Tools::strtoupper($this->name);
 
         $this->tab = 'payments_gateways';
-        $this->version = '3.0.9';
+        $this->version = '3.5.0';
         $this->author = 'Autopay S.A.';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
@@ -314,6 +315,8 @@ class BluePayment extends PaymentModule
         $this->l('Payment by card');
         $this->l('Virtual wallet');
         $this->l('Autopay - Configuration');
+        $this->l('Description XML');
+        $this->l('Title XML');
     }
 
     /**
@@ -340,15 +343,17 @@ class BluePayment extends PaymentModule
         $paymentDataCompleted = !empty($serviceId) && !empty($sharedKey);
 
         if ($paymentDataCompleted === false) {
-            return null;
+            return [];
         }
 
         $moduleLink = $this->context->link->getModuleLink('bluepayment', 'payment', [], true);
 
         // Get all transfers
+        $id_lang = (int) $this->context->language->id;
         $gatewayTransfer = new DbQuery();
         $gatewayTransfer->from('blue_gateway_transfers', 'gt');
         $gatewayTransfer->leftJoin('blue_gateway_transfers_shop', 'gts', 'gts.id = gt.id');
+        $gatewayTransfer->leftJoin('blue_gateway_transfers_lang', 'gtl', 'gtl.id = gt.id AND gtl.id_lang = ' . $id_lang);
         $gatewayTransfer->where('gt.gateway_id NOT IN (' . Helper::getGatewaysList() . ')');
         $gatewayTransfer->where('gt.gateway_id NOT IN (' . Helper::getDeletedGatewaysList() . ')');
         $gatewayTransfer->where('gt.gateway_status = 1');
@@ -358,13 +363,14 @@ class BluePayment extends PaymentModule
             $gatewayTransfer->where('gts.id_shop = ' . (int) $id_shop);
         }
 
-        $gatewayTransfer->select('*');
+        $gatewayTransfer->select('gt.*, gtl.gateway_name, gtl.button_title, gtl.description, gtl.short_description, gtl.group_title, gtl.group_short_description, gtl.group_description');
         $gatewayTransfer = Db::getInstance()->executeS($gatewayTransfer);
 
         // Get all wallets
         $gatewayWallet = new DbQuery();
         $gatewayWallet->from('blue_gateway_transfers', 'gt');
         $gatewayWallet->leftJoin('blue_gateway_transfers_shop', 'gts', 'gts.id = gt.id');
+        $gatewayWallet->leftJoin('blue_gateway_transfers_lang', 'gtl', 'gtl.id = gt.id AND gtl.id_lang = ' . $id_lang);
         $gatewayWallet->where('gt.gateway_id IN (' . Helper::getWalletsList() . ')');
         $gatewayWallet->where('gt.gateway_status = 1');
         $gatewayWallet->where('gt.gateway_currency = "' . pSql($currency->iso_code) . '"');
@@ -373,7 +379,7 @@ class BluePayment extends PaymentModule
             $gatewayWallet->where('gts.id_shop = ' . (int) $id_shop);
         }
 
-        $gatewayWallet->select('*');
+        $gatewayWallet->select('gt.*, gtl.gateway_name, gtl.button_title, gtl.description, gtl.short_description, gtl.group_title, gtl.group_short_description, gtl.group_description');
         $gatewayWallet = Db::getInstance()->executeS($gatewayWallet);
 
         $this->context->smarty->assign([
@@ -398,7 +404,7 @@ class BluePayment extends PaymentModule
             'bm_promo_checkout' => Cfg::get($this->name_upper . '_PROMO_CHECKOUT'),
             'gpayRedirect' => Cfg::get($this->name_upper . '_GPAY_REDIRECT'),
             'start_payment_translation' => $this->l('Start payment'),
-            'start_payment_intro' => $this->l('Internet transfer, BLIK, payment card, Google Pay, Apple Pay'),
+            'start_payment_intro' => $this->l('Card payment, bank transfer, Apple Pay, Google Pay and more'),
             'order_subject_to_payment_obligation_translation' => $this->l('Order with the obligation to pay'),
         ]);
 
@@ -406,8 +412,7 @@ class BluePayment extends PaymentModule
 
         $date = new DateTime();
         $date->sub(new DateInterval('PT1H'));
-        $date->format('Y-m-d h:i:s');
-        if (is_null($dateTimeUpdate) || $dateTimeUpdate <= $date->format('Y-m-d h:i:s')) {
+        if (!empty($dateTimeUpdate) || $dateTimeUpdate <= $date->format('Y-m-d h:i:s')) {
             $gateway = new BlueGateway($this, new BlueAPI($this));
             $gateway->getChannels();
 
@@ -458,5 +463,66 @@ class BluePayment extends PaymentModule
         }
 
         return true;
+    }
+
+    /**
+     * Get translator adapter that works with different PrestaShop versions
+     *
+     * @return TranslatorAdapter
+     */
+    public function getTranslator(): TranslatorAdapter
+    {
+        try {
+            $context = $this->getContext();
+            if ($context !== null && method_exists($context, 'getTranslator')) {
+                $contextTranslator = $context->getTranslator();
+                if ($contextTranslator !== null) {
+                    return new TranslatorAdapter($contextTranslator);
+                }
+            }
+        } catch (\Exception $e) {
+            // During module installation, context might not be fully initialized
+            // Fall back to a basic translator implementation
+        }
+
+        $fallbackTranslator = new class() {
+            public function trans($id, array $parameters = [], $domain = null, $locale = null)
+            {
+                return (string) $id;
+            }
+
+            public function getLocale()
+            {
+                return 'en-US';
+            }
+        };
+
+        return new TranslatorAdapter($fallbackTranslator);
+    }
+
+    /**
+     * Translation method compatible with different PrestaShop versions
+     * Override the parent l() method to ensure compatibility
+     *
+     * @param string $string Text to translate
+     * @param bool|string $specific Specific parameter for compatibility with ModuleCore::l()
+     * @param string|null $locale Locale parameter for compatibility with ModuleCore::l()
+     *
+     * @return string Translated text
+     */
+    public function l($string, $specific = false, $locale = null)
+    {
+        if (method_exists(get_parent_class($this), 'l')) {
+            try {
+                return parent::l($string, $specific, $locale);
+            } catch (Exception $e) {
+            }
+        }
+
+        $translator = $this->getTranslator();
+        $domain = 'Modules.Bluepayment.Shop';
+        $targetLocale = $locale ?: $this->getContext()->language->locale;
+
+        return $translator->trans($string, [], $domain, $targetLocale);
     }
 }

@@ -20,6 +20,7 @@ if (!defined('_PS_VERSION_')) {
 }
 
 use BlueMedia\OnlinePayments\Gateway;
+use BlueMedia\ProductFeed\Configuration\FeedConfiguration;
 use BluePayment\Config\Config;
 use Configuration as Cfg;
 
@@ -41,6 +42,7 @@ class Helper
 
             'BLUEPAYMENT_BLIK_REDIRECT',
             'BLUEPAYMENT_GPAY_REDIRECT',
+            'BLUEPAYMENT_SEND_CUSTOM_PHONE',
             'BLUEPAYMENT_PROMO_PAY_LATER',
             'BLUEPAYMENT_PROMO_MATCHED_INSTALMENTS',
             'BLUEPAYMENT_PROMO_HEADER',
@@ -49,6 +51,7 @@ class Helper
             'BLUEPAYMENT_PROMO_PRODUCT',
             'BLUEPAYMENT_PROMO_CART',
             'BLUEPAYMENT_PROMO_CHECKOUT',
+            'BLUEPAYMENT' . FeedConfiguration::AP_SUFFIX_ENABLED_PRODUCT_FEED,
         ];
     }
 
@@ -81,9 +84,12 @@ class Helper
             return false;
         }
 
+        $idLang = (int) \Context::getContext()->language->id;
+
         $query = new \DbQuery();
         $query->from('blue_gateway_transfers', 'gt');
         $query->leftJoin('blue_gateway_transfers_shop', 'gts', 'gts.id = gt.id');
+        $query->leftJoin('blue_gateway_transfers_lang', 'gtl', 'gtl.id = gt.id AND gtl.id_lang = ' . $idLang);
 
         if ($type === 'transfers') {
             $query->where('gt.gateway_id NOT IN (' . self::getGatewaysList() . ')');
@@ -98,7 +104,7 @@ class Helper
             $query->where('gts.id_shop = ' . (int) $idShop);
         }
 
-        $query->select('gateway_logo_url, gateway_name');
+        $query->select('gt.gateway_logo_url, gt.bank_name, gtl.gateway_name');
 
         return \Db::getInstance()->executeS($query);
     }
@@ -179,7 +185,7 @@ class Helper
      *
      * @return array
      *
-     * @throws PrestaShopDatabaseException
+     * @throws \PrestaShopDatabaseException
      */
     public static function getOrdersByOrderId($id_order): array
     {
@@ -188,6 +194,58 @@ class Helper
 			ORDER BY created_at DESC';
 
         return \Db::getInstance()->executeS($sql, true, false);
+    }
+
+    /**
+     * @param $cartId
+     *
+     * @return string|null
+     */
+    public static function getPhoneNumberByCartId($cartId)
+    {
+        $cart = new \Cart((int) $cartId);
+        if (!$cart->id) {
+            return null;
+        }
+
+        // Try to get phone from invoice address first
+        if ($cart->id_address_invoice) {
+            $invoiceAddress = new \Address((int) $cart->id_address_invoice);
+            if ($invoiceAddress->id && (!empty($invoiceAddress->phone) || !empty($invoiceAddress->phone_mobile))) {
+                $phone = !empty($invoiceAddress->phone) ? $invoiceAddress->phone : $invoiceAddress->phone_mobile;
+                $phone = preg_replace('/\D/', '', $phone);
+                if (self::isValidPhoneNumber($phone)) {
+                    return $phone;
+                }
+            }
+        }
+
+        // If no phone in invoice address, try delivery address
+        if ($cart->id_address_delivery && $cart->id_address_delivery != $cart->id_address_invoice) {
+            $deliveryAddress = new \Address((int) $cart->id_address_delivery);
+            if ($deliveryAddress->id && (!empty($deliveryAddress->phone) || !empty($deliveryAddress->phone_mobile))) {
+                $phone = !empty($deliveryAddress->phone) ? $deliveryAddress->phone : $deliveryAddress->phone_mobile;
+                $phone = preg_replace('/\D/', '', $phone);
+                if (self::isValidPhoneNumber($phone)) {
+                    return $phone;
+                }
+            }
+        }
+
+        // No valid phone number found
+        return null;
+    }
+
+    /**
+     * Validates if a phone number contains 9-15 digits
+     *
+     * @param string $phone
+     *
+     * @return bool
+     */
+    private static function isValidPhoneNumber($phone)
+    {
+        return preg_match('/^\d{9,15}$/', $phone) === 1;
     }
 
     /**
@@ -281,7 +339,7 @@ class Helper
                     $file_attachement = [];
 
                     if ($result['pdf_invoice'] && (int) \Configuration::get('PS_INVOICE') && $order->invoice_number) {
-                        Hook::exec('actionPDFInvoiceRender', ['order_invoice_list' => $invoice]);
+                        \Hook::exec('actionPDFInvoiceRender', ['order_invoice_list' => $invoice]);
                         $pdf = new \PDF($invoice, \PDF::TEMPLATE_INVOICE, $context->smarty);
                         $file_attachement['invoice']['content'] = $pdf->render(false);
                         $file_attachement['invoice']['name'] = \Configuration::get(
@@ -293,7 +351,7 @@ class Helper
                         $file_attachement['invoice']['mime'] = 'application/pdf';
                     }
                     if ($result['pdf_delivery'] && $order->delivery_number) {
-                        $pdf = new \PDF($invoice, PDF::TEMPLATE_DELIVERY_SLIP, $context->smarty);
+                        $pdf = new \PDF($invoice, \PDF::TEMPLATE_DELIVERY_SLIP, $context->smarty);
                         $file_attachement['delivery']['content'] = $pdf->render(false);
                         $file_attachement['delivery']['name'] = \Configuration::get(
                             'PS_DELIVERY_PREFIX',
@@ -340,8 +398,8 @@ class Helper
 
         foreach (AdminHelper::getSortCurrencies() as $currency) {
             $data[$currency['iso_code']] =
-                Helper::parseConfigByCurrency('BLUEPAYMENT_SERVICE_PARTNER_ID', $currency['iso_code']) == ''
-                || Helper::parseConfigByCurrency('BLUEPAYMENT_SHARED_KEY', $currency['iso_code']) == '' ? false : true;
+                    Helper::parseConfigByCurrency('BLUEPAYMENT_SERVICE_PARTNER_ID', $currency['iso_code']) == ''
+                    || Helper::parseConfigByCurrency('BLUEPAYMENT_SHARED_KEY', $currency['iso_code']) == '' ? false : true;
         }
 
         return $data;

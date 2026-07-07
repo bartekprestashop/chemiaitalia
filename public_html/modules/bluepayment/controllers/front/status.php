@@ -18,12 +18,16 @@ use BluePayment\Service\Transactions;
 
 class BluePaymentStatusModuleFrontController extends ModuleFrontController
 {
+    /** @var BluePayment */
+    public $module;
+
     public function initContent()
     {
         header('Content-type: text/xml');
 
         try {
             Db::getInstance()->execute('START TRANSACTION;');
+
             $transaction = new Transactions(
                 $this->module,
                 new OrderHistory()

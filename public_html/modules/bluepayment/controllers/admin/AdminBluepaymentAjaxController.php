@@ -14,6 +14,9 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+use BlueMedia\ProductFeed\Configuration\FeedConfiguration;
+use BlueMedia\ProductFeed\Menager\FileMenager;
+use BlueMedia\ProductFeed\Remover\FileRemover;
 use BluePayment\Analyse\Amplitude;
 use BluePayment\Api\BlueAPI;
 use BluePayment\Api\BlueGateway;
@@ -24,9 +27,31 @@ use Configuration as Cfg;
 
 class AdminBluepaymentAjaxController extends ModuleAdminController
 {
+    /** @var BluePayment */
+    public $module;
+
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * Ajax die method compatible with different PrestaShop versions
+     *
+     * @param string $value Value to output
+     * @param string|null $controller Controller name
+     * @param string|null $method Method name
+     *
+     * @phpstan-ignore-next-line Method exists in some PrestaShop versions
+     */
+    protected function ajaxDie($value = null, $controller = null, $method = null)
+    {
+        if (method_exists(get_parent_class($this), 'ajaxDie')) {
+            /* @phpstan-ignore-next-line */
+            return parent::ajaxDie($value, $controller, $method);
+        }
+
+        exit($value);
     }
 
     public function initContent(): void
@@ -43,7 +68,7 @@ class AdminBluepaymentAjaxController extends ModuleAdminController
         $link = new Link();
         $controller = $link->getAdminLink('AdminBluepaymentPayments');
 
-        $this->ajaxDie(
+        exit(
             Tools::redirectAdmin($controller)
         );
     }
@@ -153,13 +178,19 @@ class AdminBluepaymentAjaxController extends ModuleAdminController
             $gateway->getChannels();
             $gateway->getTransfers();
 
-            $this->ajaxDie(json_encode(['success' => true]));
+            if (!Configuration::get($this->module->name_upper . FeedConfiguration::AP_SUFFIX_ENABLED_PRODUCT_FEED)) {
+                $fileMenage = new FileMenager();
+                $fileRemover = new FileRemover($fileMenage);
+                $fileRemover->removeAllFeedFile();
+            }
+
+            exit(json_encode(['success' => true]));
         } catch (Exception $exception) {
             PrestaShopLogger::addLog(
                 'Autopay - Ajax Error',
                 4
             );
-            $this->ajaxDie(json_encode(['success' => false]));
+            exit(json_encode(['success' => false]));
         }
     }
 }

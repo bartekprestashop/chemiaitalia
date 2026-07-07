@@ -20,10 +20,10 @@ if (!defined('_PS_VERSION_')) {
 }
 
 use BluePayment\Adapter\ConfigurationAdapter;
+use BluePayment\Adapter\TranslatorAdapter;
 use BluePayment\Config\Config;
 use BluePayment\Statuses\CustomStatus;
 use BluePayment\Until\Helper;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class Configure
 {
@@ -35,10 +35,15 @@ class Configure
 
     public const TRANSLATE_GROUP = 'Modules.Bluepayment';
 
+    /**
+     * @param \BluePayment $module
+     * @param ConfigurationAdapter $configurationAdapter
+     * @param TranslatorAdapter $translator
+     */
     public function __construct(
         \BluePayment $module,
         ConfigurationAdapter $configurationAdapter,
-        TranslatorInterface $translator
+        TranslatorAdapter $translator
     ) {
         $this->module = $module;
         $this->translator = $translator;
@@ -52,7 +57,8 @@ class Configure
         return $this->installConfiguration(\Shop::isFeatureActive())
             && $this->addOrderStatuses(
                 new CustomStatus()
-            );
+            )
+            && $this->addRefundsTable();
     }
 
     public function uninstall(): bool
@@ -200,6 +206,21 @@ class Configure
 
                 $res &= empty(
                     $this->configurationAdapter->get(
+                        $this->name . '_SEND_CUSTOM_PHONE',
+                        null,
+                        $group_id,
+                        $shop_id
+                    )
+                ) ? $this->configurationAdapter->updateValue(
+                    $this->name . '_SEND_CUSTOM_PHONE',
+                    0,
+                    false,
+                    $group_id,
+                    $shop_id
+                ) : true;
+
+                $res &= empty(
+                    $this->configurationAdapter->get(
                         $this->name . '_PROMO_PAY_LATER',
                         null,
                         $group_id,
@@ -329,6 +350,8 @@ class Configure
             $res &= empty($this->configurationAdapter->get($this->name . '_BLIK_REDIRECT')) ? $this->configurationAdapter->updateValue($this->name . '_BLIK_REDIRECT', 0) : true;
             $res &= empty($this->configurationAdapter->get($this->name . '_GPAY_REDIRECT')) ? $this->configurationAdapter->updateValue($this->name . '_GPAY_REDIRECT', 0) : true;
 
+            $res &= empty($this->configurationAdapter->get($this->name . '_SEND_CUSTOM_PHONE')) ? $this->configurationAdapter->updateValue($this->name . '_SEND_CUSTOM_PHONE', 0) : true;
+
             $res &= empty($this->configurationAdapter->get($this->name . '_PROMO_PAY_LATER')) ? $this->configurationAdapter->updateValue($this->name . '_PROMO_PAY_LATER', 1) : true;
             $res &= empty($this->configurationAdapter->get($this->name . '_PROMO_MATCHED_INSTALMENTS')) ? $this->configurationAdapter->updateValue($this->name . '_PROMO_MATCHED_INSTALMENTS', 1) : true;
 
@@ -345,7 +368,7 @@ class Configure
         );
 
         $smarty = \Context::getContext()->smarty;
-        \Tools::clearAllCache($smarty);
+        \Tools::clearAllCache();
         \Tools::clearCompile($smarty);
 
         return (bool) $res;
@@ -489,5 +512,24 @@ class Configure
         }
 
         return (bool) $res;
+    }
+
+    public function addRefundsTable(): bool
+    {
+        $query = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'blue_gateways_refunds` (
+            `id_blue_gateway_refunds` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+            `order_id` varchar(256) NOT NULL,
+            `remote_id` varchar(50) NOT NULL,
+            `remote_out_id` varchar(50) NOT NULL,
+            `status` varchar(50) NOT NULL,
+            `amount` decimal(17, 2) UNSIGNED DEFAULT 0.0000 NOT NULL,
+            `currency` varchar(50) NOT NULL,
+            `message_id` varchar(200) NOT NULL,
+            `created_at` DATETIME DEFAULT NULL,
+            `updated_at` DATETIME DEFAULT NULL,
+            PRIMARY KEY (`id_blue_gateway_refunds`)
+        ) ENGINE=' . _MYSQL_ENGINE_ . '  DEFAULT CHARSET=UTF8;';
+
+        return \Db::getInstance()->execute($query);
     }
 }

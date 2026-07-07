@@ -23,7 +23,8 @@ use BluePayment\Until\AdminHelper;
 
 class BlueGateway
 {
-    private $module; // do usuniecia prawdopodobnie
+    /** @phpstan-ignore-next-line */
+    private $module;
     private $api;
 
     public function __construct(\BluePayment $module, $api)
@@ -37,12 +38,18 @@ class BlueGateway
         return $this->api->getApiMode();
     }
 
+    public function getApi()
+    {
+        return $this->api;
+    }
+
     public function getTransfers()
     {
         return $this->api->getGatewaysFromAPI(
             new BlueGatewayTransfers(),
             $this->getMode(),
-            AdminHelper::getSortCurrencies()
+            AdminHelper::getSortCurrencies(),
+            AdminHelper::getSortLanguages()
         );
     }
 
@@ -51,7 +58,8 @@ class BlueGateway
         return $this->api->getGatewaysFromAPI(
             new BlueGatewayChannels(),
             $this->getMode(),
-            AdminHelper::getSortCurrencies()
+            AdminHelper::getSortCurrencies(),
+            AdminHelper::getSortLanguages()
         );
     }
 }

@@ -22,6 +22,7 @@ if (!defined('_PS_VERSION_')) {
 use BluePayment\Api\BlueGatewayChannels;
 use BluePayment\Config\Config;
 use BluePayment\Until\Helper;
+use BluePayment\Until\PaymentPresentationHelper;
 use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
 
 class Spingo implements GatewayType
@@ -48,7 +49,12 @@ class Spingo implements GatewayType
             'spingo_merchantInfo' => $spingoMerchantInfo,
         ]);
 
+        $cardIdTime = \Context::getContext()->cart->id . '-' . time();
+
         $option = new PaymentOption();
+
+        PaymentPresentationHelper::assign($data, $data['gateway_name'] ?? 'Spingo', Config::GATEWAY_ID_SPINGO);
+
         $option->setCallToActionText($module->l($data['gateway_name']))
             ->setAction($moduleLink)
             ->setInputs([
@@ -61,6 +67,11 @@ class Spingo implements GatewayType
                     'type' => 'hidden',
                     'name' => 'bluepayment_gateway_id',
                     'value' => Config::GATEWAY_ID_SPINGO,
+                ],
+                [
+                    'type' => 'hidden',
+                    'name' => 'bluepayment_cart_id',
+                    'value' => $cardIdTime,
                 ],
             ])
             ->setLogo($data['gateway_logo_url'])

@@ -19,12 +19,12 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+use BluePayment\Config\ConfigHelp;
 use BluePayment\Service\FactoryPaymentMethods;
 use BluePayment\Service\Gateway;
 use BluePayment\Service\Refund;
 use BluePayment\Until\AdminHelper;
 use BluePayment\Until\Helper;
-use Configuration as Cfg;
 
 class Admin extends AbstractHook
 {
@@ -40,12 +40,17 @@ class Admin extends AbstractHook
     public const PAYMENT_STATUS_PENDING = 'PENDING';
     public const PAYMENT_STATUS_SUCCESS = 'SUCCESS';
     public const PAYMENT_STATUS_FAILURE = 'FAILURE';
+    /**
+     * @var ConfigHelp
+     */
+    private $configHelper;
 
     /**
      * Get the payment methods available in the administration
      */
     public function adminPayments()
     {
+        $this->configHelper = new ConfigHelp();
         $list = $transferPayments = $wallets = [];
 
         $adminHelper = new AdminHelper($this->module);
@@ -96,6 +101,7 @@ class Admin extends AbstractHook
                 'transfer_payments' => $transferPayments,
                 'bm_assets_images' => $this->module->getAssetImages(),
                 'wallets' => $wallets,
+                'helper_images' => $this->configHelper->getHelperImagesByIsoCode($this->context->language->iso_code, $this->module->getAssetImages()),
             ]
         );
 
@@ -134,7 +140,7 @@ class Admin extends AbstractHook
                 $this->context->smarty->assign(['version' => $ver]);
             }
 
-            if ($ver && version_compare($ver, $version, '>')) {
+            if (isset($ver) && $ver && version_compare($ver, $version, '>')) {
                 \PrestaShopLogger::addLog('Autopay - Dostępna aktualizacja', 2);
 
                 return $this->module->fetch('module:bluepayment/views/templates/admin/_partials/upgrade.tpl');
@@ -160,6 +166,10 @@ class Admin extends AbstractHook
 
         $order_payment = Helper::getLastOrderPaymentByOrderId($params['id_order']);
 
+        if (!$order_payment) {
+            return;
+        }
+
         $refundable = $order_payment['payment_status'] === self::PAYMENT_STATUS_SUCCESS;
         $refund_type = \Tools::getValue('bm_refund_type', 'full');
         $refund_amount = $refund_type === 'full'
@@ -176,26 +186,24 @@ class Admin extends AbstractHook
                 $order = new \OrderCore($order->id);
                 $currency = new \Currency($order->id_currency);
 
-                $refundOrder = $refund->refundOrder(
+                $refundResult = $refund->refundOrder(
+                    (int) $order->id,
                     $refund_amount,
                     $order_payment['remote_id'],
                     $currency
                 );
 
-                if (!empty($refundOrder[1]) || $refundOrder[0] !== true) {
-                    $refund_errors[] = $this->module->l('Refund error: ') . $refundOrder[1];
-                }
-
-                if (empty($refund_errors) && $refundOrder[0] === true) {
-                    $history = new \OrderHistory();
-                    $history->id_order = (int) $order->id;
-                    $history->id_employee = (int) $this->context->employee->id;
-                    $history->changeIdOrderState(Cfg::get('PS_OS_REFUND'), (int) $order->id);
-                    $history->addWithemail(true, []);
-                    $refund_success[] = $this->module->l('Successful refund');
+                if ($refundResult[0] === true) {
+                    $refund_success[] = $refundResult[1];
+                } else {
+                    $refund_errors[] = $this->module->l('Refund request failed: ', 'admin') . $refundResult[1];
                 }
             }
         }
+
+        $refunds = \Db::getInstance()->executeS(
+            'SELECT * FROM `' . _DB_PREFIX_ . 'blue_gateways_refunds` WHERE `order_id` = ' . (int) $params['id_order']
+        );
 
         $this->context->smarty->assign([
             'BM_ORDERS' => Helper::getOrdersByOrderId($params['id_order']),
@@ -207,6 +215,7 @@ class Admin extends AbstractHook
             'REFUND_SUCCESS' => $refund_success,
             'REFUND_TYPE' => $refund_type,
             'REFUND_AMOUNT' => $refund_amount,
+            'BM_REFUNDS' => $refunds,
         ]);
 
         return $this->module->fetch('module:bluepayment/views/templates/admin/status.tpl');
