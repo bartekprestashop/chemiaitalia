@@ -1156,7 +1156,7 @@ class Posvegamenu extends Module
 		
 		if (isset($children) && count($children))
 		{
-			$this->respMenu .= '<span class="icon-drop-mobile"><i class="material-icons add">add</i><i class="material-icons remove">remove </i></span>';
+			$this->respMenu .= '<span class="icon-drop-mobile"><i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i></span>';
 			$this->respMenu .= '<ul class="menu-dropdown cat-drop-menu '.$class.'">';
 			foreach ($children as $child){	
 				$category = new Category((int)$child['id_category'], $id_lang, $id_shop);

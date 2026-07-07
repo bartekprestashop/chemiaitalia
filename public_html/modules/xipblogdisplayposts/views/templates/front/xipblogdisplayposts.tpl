@@ -47,7 +47,7 @@
 											<div class="blog_mask">
 												<div class="blog_mask_content">
 													<a class="thumbnail_lightbox" href="{$xipblgpst.post_img_large}" target="_blank" >
-														<i class="material-icons">add_circle_outline</i>
+														<i class="material-icons">&#xE148;</i>
 													</a>
 												</div>
 											</div>

@@ -52,7 +52,7 @@
 					{if $menu.submenu_type == 0}
 						{if isset($menu.sub_menu) && count($menu.sub_menu.info_rows) > 0}
 						
-						{if count($menu.sub_menu) > 0}<span class="icon-drop-mobile"><i class="material-icons add">add </i><i class="material-icons remove">remove </i></span>{/if}
+						{if count($menu.sub_menu) > 0}<span class="icon-drop-mobile"><i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i></span>{/if}
 						<div class="pos-sub-menu menu-dropdown col-xs-12 col-sm-{$menu.sub_menu.submenu_config.submenu_width|escape:'html':'UTF-8'} {$menu.sub_menu.submenu_config.submenu_class|escape:'html':'UTF-8'} {$animation_class}">
 						<div class="pos-sub-inner">
 						{foreach from=$menu.sub_menu.info_rows item= menu_row name=menu_row}
@@ -72,7 +72,7 @@
 												{else}
 													<h4 class="column_title">{$menu_col.title}</h4>
 												{/if}
-												<span class="icon-drop-mobile"><i class="material-icons add">add </i><i class="material-icons remove">remove </i></span>
+												<span class="icon-drop-mobile"><i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i></span>
 											{/if}
 											{if count($menu_col.list_menu_item) > 0}
 												<ul class="ul-column {if $menu_col.title}column_dropdown {/if}">
@@ -80,7 +80,7 @@
 													<li class="submenu-item {if !$sub_menu_item.active_mobile}hidden-mobile{/if}">
 														{if $sub_menu_item.type_link == 1}
 															<a href="{$sub_menu_item.categories.link}">{$sub_menu_item.categories.name}</a>
-																{if $sub_menu_item.categories.children}<span class="icon-drop-mobile"><i class="material-icons add">add </i><i class="material-icons remove">remove </i></span>{/if}
+																{if $sub_menu_item.categories.children}<span class="icon-drop-mobile"><i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i></span>{/if}
 															{if $sub_menu_item.categories.children}
 														    <ul class="category-sub-menu">
 														        {foreach from=$sub_menu_item.categories.children item=node}

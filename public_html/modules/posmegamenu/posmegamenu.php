@@ -1133,7 +1133,7 @@ class Posmegamenu extends Module
 		
 		if (isset($children) && count($children))
 		{
-			$this->respMenu .= '<span class="icon-drop-mobile"><i class="material-icons add">add</i><i class="material-icons remove">remove </i></span>';  
+			$this->respMenu .= '<span class="icon-drop-mobile"><i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i></span>';  
 			$this->respMenu .= '<div class="menu-dropdown cat-drop-menu '.$class.'">';
 			$this->respMenu .= '<ul class="pos-sub-inner">';
 			foreach ($children as $child){	
