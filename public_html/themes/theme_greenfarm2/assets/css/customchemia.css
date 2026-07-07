@@ -77,6 +77,24 @@
     word-break: break-word;
 }
 
+.product-line-grid .unit-price-cart,
+#blockcart-modal .unit-price-cart,
+#blockcart-modal .product-unit-price,
+#blockcart-modal .modal-unit-price-cart p,
+#blockcart-modal .modal-unit-price-cart span {
+    color: #666666;
+    display: block;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.3 !important;
+    margin: 2px 0 0;
+    text-transform: none;
+}
+
+#blockcart-modal .modal-unit-price-cart:empty {
+    display: none;
+}
+
 
 
 .h1.namne_details, .product_name_h1 {
